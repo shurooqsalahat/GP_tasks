@@ -1,0 +1,10 @@
+body {
+    background-color: gainsboro;
+}
+.dropdown .dropdown-menu{
+    background-color: #333;
+}
+
+.dropdown-menu > li > a {
+    color: white
+}

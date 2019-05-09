@@ -247,7 +247,7 @@ VALUES ('$phone','$first','$last','$email','$shpass')";
         return false;
     }
 }
-addSupervisor(2578, 'Isam', 'Salahat', "Isam@gmail.com",123456789);
+//addSupervisor(2578, 'Isam', 'Salahat', "Isam@gmail.com",123456789);
 
 function deleteSupervisor($email){
     include 'connect_DB.php';
@@ -265,7 +265,7 @@ function deleteSupervisor($email){
     }
 
 }
-deleteSupervisor('ashraf@gmail.com');
+//deleteSupervisor('ashraf@gmail.com');
 
 function retrieveSupercisorBYEmail($email){
     include 'connect_DB.php';

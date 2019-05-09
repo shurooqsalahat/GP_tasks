@@ -1,3 +1,12 @@
+<?php
+include("model.php");// connect to db
+
+session_start();
+
+
+?>
+
+
 <head>
     <!--===============================================
     Template Design By WpFreeware Team.
@@ -108,11 +117,20 @@
         <div class="signup-content">
             <div class="signup-form">
                 <h2 class="form-title">Sign up</h2>
-                <form method="POST" class="register-form" id="register-form">
+                <form action="controller.php" method="REQUEST" class="register-form" id="register-form">
+                    <div class="form-group">
+                        <input name="src" value="signup" type="hidden"/>
+                        <label for="name"><i class="fa fa-user"></i></label>
+                        <input type="text" name="first" id="name" placeholder="First name Name">
+                    </div>
                     <div class="form-group">
                         <label for="name"><i class="fa fa-user"></i></label>
-                        <input type="text" name="name" id="name" placeholder="Your Name">
+                        <input type="text" name="last" id="name" placeholder="Last Name">
                     </div>
+                    <div class="form-group">
+                        <label for="pass"><i class="fa fa-phone"></i></label>
+                        <input type="text" name="phone" id="phone" placeholder="phone">
+                    </div>s
                     <div class="form-group">
                         <label for="email"><i class="fa fa-envelope"></i></label>
                         <input type="email" name="email" id="email" placeholder="Your Email">

@@ -128,16 +128,16 @@ session_start();
                         <input type="text" name="last" id="name" placeholder="Last Name">
                     </div>
                     <div class="form-group">
-                        <label for="pass"><i class="fa fa-phone"></i></label>
-                        <input type="text" name="phone" id="phone" placeholder="phone">
-                    </div>s
+                        <label for="name"><i class="fa fa-phone"></i></label>
+                        <input type="number" name="phone" id="phone" placeholder="phone">
+                    </div>
                     <div class="form-group">
                         <label for="email"><i class="fa fa-envelope"></i></label>
                         <input type="email" name="email" id="email" placeholder="Your Email">
                     </div>
                     <div class="form-group">
                         <label for="pass"><i class="fa fa-lock"></i></label>
-                        <input type="password" name="pass" id="pass" placeholder="Password">
+                        <input type="password" name="password" id="pass" placeholder="Password">
                     </div>
                     <div class="form-group">
                         <label for="re-pass"><i class="fa fa-lock"></i></label>
@@ -155,4 +155,5 @@ session_start();
         </div>
     </div>
     </section>
+
 </div>

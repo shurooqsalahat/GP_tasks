@@ -5,6 +5,10 @@ session_start();
 
 $src = $_REQUEST["src"];
 unset($_SESSION['Message']);
+//if (isset($_SESSION['email'])) {
+////            header('Location: index.php');
+////            exit;
+////        }
 if (isset($src)) {
     if ($src == "signin") {
 
@@ -17,29 +21,29 @@ if (isset($src)) {
         echo "<br>";
         echo $upass;
         if (isset($email) and isset($upass)) {
-             //User doesn't exit
+            //User doesn't exit
             if (!isUserExist($email)) {
                 $_SESSION['email'] = $email;
                 $_SESSION['Message'] = "This user not Exist Signup please";
-                header('Location: signUp.php');
+                echo $_SESSION['Message'];
+                //header('Location: signUp.php');
                 exit;
-            }
-            elseif (isDoctor($email)){
-                $row= retrieveDoctorBYEmail($email);
-                if($row['email'] ==$email and $row['password']==$encpass) {
+            } elseif (isDoctor($email)) {
+                $row = retrieveDoctorBYEmail($email);
+                if ($row['email'] == $email and $row['password'] == $encpass) {
                     $_SESSION['email'] = $email;
-                    $_SESSION['id']= $row['id'];
-                    $_SESSION['first']= $row['first'];
-                    $_SESSION['last'] =$row['last'];
-                    $_SESSION['phone'] =$row['phone'];
-                }
-                else{
+                    $_SESSION['id'] = $row['id'];
+                    $_SESSION['first'] = $row['first'];
+                    $_SESSION['last'] = $row['last'];
+                    $_SESSION['phone'] = $row['phone'];
+                    echo $_SESSION['first'];
+
+                } else {
                     $_SESSION['Message'] = "incorrect password";
-                    header('Location: signIn.php');
+                    //header('Location: signIn.php');
                 }
 
-            }
-            elseif (isStudent($email)) {
+            } elseif (isStudent($email)) {
                 $row = retrieveStudentBYEmail($email);
                 if ($row['email'] == $email and $row['password'] == $encpass) {
                     $_SESSION['email'] = $email;
@@ -47,13 +51,13 @@ if (isset($src)) {
                     $_SESSION['first'] = $row['first'];
                     $_SESSION['last'] = $row['last'];
                     $_SESSION['phone'] = $row['phone'];
+                    echo $_SESSION['first'];
                 } else {
                     $_SESSION['Message'] = "incorrect password";
-                    header('Location: signIn.php');
+                    $_SESSION['Message'] = "incorrect password";
+                    //header('Location: signIn.php');
                 }
-            }
-
-            elseif (isSupervisor($email)) {
+            } elseif (isSupervisor($email)) {
                 $row = retrieveSupercisorBYEmail($email);
                 if ($row['email'] == $email and $row['password'] == $encpass) {
                     $_SESSION['email'] = $email;
@@ -61,123 +65,58 @@ if (isset($src)) {
                     $_SESSION['first'] = $row['first'];
                     $_SESSION['last'] = $row['last'];
                     $_SESSION['phone'] = $row['phone'];
+                    echo $_SESSION['first'];
                 } else {
                     $_SESSION['Message'] = "incorrect password";
-                    header('Location: signIn.php');
+                    echo $_SESSION['Message'];
+                    //header('Location: signIn.php');
                 }
             }
         }
 
     } else if ($src == "signup") {
 
-        echo "welcome in signup";
+        //echo "welcome in signup";
+        //empty cells
+        if (strlen(trim($_REQUEST['first'])) == 0 || strlen(trim($_REQUEST['last'])) == 0 ||\
+                strlen(trim($_REQUEST['password'])) == 0 || strlen(trim($_REQUEST['email'])) == 0) {
+            $_SESSION['Message'] = "datarequired";
+            echo $_SESSION['Message'];
+            //header('Location: signup.php');
+            exit;
+        }
+        //no match password
+        if ($_REQUEST['password'] != $_REQUEST['re_pass']) {
+            $_SESSION['Message'] = "nomatch";
+            echo $_SESSION['Message'];
+            //header('Location: signup.php');
+            exit;
+        }
 
-//        /*	if(isset($_SESSION['itgemail'])){
-//                 header('Location: index.php');
-//                 exit;
-//            } */
-//
-//        //       if ($_REQUEST['type'] == 'user') {
-//
-//
-//        if ($_REQUEST['password'] != $_REQUEST['conpassword']) {
-//            $_SESSION['Message'] = "notmatch";
-//            $_SESSION['email'] = $_REQUEST['email'];
-//            $_SESSION['fname'] = $_REQUEST['fname'];
-//            $_SESSION['lname'] = $_REQUEST['lname'];
-//            $_SESSION['phone'] = $_REQUEST['phone'];
-//            $_SESSION['donationDate'] = $_REQUEST['donationDate'];
-//            $_SESSION['longitude'] = $_REQUEST['longitude'];
-//            $_SESSION['latitude'] = $_REQUEST['latitude'];
-//
-//
-//            header('Location: signUp.php');
-//            exit;
-//        }
-//        if (strlen(trim($_REQUEST['password'])) < 8 || is_numeric($_REQUEST['password'])) {
-//            $_SESSION['Message'] = "shortpass";
-//            $_SESSION['email'] = $_REQUEST['email'];
-//            $_SESSION['fname'] = $_REQUEST['fname'];
-//            $_SESSION['lname'] = $_REQUEST['lname'];
-//            $_SESSION['address'] = $_REQUEST['address'];
-//            $_SESSION['phone'] = $_REQUEST['phone'];
-//            $_SESSION['donationDate'] = $_REQUEST['donationDate'];
-//            $_SESSION['longitude'] = $_REQUEST['longitude'];
-//            $_SESSION['latitude'] = $_REQUEST['latitude'];
-//            header('Location: signUp.php');
-//            exit;
-//        } else if (!is_numeric($_REQUEST['phone']) && strlen(trim($_REQUEST['phone'])) != 0) {
-//
-//            header('Location: signUp.php');
-//            exit;
-//        } else if ($_REQUEST['phone'] < 0) {
-//            $_SESSION['email'] = $_REQUEST['email'];
-//            $_SESSION['fname'] = $_REQUEST['fname'];
-//            $_SESSION['lname'] = $_REQUEST['lname'];
-//            $_SESSION['address'] = $_REQUEST['address'];
-//            $_SESSION['phone'] = $_REQUEST['phone'];
-//            $_SESSION['donationDate'] = $_REQUEST['donationDate'];
-//            $_SESSION['longitude'] = $_REQUEST['longitude'];
-//            $_SESSION['latitude'] = $_REQUEST['latitude'];
-//            header('Location: signUp.php');
-//            exit;
-//
-//        } else {
-//            if (strlen(trim($_REQUEST['fname'])) == 0 || strlen(trim($_REQUEST['lname'])) == 0 || strlen(trim($_REQUEST['password'])) == 0 || strlen(trim($_REQUEST['email'])) == 0) {
-//                $_SESSION['Message'] = "datarequired";
-//                header('Location: signUp.php');
-//                exit;
-//
-//            } else {
-//                if (isUserExist($_REQUEST['email'])) {
-//                    $_SESSION['Message'] = "exist";
-//                    $_SESSION['email'] = $_REQUEST['email'];
-//                    $_SESSION['fname'] = $_REQUEST['fname'];
-//                    $_SESSION['lname'] = $_REQUEST['lname'];
-//                    $_SESSION['address'] = $_REQUEST['address'];
-//                    $_SESSION['phone'] = $_REQUEST['phone'];
-//                    $_SESSION['donationDate'] = $_REQUEST['donationDate'];
-//                    $_SESSION['longitude'] = $_REQUEST['longitude'];
-//                    $_SESSION['latitude'] = $_REQUEST['latitude'];
-//                    header('Location: signUp.php');
-//                    exit;
-//
-//                } else {
-//                    if (isCenpitalExist($_REQUEST['email'])) {
-//                        $_SESSION['Message'] = "exist";
-//                        $_SESSION['email'] = $_REQUEST['email'];
-//                        $_SESSION['fname'] = $_REQUEST['fname'];
-//                        $_SESSION['lname'] = $_REQUEST['lname'];
-//                        $_SESSION['address'] = $_REQUEST['address'];
-//                        $_SESSION['phone'] = $_REQUEST['phone'];
-//                        $_SESSION['donationDate'] = $_REQUEST['donationDate'];
-//                        $_SESSION['longitude'] = $_REQUEST['longitude'];
-//                        $_SESSION['latitude'] = $_REQUEST['latitude'];
-//                        header('Location: signUp.php');
-//                        exit;
-//                    } else {
-//                        $pass = $_REQUEST['password'];
-//                        //	$seed = generateRandomString(30);
-//                        addUser($_REQUEST['email'], $_REQUEST['fname'], $_REQUEST['lname'], $pass, $_REQUEST['city'], $_REQUEST['phone'],
-//                            $_REQUEST['blodType'], $_REQUEST['sex'], $_REQUEST['latitude'], $_REQUEST['longitude'], $_REQUEST['donationDate'], 0, 0);
-//                        /*     $to = "$_REQUEST[email]";
-//                             $subject = "Confirmation Email";
-//                             include('email_message.php');
-//                             $message = generate_email($to, $seed);
-//                             $status = sendmail($to, $subject, $message, $to);
-//                             if ($status)
-//                                 $_SESSION['Message'] = "pass";
-//                             else
-//                                 $_SESSION['Message'] = "Error occurred while sending activation email, Please try to  <a id='activate' href='account_activation.php' onClick='clear_messages();' style='color:#009'>Activate your Account</a>";
-//                              */
-//                        header('Location: about_us.php');
-//                        exit;
-//
-//                    }
-//                }
-//            }
-//        }
+        //password <8
+        if (strlen(trim($_REQUEST['password'])) < 8) {
+            $_SESSION['Message'] = "shortpass";
+            echo $_SESSION['Message'];
+            //header('Location: signup.php');
+            exit;
+        }
+        else if ($_REQUEST['phone'] < 0 || !is_numeric($_REQUEST['phone'])) {
+            $_SESSION['email'] = $_REQUEST['email'];
+            $_SESSION['first'] = $_REQUEST['first'];
+            $_SESSION['last'] = $_REQUEST['last'];
+            $_SESSION['Message']="checkphone";
+            echo $_SESSION['Message'];
+            //header('Location: signup.php');
+            exit;
+
+        } else {
+                addSupervisor($_REQUEST['phone'],$_REQUEST['first'],$_REQUEST['last'],$_REQUEST['email'],sha1($_REQUEST['password']));
+                $_SESSION['Message']= 'Success Operation, Congrats!';
+                //header('Location: signin.php');
+
+            }
     }
-
 }
+
+
 

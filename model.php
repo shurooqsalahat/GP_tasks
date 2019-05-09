@@ -11,6 +11,25 @@ function isUserExist($email)
     }
 }
 
+function isValidUser($email,$password){
+    if (isDoctor($email)){
+        $row= retrieveDoctorBYEmail($email);
+        if ($row['email'] ==$email and $row['password'] ==$password){
+            return "valid_doctor";
+        }
+    }
+
+    elseif(isSupervisor($email)){
+
+    }
+    elseif(isStudent($email)){
+
+    }
+    else{
+        return "invalid";
+    }
+
+}
 function isDoctor($email)
 {
     include("connect_DB.php");// connect to db
@@ -202,6 +221,79 @@ function retrieveDoctorsByID($id){
     else {
 
         $sql = "SELECT * FROM doctors where id =$id";
+        $result = $db->query($sql);
+        $row = $result->fetch_array();
+        echo $row['first'];
+        return $row;
+    }
+
+}
+
+function addSupervisor($phone, $first, $last, $email, $password)
+{
+    include 'connect_DB.php';
+    if (isUserExist($email)){
+        echo "this user already exist";
+        return false;
+    }
+    $shpass = sha1($password);
+    $sql = "INSERT INTO `supervisors`( `phone`, `first`, `last`, `email`, `password`) 
+VALUES ('$phone','$first','$last','$email','$shpass')";
+    if (mysqli_query($db, $sql)) {
+        echo "Record inserted successfully";
+        return true;
+    } else {
+        echo "Error inserted record: " . mysqli_error($db);
+        return false;
+    }
+}
+addSupervisor(2578, 'Isam', 'Salahat', "Isam@gmail.com",123456789);
+
+function deleteSupervisor($email){
+    include 'connect_DB.php';
+    if (!isSupervisor($email)){
+        echo "undefined supervisor, you cannot delete it";
+        return false;
+    }
+    $sql=" DELETE FROM supervisors WHERE email='$email'";
+    if (mysqli_query($db, $sql)) {
+        echo "Record deleted successfully";
+        return true;
+    } else {
+        echo "cannot delete the record: " . mysqli_error($db);
+        return false;
+    }
+
+}
+deleteSupervisor('ashraf@gmail.com');
+
+function retrieveSupercisorBYEmail($email){
+    include 'connect_DB.php';
+    if (!isSupervisor($email)){
+        echo "undefined supervisor, you cannot delete it";
+        return false;
+    }
+    $sql = "SELECT * FROM supervisors where email ='$email'";
+    $result = $db->query($sql);
+    $row = $result->fetch_array();
+    echo $row['id'];
+    return $row;
+}
+//retrieveSupervisorBYEmail('ashraf.@gmail.com');
+
+function retrieveSupervisorByID($id){
+    include 'connect_DB.php';
+    $query = "SELECT `id` FROM supervisors WHERE id=$id";
+    $result = $db->query($query);
+    $nor = $result->num_rows;
+    if ($nor == 0) {
+        echo " This Id doesn't exist";
+        return false;
+
+    }
+    else {
+
+        $sql = "SELECT * FROM supervisors where id =$id";
         $result = $db->query($sql);
         $row = $result->fetch_array();
         echo $row['first'];

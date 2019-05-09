@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="95a4fbc1-e3e4-4eb1-aa74-c4b0db4501e1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database_config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/database_config.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model.php" beforeDir="false" afterPath="$PROJECT_DIR$/model.php" afterDir="false" />
-    </list>
+    <list default="true" id="326f293c-623d-4af7-a89e-eac506c848c8" name="Default Changelist" comment="" />
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,138 +14,181 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/inbox .php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database_config.ini">
+        <entry file="file://$PROJECT_DIR$/404.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="21" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
+            <state relative-caret-position="1870">
+              <caret line="153" selection-start-line="153" selection-end-line="153" />
+              <folding>
+                <element signature="n#header#0;n#body#0;n#html#0;n#!!top" />
+              </folding>
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web.html">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/login.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/connect_DB.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="20" column="51" lean-forward="true" selection-start-line="20" selection-start-column="51" selection-end-line="20" selection-end-column="51" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controller.php">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/model.php">
+        <entry file="file://$PROJECT_DIR$/supervisor/add-student.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
-              <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
+            <state relative-caret-position="407">
+              <caret line="227" selection-start-line="227" selection-end-line="227" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#nav#0;n#div#0;n#header#0;n#!!top" expanded="true" />
+                <element signature="n#div#0;n#div#0;n#!!top" />
+                <element signature="n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/controller.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4726">
+              <caret line="324" selection-start-line="324" selection-end-line="343" selection-end-column="36" />
+              <folding>
+                <element signature="n#header#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#style#0;n#div#0;n#nav#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#ul#1;n#div#1;n#div#0;n#nav#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/log-in.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1666">
+              <caret line="98" column="13" selection-start-line="98" selection-start-column="13" selection-end-line="98" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="29240">
+              <caret line="1720" selection-start-line="1720" selection-end-line="1720" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>pare</find>
+      <find>ABOUT US</find>
+      <find>&lt;span&gt;Degree&lt;/span&gt;</find>
+      <find>.navbar-brand</find>
+      <find>navbar-brand</find>
+      <find>h2</find>
+      <find>ourCourses</find>
+      <find>status</find>
+      <find>font</find>
+      <find>&lt;i</find>
+      <find>register-form</find>
+      <find>img</find>
+      <find>.signup</find>
+      <find>.form-gr</find>
+      <find>agree all statements in Terms of servic</find>
+      <find>.slider</find>
+      <find>&lt;i c</find>
+      <find>bootstrap</find>
+      <find>signup-content</find>
+      <find>&lt;link</find>
+      <find>dropdown</find>
+      <find>divdemo</find>
     </findStrings>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/supervisor/add-student.supervisor.php" />
-        <option value="$PROJECT_DIR$/Modell.php" />
-        <option value="$PROJECT_DIR$/signup.php" />
-        <option value="$PROJECT_DIR$/supervisor/nav.supervisor.php" />
-        <option value="$PROJECT_DIR$/supervisor/logout_supervisor.php" />
-        <option value="$PROJECT_DIR$/supervisor/my-account.supervisor.php" />
-        <option value="$PROJECT_DIR$/navstyle.php" />
-        <option value="$PROJECT_DIR$/Doctor/connection.php" />
-        <option value="$PROJECT_DIR$/Doctor/nav.Doctor.php" />
-        <option value="$PROJECT_DIR$/Doctor/DetailsStudentByid.php" />
-        <option value="$PROJECT_DIR$/Doctor/DisplayStudnet.php" />
-        <option value="$PROJECT_DIR$/Student/nav.Student.php" />
-        <option value="$PROJECT_DIR$/supervisor/view-task.supervisor.php" />
-        <option value="$PROJECT_DIR$/login.php" />
-        <option value="$PROJECT_DIR$/Student/DisplayTasks.php" />
-        <option value="$PROJECT_DIR$/connect_DB.php" />
-        <option value="$PROJECT_DIR$/database_config.ini" />
-        <option value="$PROJECT_DIR$/model.php" />
+        <option value="$PROJECT_DIR$/log-in.css" />
+        <option value="$PROJECT_DIR$/signup.html" />
+        <option value="$PROJECT_DIR$/login.html" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/404.html" />
+        <option value="$PROJECT_DIR$/logedinuser.html" />
+        <option value="$PROJECT_DIR$/supervisor/logedinuser.html" />
+        <option value="$PROJECT_DIR$/js/controller.js" />
+        <option value="$PROJECT_DIR$/style.css" />
+        <option value="$PROJECT_DIR$/supervisor/add-student.html" />
       </list>
     </option>
   </component>
-  <component name="PhpServers">
-    <servers />
-  </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="250" />
     <option name="y" value="100" />
     <option name="width" value="1440" />
     <option name="height" value="775" />
   </component>
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="1" id="Add" />
-  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="GP_tasks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GP_tasks" type="462c0819:PsiDirectoryNode" />
+              <item name="project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="supervisor" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../php/php.exe" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../login/colorlib-regform-7" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\gp\GP_tasks" />
-      <recent name="D:\xampp\htdocs\gp\Student" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\project\supervisor" />
+      <recent name="C:\xampp\htdocs\project" />
+      <recent name="C:\xampp\htdocs\project\img" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -161,223 +203,150 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
-    <configuration default="true" type="CodeceptionConfigurationType" factoryName="Codeception">
-      <PhpTestRunnerSettings directory="$PROJECT_DIR$/../../../php" method="" />
-      <method v="2" />
-    </configuration>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="95a4fbc1-e3e4-4eb1-aa74-c4b0db4501e1" name="Default Changelist" comment="" />
-      <created>1554909901752</created>
+      <changelist id="326f293c-623d-4af7-a89e-eac506c848c8" name="Default Changelist" comment="" />
+      <created>1557258131388</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1554909901752</updated>
-      <workItem from="1554909903116" duration="1627000" />
-      <workItem from="1554911708991" duration="1786000" />
-      <workItem from="1554913698723" duration="1789000" />
-      <workItem from="1554915516508" duration="975000" />
-      <workItem from="1554991855180" duration="1770000" />
-      <workItem from="1554993658668" duration="1793000" />
-      <workItem from="1554995476234" duration="1786000" />
-      <workItem from="1554997292208" duration="1637000" />
-      <workItem from="1555054980402" duration="1781000" />
-      <workItem from="1555056797979" duration="1196000" />
-      <workItem from="1555060835480" duration="1058000" />
-      <workItem from="1555065059050" duration="1786000" />
-      <workItem from="1555074060994" duration="1715000" />
-      <workItem from="1555140124916" duration="1720000" />
-      <workItem from="1555141952776" duration="1749000" />
-      <workItem from="1555143756373" duration="1712000" />
-      <workItem from="1555145833064" duration="1787000" />
-      <workItem from="1555147645751" duration="1782000" />
-      <workItem from="1555156831314" duration="65000" />
-      <workItem from="1555171526720" duration="24000" />
-      <workItem from="1555233941539" duration="1182000" />
-      <workItem from="1555245221212" duration="21000" />
-      <workItem from="1555333923617" duration="935000" />
-      <workItem from="1555472872010" duration="837000" />
-      <workItem from="1557002171618" duration="8217000" />
+      <updated>1557258131388</updated>
+      <workItem from="1557258132956" duration="1228000" />
+      <workItem from="1557297491129" duration="181000" />
+      <workItem from="1557307009785" duration="14155000" />
+      <workItem from="1557343781192" duration="3433000" />
+      <workItem from="1557382750735" duration="162000" />
     </task>
-    <task id="LOCAL-00001" summary="separate DB configuration and initialize MVC architecture">
-      <created>1557003248415</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1557003248415</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40730000" />
+    <option name="totallyTimeSpent" value="19159000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20272315" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2709848" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="PHP-CGI Server" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="8" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.26770538" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="separate DB configuration and initialize MVC architecture" />
-    <option name="LAST_COMMIT_MESSAGE" value="separate DB configuration and initialize MVC architecture" />
-  </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/mysql/mysql.php">
+    <entry file="file://$PROJECT_DIR$/events-single.html" />
+    <entry file="file://$PROJECT_DIR$/signup.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-583">
-          <caret line="439" column="9" selection-start-line="439" selection-start-column="9" selection-end-line="439" selection-end-column="9" />
+        <state relative-caret-position="189">
+          <caret line="109" column="51" lean-forward="true" selection-start-line="109" selection-start-column="51" selection-end-line="109" selection-end-column="51" />
+          <folding>
+            <element signature="n#header#0;n#!!top" />
+            <element signature="n#style#0;n#div#0;n#nav#0;n#div#0;n#header#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#1;n#div#1;n#div#0;n#nav#0;n#div#0;n#header#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="999">
-          <caret line="37" column="24" selection-start-line="37" selection-start-column="19" selection-end-line="37" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CE.html">
+    <entry file="file://$PROJECT_DIR$/license-README-FIRST.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Modell.php" />
-    <entry file="file://$PROJECT_DIR$/supervisor/inbox.supervisor.php" />
-    <entry file="file://$PROJECT_DIR$/supervisor/add-student.supervisor.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="10" column="6" lean-forward="true" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/debug.log">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/supervisor/logout_supervisor.php" />
-    <entry file="file://$PROJECT_DIR$/supervisor/evaluate.supervisor.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="33" column="26" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/supervisor/my-account.supervisor.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="13" selection-end-column="99" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/supervisor/nav.supervisor.php">
+    <entry file="file://$PROJECT_DIR$/js/bootstrap.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="25" lean-forward="true" selection-end-line="34" selection-end-column="6" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/navstyle.php" />
-    <entry file="file://$PROJECT_DIR$/Doctor/nav.Doctor.php" />
-    <entry file="file://$PROJECT_DIR$/Doctor/connection.php" />
-    <entry file="file://$PROJECT_DIR$/config.php">
+    <entry file="file://$PROJECT_DIR$/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="6" column="22" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="22" />
+        <state relative-caret-position="255">
+          <caret line="54" selection-start-line="54" selection-end-line="54" />
+          <folding>
+            <element signature="n#header#0;n#!!top" />
+            <element signature="n#style#0;n#div#0;n#nav#0;n#div#0;n#header#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#1;n#div#1;n#div#0;n#nav#0;n#div#0;n#header#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/student/nav.Student.php">
+    <entry file="file://$PROJECT_DIR$/js/custom.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="11" column="92" selection-start-line="11" selection-start-column="92" selection-end-line="11" selection-end-column="92" />
+        <state relative-caret-position="-561" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/404.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1870">
+          <caret line="153" selection-start-line="153" selection-end-line="153" />
+          <folding>
+            <element signature="n#header#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../db_project_old/uplode_img.php" />
-    <entry file="file://$PROJECT_DIR$/../db_project_old/Register_Ajax.js" />
-    <entry file="file://$PROJECT_DIR$/../db_project_sorted/signup.php" />
-    <entry file="file://$PROJECT_DIR$/../db_project_sorted/ajax.js" />
-    <entry file="file://$PROJECT_DIR$/../db_project_sorted/users.php" />
-    <entry file="file://$PROJECT_DIR$/Student/connection.php" />
-    <entry file="file://$PROJECT_DIR$/supervisor/view-task.supervisor.php">
+    <entry file="file://$PROJECT_DIR$/js/controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="49" column="21" selection-start-line="49" selection-start-column="21" selection-end-line="49" selection-end-column="21" />
+        <state relative-caret-position="374">
+          <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/signup.php">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="604">
-          <caret line="40" column="24" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="24" />
+        <state relative-caret-position="4726">
+          <caret line="324" selection-start-line="324" selection-end-line="343" selection-end-column="36" />
+          <folding>
+            <element signature="n#header#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#div#0;n#nav#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#1;n#div#1;n#div#0;n#nav#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/doctor/DetailsStudentByid.php">
+    <entry file="file://$PROJECT_DIR$/log-in.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="5" column="99" selection-start-line="5" selection-start-column="88" selection-end-line="5" selection-end-column="99" />
+        <state relative-caret-position="1666">
+          <caret line="98" column="13" selection-start-line="98" selection-start-column="13" selection-end-line="98" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Doctor/DisplayStudnet.php" />
-    <entry file="file://$PROJECT_DIR$/Student/DisplayTasks.php" />
-    <entry file="file://$PROJECT_DIR$/inbox .php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/login.php">
+    <entry file="file://$PROJECT_DIR$/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+        <state relative-caret-position="29240">
+          <caret line="1720" selection-start-line="1720" selection-end-line="1720" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/connect_DB.php">
+    <entry file="file://$PROJECT_DIR$/supervisor/add-student.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="20" column="51" lean-forward="true" selection-start-line="20" selection-start-column="51" selection-end-line="20" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database_config.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="21" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
+        <state relative-caret-position="407">
+          <caret line="227" selection-start-line="227" selection-end-line="227" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#nav#0;n#div#0;n#header#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#div#0;n#!!top" />
+            <element signature="n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>

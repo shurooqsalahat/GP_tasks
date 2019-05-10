@@ -41,6 +41,10 @@ session_start();
 
         });
     </script>
+
+    <script>
+
+    </script>
 </head>
 
 <header id="header">
@@ -118,46 +122,11 @@ session_start();
     <!-- Page Content -->
     <div id="page-content-wrapper">
         <div class="container-fluid">
-            <!--            <div class="row">
-                            <div class="alert alert-warning">
-                                <strong>Warning!</strong> Please enter a valid value in all the required fields before proceeding.
-                                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                            </div>
-                        </div>-->
+            <div id="live_data">
 
-            <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>Doctor</th>
-                    <th style="text-align:center;width:100px;" >
 
-                    </th>
-                    </th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Alphabet puzzle</td>
-                    <td>2016/01/15</td>
-                    <td>Done</td>
-                    <td>1000</td>
-                    <td>
-                        <button type="button" class="btn btn-primary btn-xs dt-edit" id="update-modal-btn">
-                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                        </button>
-                        <button type="button" class="btn btn-danger btn-xs dt-delete">
-                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                        </button>
-                    </td>
-                </tr>
+            </div>
 
-                </tbody>
-            </table>
 
             <div class="form-line row">
                 <div class="col-sm-12 text-right">

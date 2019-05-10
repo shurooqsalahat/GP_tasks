@@ -5,10 +5,43 @@ $(document).ready(function(){
     $('#update-modal-btn').click(function(){
         $('#update_student_modal').modal('show')
     });
+
 });
 
+$(document).ready(function(){
+    console.log('first')
+    function fetch_data()
+    {
+        console.log('second')
+        $.ajax({
+            url:"live_select.php",
+            method:"POST",
+            success:function(data){
+                console.log("shuroooq")
+                $('#live_data').html(data);
+            }
+        });
+    }
 
-
+    fetch_data();
+    $(document).on('click', '.delete_btn', function(){
+        var id=$(this).data("id3");
+        console.log(id);
+        if(confirm("Are you sure you want to delete this?"))
+        {
+            $.ajax({
+                url:"live_delete.php",
+                method:"POST",
+                data:{id:id},
+                dataType:"text",
+                success:function(data){
+                    alert(data);
+                    fetch_data();
+                }
+            });
+        }
+    });
+});
 function form_submit() {
     var first_name = $('#first_name').val();
     var last_name = $('#last_name').val();

@@ -85,7 +85,7 @@ VALUES ('$phone','$first','$last','$email','$shpass','$doctor_id','$supervisor_i
 }
 //addStudent(5888, 'yara', 'barhoush', 'yara@gmail.com', '123456789', 2, 2);
 
-function deleteStudent($email){
+function deleteStudentBeEmail($email){
     include 'connect_DB.php';
     if (!isStudent($email)){
         echo "undefined student, you cannot delete it";
@@ -101,8 +101,22 @@ function deleteStudent($email){
     }
 
 }
-//deleteStudent('shurooq@gmail.com');
 
+
+function deleteStudentBeId($id){
+    include 'connect_DB.php';
+    echo ($id);
+    $sql=" DELETE FROM students WHERE id= $id";
+    if (mysqli_query($db, $sql)) {
+        echo "Record deleted successfully";
+        return true;
+    } else {
+        echo "cannot delete the record: " . mysqli_error($db);
+        return false;
+    }
+
+}
+//deleteStudentBeId(2);
 function retrieveStudentBYEmail($email){
     include 'connect_DB.php';
     if (!isStudent($email)){
@@ -207,7 +221,6 @@ function retrieveDoctorsByID($id){
         $sql = "SELECT * FROM doctors where id =$id";
         $result = $db->query($sql);
         $row = $result->fetch_array();
-        echo $row['first'];
         return $row;
     }
 
@@ -280,7 +293,6 @@ function retrieveSupervisorByID($id){
         $sql = "SELECT * FROM supervisors where id =$id";
         $result = $db->query($sql);
         $row = $result->fetch_array();
-        echo $row['first'];
         return $row;
     }
 

@@ -1,8 +1,6 @@
 <?php
 include("../model.php");// connect to db
-
 session_start();
-
 
 ?>
 
@@ -16,11 +14,23 @@ session_start();
     <!-- CSS
     ================================================== -->
     <!-- Bootstrap css file-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font awesome css file:: for slider -->
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <!-- Superslide css file-->
+    <link rel="stylesheet" href="../css/superslides.css">
+    <!-- Slick slider css file :: for previous and next-->
+    <link href="../css/slick.css" rel="stylesheet">
+    <!-- Circle counter cdn css file -->
+    <link rel='stylesheet prefetch'
+          href='https://cdn.rawgit.com/pguso/jquery-plugin-circliful/master/css/jquery.circliful.css'>
+    <!-- smooth animate css file -->
+    <link rel="stylesheet" href="../css/animate.css">
+    <!-- Main structure css file -->
+
     <!-- for validation-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
     <script src="supervisor.js"></script>
     <link href="add-student.css" rel="stylesheet">
 
@@ -78,7 +88,6 @@ session_start();
                             </div>
                             <div class="form-line row">
                                 <div class="col-sm-12">
-                                    <label for="doctor">Doctor :</label>
                                     <select name="doctor" id="doctor" class="required">
                                         <option value="0"> select Dctor</option>
                                         <?php

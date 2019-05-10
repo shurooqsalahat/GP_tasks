@@ -284,4 +284,19 @@ function retrieveSupervisorByID($id){
         return $row;
     }
 
+
 }
+
+function getAllDoctors()
+{
+    include("connect_DB.php");// connect to db
+    $qstr = "SELECT * FROM `doctors` ";
+    $result = $db->query($qstr);
+    return $result;
+//    $nor = $result->num_rows;
+//    for ($i = 0; $i < $nor; $i++) {
+//        $row = $result->fetch_array();
+//        echo $row[0] . $row[2] . $row[3];
+//    }
+}
+getAllDoctors();

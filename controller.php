@@ -54,7 +54,7 @@ if (isset($src)) {
                     echo $_SESSION['first'];
                 } else {
                     $_SESSION['Message'] = "incorrect password";
-                    $_SESSION['Message'] = "incorrect password";
+                    $_SESSION['Message'] = "incorrect password" ;
                     //header('Location: signIn.php');
                 }
             } elseif (isSupervisor($email)) {

@@ -107,7 +107,7 @@ session_start();
             if (isset($_SESSION['Message'])) {
                 if ($_SESSION['Message'] == 'This Data is Required' || $_SESSION['Message'] == "Password not match"
                     || $_SESSION['Message'] == "Password Must be 8 digits or more" ||
-                    $_SESSION['Message'] == "Check phone structure" || $_SESSION['Message'] = "This user not Exist Signup please") {
+                    $_SESSION['Message'] == "Check phone structure" || $_SESSION['Message'] = "This user not Exist Signup pleased") {
 
                     $result = "<div class=\"alert alert-danger\">
             <a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>

@@ -1,5 +1,5 @@
 #add_student{
-    max-width: 1000px;
+    max-width: 100%;
     background: #FAFAFA;
     padding: 15px;
     margin: 50px 20px;
@@ -11,7 +11,7 @@
 #add_student_form input[type=button],
 #add_student_form input[type=text],
 #add_student_form input[type=email],
-#add_student_form input[type=password],
+#add_student_form input[type=tel],
 #add_student_form label
 {
     font-family: 'Merriweather', serif;
@@ -21,7 +21,7 @@
 }
 #add_student_form input[type=text],
 #add_student_form input[type=email],
-#add_student_form input[type=password]
+#add_student_form input[type=tel]
 {
     background: transparent;
     border: none;
@@ -34,7 +34,7 @@
 #add_student_form textarea:focus,
 #add_student_form input[type=text]:focus,
 #add_student_form input[type=email]:focus,
-#add_student_form input[type=password]:focus
+#add_student_form input[type=tel]:focus
 {
     border-bottom: 1px dashed #D9FFA9;
 }
@@ -52,20 +52,7 @@
     background: linear-gradient(to bottom, #2D77A2 5%, #337DA8 100%);
     background-color: #28739E;
 }
-#add_student_form  input[type="button"],
-#add_student_form  input[type="submit"] {
-    padding: 12px 47px;
-    -moz-box-shadow: inset 0px 1px 0px 0px #3985B1;
-    -webkit-box-shadow: inset 0px 1px 0px 0px #3985B1;
-    box-shadow: inset 0px 1px 0px 0px #3985B1;
-    background-color: #216288;
-    border: 1px solid #17445E;
-    display: inline-block;
-    cursor: pointer;
-    color: #FFFFFF;
-    text-decoration: none;
-    font: 12px Arial, Helvetica, sans-serif;
-}
+
 
 #add_student_form .error {
     color: red;

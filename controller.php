@@ -119,6 +119,7 @@ if (isset($src)) {
     }
     else if($src=='addStudent'){
         $email= $_SESSION['email'];
+        echo "welcome in add Student";
          if (isUserExist($email)){
              $_SESSION['Message'] ="exist";
              //header('Location: addStudent.php');

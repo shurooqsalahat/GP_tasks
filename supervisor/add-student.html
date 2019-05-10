@@ -59,30 +59,31 @@
                 </div>
                 <hr>
                 <div class="col-sm-6">
-                    <form id="add_student_form" method="post" action="" novalidate>
+                    <form id="add_student_form" action="../controller.php" method="REQUEST" method="post"  novalidate>
                         <div class="form-line row">
                             <div class="col-sm-12">
                                 <label for="first_name">First Name:</label>
-                                <input type="text" id="first_name" name="first_name"></input>
+                                <input name="src" value="addStudent" type="hidden"/>
+                                <input type="text" id="first_name" name="first"></input>
                             </div>
                         </div>
                         <div class="form-line row">
                             <div class="col-sm-12">
                                 <label for="last_name">Last Name:</label>
-                                <input type="text" id="last_name" name="last_name"></input>
+                                <input type="text" id="last_name" name="last"></input>
                             </div>
                         </div>
                         <div class="form-line row">
                             <div class="col-sm-12">
                                 <label for="email">Email:</label>
-                                <input type="email" id="email" name="email"></input>
+                                <input type="text" id="email" name="email"></input>
                             </div>
                         </div>
 
                         <div class="form-line row">
                             <div class="col-sm-12">
-                                <label for="password">Password:</label>
-                                <input type="password" id="password" name="password"></input>
+                                <label for="phone">Phone:</label>
+                                <input type="tel" id="phone" name="phone"></input>
                             </div>
                         </div>
                         <div class="form-line row">
@@ -100,7 +101,7 @@
                         <br><br>
                         <div class="form-line row">
                             <div class="col-sm-12">
-                                <input type="submit" value="Submit"/>
+                                <input type="submit" name="submit" id="submit">
                             </div>
                         </div>
                     </form>

@@ -11,25 +11,8 @@ function isUserExist($email)
     }
 }
 
-function isValidUser($email,$password){
-    if (isDoctor($email)){
-        $row= retrieveDoctorBYEmail($email);
-        if ($row['email'] ==$email and $row['password'] ==$password){
-            return "valid_doctor";
-        }
-    }
 
-    elseif(isSupervisor($email)){
 
-    }
-    elseif(isStudent($email)){
-
-    }
-    else{
-        return "invalid";
-    }
-
-}
 function isDoctor($email)
 {
     include("connect_DB.php");// connect to db

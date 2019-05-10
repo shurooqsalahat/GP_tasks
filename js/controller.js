@@ -24,6 +24,15 @@ $(document).ready(function() {
     });
 
 });
-var showStudentsTable =function () {
 
+var showMsg = function (typeOfMsg,msgTxt) {
+    console.log('yyyyy')
+    if (typeOfMsg == 'Success') {
+        $(".alert-success").show();
+        $('#success-text').text(msgTxt);
+
+    } else if (typeOfMsg == 'failed') {
+        $(".alert-danger").show();
+        $('#failed-text').text(msgTxt);
+    }
 }

@@ -78,43 +78,67 @@ if (isset($src)) {
 
         //echo "welcome in signup";
         //empty cells
-        if (strlen(trim($_REQUEST['first'])) == 0 || strlen(trim($_REQUEST['last'])) == 0 ||\
+        if (strlen(trim($_REQUEST['first'])) == 0 || strlen(trim($_REQUEST['last'])) == 0 ||
                 strlen(trim($_REQUEST['password'])) == 0 || strlen(trim($_REQUEST['email'])) == 0) {
-            $_SESSION['Message'] = "datarequired";
-            echo $_SESSION['Message'];
-            //header('Location: signup.php');
+            $_SESSION['Message'] = "This Data is Required";
+            //echo $_SESSION['Message'];
+            header('Location: signup.php');
             exit;
         }
         //no match password
         if ($_REQUEST['password'] != $_REQUEST['re_pass']) {
-            $_SESSION['Message'] = "nomatch";
+            $_SESSION['Message'] = "Password not match";
             echo $_SESSION['Message'];
-            //header('Location: signup.php');
+            header('Location: signup.php');
             exit;
         }
 
         //password <8
         if (strlen(trim($_REQUEST['password'])) < 8) {
-            $_SESSION['Message'] = "shortpass";
+            $_SESSION['Message'] = "Password Must be 8 digits or more";
             echo $_SESSION['Message'];
-            //header('Location: signup.php');
+            header('Location: signup.php');
             exit;
         }
         else if ($_REQUEST['phone'] < 0 || !is_numeric($_REQUEST['phone'])) {
             $_SESSION['email'] = $_REQUEST['email'];
             $_SESSION['first'] = $_REQUEST['first'];
             $_SESSION['last'] = $_REQUEST['last'];
-            $_SESSION['Message']="checkphone";
+            $_SESSION['Message']="Check phone structure";
             echo $_SESSION['Message'];
-            //header('Location: signup.php');
+            header('Location: signup.php');
             exit;
 
         } else {
-                addSupervisor($_REQUEST['phone'],$_REQUEST['first'],$_REQUEST['last'],$_REQUEST['email'],sha1($_REQUEST['password']));
+                addSupervisor($_REQUEST['phone'],$_REQUEST['first'],$_REQUEST['last'],$_REQUEST['email'],
+                    sha1($_REQUEST['password']));
                 $_SESSION['Message']= 'Success Operation, Congrats!';
-                //header('Location: signin.php');
+                header('Location: signup.php');
 
             }
+    }
+    else if($src=='addStudent'){
+        $email= $_SESSION['email'];
+         if (isUserExist($email)){
+             $_SESSION['Message'] ="exist";
+             //header('Location: addStudent.php');
+             exit;
+         }
+         if ($_REQUEST['phone'] < 0 || !is_numeric($_REQUEST['phone'])) {
+             $_SESSION['email'] = $_REQUEST['email'];
+             $_SESSION['first'] = $_REQUEST['first'];
+             $_SESSION['last'] = $_REQUEST['last'];
+             $_SESSION['Message']="checkphone";
+             echo $_SESSION['Message'];
+             //header('Location: signup.php');
+             exit;
+         }
+         else{
+             $row=retrieveDoctorBYEmail($_REQUEST['doctorMail']);
+             addStudent($_REQUEST['phone'], $_REQUEST['first'],$_REQUEST['last'], $_REQUEST['email']
+             ,'123456',$row['id'], $_SESSION['id']);
+         }
+
     }
 }
 

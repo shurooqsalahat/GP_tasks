@@ -52,21 +52,6 @@ session_start();
     <script src="js/controller.js"></script>
     <![endif]-->
 
-
-    <script>
-        var showMsg = function (typeOfMsg, msgTxt) {
-            console.log(msgTxt)
-            if (typeOfMsg == 'Success') {
-                $(".alert-success").show();
-                $('#success-text').text(msgTxt);
-
-            } else if (typeOfMsg == 'failed') {
-                console.log('hhh')
-                $(".alert-danger").css("display", "block");
-                $('#failed-text').text(msgTxt);
-            }
-        }
-    </script>
 </head>
 <header id="header">
     <!-- BEGIN MENU -->
@@ -106,7 +91,7 @@ session_start();
                     </ul>
                     <ul class="nav navbar-nav navbar-right main-nav" style="margin-right: 0px">
                         <li><a href="signup.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                        <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                        <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
 
@@ -121,16 +106,17 @@ session_start();
             <?php
             if (isset($_SESSION['Message'])) {
                 if ($_SESSION['Message'] == 'This Data is Required' || $_SESSION['Message'] == "Password not match"
-                    || $_SESSION['Message'] == "Password Must be 8 digits or more" || $_SESSION['Message'] == "Check phone structure") {
+                    || $_SESSION['Message'] == "Password Must be 8 digits or more" ||
+                    $_SESSION['Message'] == "Check phone structure" || $_SESSION['Message'] = "This user not Exist Signup please") {
 
                     $result = "<div class=\"alert alert-danger\">
             <a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
-            <strong>Danger!</strong> <span id=\"failed-text\">" . $_SESSION['Message'] . "</span>
+            <strong>OOPS!</strong> <span id=\"failed-text\">" . $_SESSION['Message'] . "</span>
         </div>";
                 } else {
                     $result = "<div class=\"alert alert-success\">
             <a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
-            <strong>Success!</strong> <span id=\"failed-text\">" . $_SESSION['Message'] . "</span>
+            <strong>Good</strong> <span id=\"failed-text\">" . $_SESSION['Message'] . "</span>
         </div>";
                 }
             }
@@ -176,7 +162,7 @@ session_start();
                 </div>
                 <div class="signup-image">
                     <figure><img src="img/signup-image.jpg" alt="sing up image"></figure>
-                    <a href="login.html" class="signup-image-link">I am already member</a>
+                    <a href="login.php" class="signup-image-link">I am already member</a>
                 </div>
             </div>
         </div>

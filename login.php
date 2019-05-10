@@ -1,3 +1,12 @@
+<?php
+include("model.php");// connect to db
+
+session_start();
+
+
+?>
+
+
 <head>
     <!--===============================================
     Template Design By WpFreeware Team.
@@ -106,6 +115,27 @@
 <div class="main">
     <section class="sign-in">
         <div class="container">
+            <?php
+            if (isset($_SESSION['Message'])) {
+                if ($_SESSION['Message'] == 'This Data is Required' || $_SESSION['Message'] == "Password not match"
+                    || $_SESSION['Message'] == "Password Must be 8 digits or more" || $_SESSION['Message'] == "Check phone structure") {
+
+                    $result = "<div class=\"alert alert-danger\">
+            <a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+            <strong>OOPS!</strong> <span id=\"failed-text\">" . $_SESSION['Message'] . "</span>
+        </div>";
+                } else {
+                    $result = "<div class=\"alert alert-success\">
+            <a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+            <strong>Good</strong> <span id=\"failed-text\">" . $_SESSION['Message'] . "</span>
+        </div>";
+                }
+            }
+            unset($_SESSION['Message']);
+            ?>
+
+            <?php if (isset($result))
+                echo $result; ?>
             <div class="signin-content">
                 <div class="signin-image">
                     <figure><img src="img/signin-image.jpg" alt="sing up image"></figure>
@@ -114,14 +144,15 @@
 
                 <div class="signin-form">
                     <h2 class="form-title">Log in</h2>
-                    <form method="POST" class="register-form" id="login-form">
+                    <form action="controller.php" method="REQUEST" class="register-form" id="login-form">
                         <div class="form-group">
                             <label for="your_name"><i class="fa fa-user"></i></label>
-                            <input type="text" name="your_name" id="your_name" placeholder="Your Name"/>
+                            <input name="src" value="signin" type="hidden"/>
+                            <input type="email" name="email" id="your_name" placeholder="Your Name"/>
                         </div>
                         <div class="form-group">
                             <label for="your_pass"><i class="fa fa-lock"></i></label>
-                            <input type="password" name="your_pass" id="your_pass" placeholder="Password"/>
+                            <input type="password" name="password" id="your_pass" placeholder="Password"/>
                         </div>
                         <div class="form-group">
                             <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />

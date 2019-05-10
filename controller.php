@@ -13,8 +13,8 @@ if (isset($src)) {
     if ($src == "signin") {
 
         $email = $_REQUEST["email"];
-
-        $upass = $_REQUEST["pass"];
+        echo "welcome in signin";
+        $upass = $_REQUEST["password"];
         $encpass = sha1($upass);
         echo "<br>";
         echo $encpass;
@@ -26,7 +26,7 @@ if (isset($src)) {
                 $_SESSION['email'] = $email;
                 $_SESSION['Message'] = "This user not Exist Signup please";
                 echo $_SESSION['Message'];
-                //header('Location: signUp.php');
+                header('Location: signUp.php');
                 exit;
             } elseif (isDoctor($email)) {
                 $row = retrieveDoctorBYEmail($email);
@@ -113,7 +113,7 @@ if (isset($src)) {
                 addSupervisor($_REQUEST['phone'],$_REQUEST['first'],$_REQUEST['last'],$_REQUEST['email'],
                     sha1($_REQUEST['password']));
                 $_SESSION['Message']= 'Success Operation, Congrats!';
-                header('Location: signup.php');
+                header('Location: login.php');
 
             }
     }

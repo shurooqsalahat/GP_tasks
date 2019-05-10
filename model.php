@@ -2,8 +2,9 @@
 function isUserExist($email)
 {
     include("connect_DB.php");// connect to db
-
+     echo "";
     if (isDoctor($email) || isSupervisor($email) || isStudent($email)) {
+        echo "hhhh";
         return true;
     }
     else{

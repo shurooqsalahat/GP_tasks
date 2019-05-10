@@ -130,9 +130,9 @@ session_start();
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
-                    <th>Deadline</th>
-                    <th>Status</th>
-                    <th>Amount</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Doctor</th>
                     <th style="text-align:center;width:100px;" >
 
                     </th>

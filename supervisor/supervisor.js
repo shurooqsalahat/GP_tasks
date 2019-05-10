@@ -12,6 +12,7 @@ function form_submit() {
     var last_name = $('#last_name').val();
     var email = $('#email').val();
     var doctorName=$('#doctor').val();
+    var phoneNumber = $('#phone').val();
     var vaidate = false;
 
     $(".error").remove();
@@ -37,6 +38,18 @@ function form_submit() {
         var validEmail = regEx.test(email);
         if (!validEmail) {
             $('#email').after('<div class="error">Enter a valid email</div>');
+        }
+    }
+    if (phoneNumber.length < 1) {
+        
+        $('#phone').after('<div class="error">This field is required</div>');
+    }
+    else {
+
+        var regex = /^\+(?:[0-9] ?){6,14}[0-9]$/;
+        var validPhone = regex.test(phoneNumber);
+        if (!validPhone) {
+            $('#phone').after('<div class="error">Enter a valid phone number</div>');
         }
     }
 

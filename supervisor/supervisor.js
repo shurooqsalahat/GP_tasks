@@ -25,7 +25,7 @@ function form_submit() {
         $('#last_name').after('<div class="error">This field is required</div>');
         vaidate =true;
     }
-    if (doctorName== -1) {
+    if (doctorName== 0) {
         $('#doctor').after('<div class="error">This field is required</div>');
         vaidate =true;
 

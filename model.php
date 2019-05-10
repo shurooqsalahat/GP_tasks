@@ -299,4 +299,9 @@ function getAllDoctors()
 //        echo $row[0] . $row[2] . $row[3];
 //    }
 }
-getAllDoctors();
+function getAllStudents(){
+    include("connect_DB.php");// connect to db
+    $qstr = "SELECT * FROM `students` ";
+    $result = $db->query($qstr);
+    return $result;
+}

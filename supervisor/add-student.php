@@ -147,7 +147,7 @@ session_start();
                     <td>Done</td>
                     <td>1000</td>
                     <td>
-                        <button type="button" class="btn btn-primary btn-xs dt-edit" style="margin-right:16px;">
+                        <button type="button" class="btn btn-primary btn-xs dt-edit" id="update-modal-btn">
                             <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                         </button>
                         <button type="button" class="btn btn-danger btn-xs dt-delete">
@@ -155,51 +155,7 @@ session_start();
                         </button>
                     </td>
                 </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Layout for poster</td>
-                    <td>2016/01/31</td>
-                    <td>Planned</td>
-                    <td>1834</td>
-                    <td>
-                        <button type="button" class="btn btn-primary btn-xs dt-edit" style="margin-right:16px;">
-                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                        </button>
-                        <button type="button" class="btn btn-danger btn-xs dt-delete">
-                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Image creation</td>
-                    <td>2016/01/23</td>
-                    <td>To Do</td>
-                    <td>1500</td>
-                    <td>
-                        <button type="button" class="btn btn-primary btn-xs dt-edit" style="margin-right:16px;">
-                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                        </button>
-                        <button type="button" class="btn btn-danger btn-xs dt-delete">
-                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>Create font</td>
-                    <td>2016/02/26</td>
-                    <td>Done</td>
-                    <td>1200</td>
-                    <td>
-                        <button type="button" class="btn btn-primary btn-xs dt-edit" style="margin-right:16px;">
-                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                        </button>
-                        <button type="button" class="btn btn-danger btn-xs dt-delete">
-                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                        </button>
-                    </td>
-                </tr>
+
                 </tbody>
             </table>
 
@@ -209,7 +165,67 @@ session_start();
                 </div>
             </div>
             <!-- .modal -->
+            <div class="modal fade" id="update_student_modal"  style="z-index: 2000">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Update Student Information</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form id="update_student_modal" action="../controller.php" method="" method="" >
+                                <div class="form-line row">
+                                    <div class="col-sm-12">
+                                        <label for="first_name">First Name:</label>
+                                        <input name="src" value="addStudent" type="hidden"/>
+                                        <input type="text" id="u_first_name" name="first">
+                                    </div>
+                                </div>
+                                <div class="form-line row">
+                                    <div class="col-sm-12">
+                                        <label for="last_name">Last Name:</label>
+                                        <input type="text" id="u_last_name" name="last">
+                                    </div>
+                                </div>
+                                <div class="form-line row">
+                                    <div class="col-sm-12">
+                                        <label for="email">Email:</label>
+                                        <input type="text" id="u_email" name="email">
+                                    </div>
+                                </div>
+
+                                <div class="form-line row">
+                                    <div class="col-sm-12">
+                                        <label for="phone">Phone:</label>
+                                        <input type="tel" id="u_phone" name="phone">
+                                    </div>
+                                </div>
+                                <div class="form-line row">
+                                    <div class="col-sm-12">
+                                        <select name="doctor" id="u_doctor" class="required">
+                                            <option value="0"> select Dctor</option>
+                                            <?php
+                                            $result = getAllDoctors();
+                                            $nor = $result->num_rows;
+                                            for ($i = 0; $i < $nor; $i++) {
+                                                $row = $result->fetch_array();
+                                                echo " <option value= '$row[0]''>" . $row[2] ." ".$row[3] . "</option>";
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" name="submit" id="submit" onclick="update_submit()">Update</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+
     </div>
 
     <!-- /#page-content-wrapper -->

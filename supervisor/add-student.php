@@ -145,11 +145,14 @@ session_start();
             unset($_SESSION['Message']);
 
               ?>
-            <?php if (isset($msg))
-                echo $msg; ?>
 
+            <div class="form-line row">
+                <?php if (isset($msg))
+                    echo $msg; ?>
+            </div>
             <div id="live_data">
             </div>
+
             <div class="form-line row">
                 <div class="col-sm-12 text-right">
                     <button type="button" id="MybtnModal" class="btn btn-primary">Add New Student</button>

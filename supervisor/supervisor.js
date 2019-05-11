@@ -3,6 +3,7 @@ $(document).ready(function(){
         $('#add_student_modal').modal('show')
     });
     $('#update-modal-btn').click(function(){
+        console.log("in update modal");
         $('#update_student_modal').modal('show')
     });
 
@@ -41,6 +42,7 @@ $(document).ready(function(){
             });
         }
     });
+
 });
 function form_submit() {
     var first_name = $('#first_name').val();

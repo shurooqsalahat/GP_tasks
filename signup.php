@@ -42,7 +42,7 @@ session_start();
     <!-- Main structure css file -->
     <link href="style.css" rel="stylesheet">
     <link href="log-in.css" rel="stylesheet">
-
+    <script src="js/controller.js"> </script>
     <!-- Google fonts -->
     <link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Varela' rel='stylesheet' type='text/css'>
@@ -109,13 +109,13 @@ session_start();
                     || $_SESSION['Message'] == "Password Must be 8 digits or more" ||
                     $_SESSION['Message'] == "Check phone structure" || $_SESSION['Message'] = "This user not Exist Signup pleased") {
 
-                    $result = "<div class=\"alert alert-danger\">
-            <a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+                    $msg = "<div class=\"alert alert-danger\">
+            <a class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
             <strong>OOPS!</strong> <span id=\"failed-text\">" . $_SESSION['Message'] . "</span>
         </div>";
                 } else {
-                    $result = "<div class=\"alert alert-success\">
-            <a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+                    $msg  = "<div class=\"alert alert-success\">
+            <a class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
             <strong>Good</strong> <span id=\"failed-text\">" . $_SESSION['Message'] . "</span>
         </div>";
                 }
@@ -123,8 +123,8 @@ session_start();
             unset($_SESSION['Message']);
             ?>
 
-            <?php if (isset($result))
-                echo $result; ?>
+            <?php if (isset($msg ))
+                echo $msg ; ?>
 
             <div class="signup-content">
                 <div class="signup-form">

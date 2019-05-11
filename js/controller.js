@@ -20,8 +20,9 @@ window.onclick = function(event) {
 $(document).ready(function(){
     $(".close").click(function(){
         if($(".alert-warning").is(":visible")){
+            console.log("error")
             $(".alert-warning").hide();}
-        else if((".alert-success").is(":visible")){
+        else if($(".alert-success").is(":visible")){
             $(".alert-success").hide();
         }
     });

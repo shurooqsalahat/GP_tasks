@@ -118,26 +118,33 @@ if (isset($src)) {
             }
     }
     else if($src=='addStudent'){
-        $email= $_SESSION['email'];
-        echo "welcome in add Student";
-         if (isUserExist($email)){
-             $_SESSION['Message'] ="exist";
-             //header('Location: addStudent.php');
-             exit;
-         }
-         if ($_REQUEST['phone'] < 0 || !is_numeric($_REQUEST['phone'])) {
-             $_SESSION['email'] = $_REQUEST['email'];
-             $_SESSION['first'] = $_REQUEST['first'];
-             $_SESSION['last'] = $_REQUEST['last'];
-             $_SESSION['Message']="checkphone";
+        $email= $_REQUEST['email'];
+
+         if(isSupervisor($email)){
+             $_SESSION['Message'] ="This user is already supervisor";
              echo $_SESSION['Message'];
-             //header('Location: signup.php');
+             header('Location: supervisor/add-student.php');
              exit;
          }
+        if(isDoctor($email)){
+            $_SESSION['Message'] ="This user is already doctor";
+            echo $_SESSION['Message'];
+            header('Location: supervisor/add-student.php');
+            exit;
+        }
+        if (isUserExist($email)){
+            $_SESSION['Message'] ="This Student is already exist";
+            echo $_SESSION['Message'];
+            header('Location: supervisor/add-student.php');
+            exit;
+        }
          else{
-             $row=retrieveDoctorBYEmail($_REQUEST['doctorMail']);
+
              addStudent($_REQUEST['phone'], $_REQUEST['first'],$_REQUEST['last'], $_REQUEST['email']
-             ,'123456',$row['id'], $_SESSION['id']);
+             ,'123456',$_REQUEST['doctor'], $_SESSION['id']);
+             $_SESSION['Message'] ="Student Added successfully";
+             header('Location: supervisor/add-student.php');
+             exit;
          }
 
     }

@@ -4,7 +4,6 @@ function isUserExist($email)
     include("connect_DB.php");// connect to db
      echo "";
     if (isDoctor($email) || isSupervisor($email) || isStudent($email)) {
-        echo "hhhh";
         return true;
     }
     else{
@@ -54,8 +53,10 @@ function isSupervisor($email)
 
     $query = "SELECT `email` FROM supervisors WHERE email='$email'";
     $result = $db->query($query);
+
     $nor = $result->num_rows;
     if ($nor == 0) {
+        echo "nooo";
         return false;
 
     } else {

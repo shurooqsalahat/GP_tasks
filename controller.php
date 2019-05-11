@@ -174,6 +174,11 @@ if (isset($src)) {
         }
 
     }
+
+    else if ($src == "update_supervisor") {
+        echo "welcome in update";
+    }
+
 }
 
 

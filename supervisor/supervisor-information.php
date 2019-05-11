@@ -65,13 +65,14 @@
         </div>
         <div class="col-md-8 py-5 border" style="margin-top: 17px;">
                     <h4 class="pb-4" style="margin-top: 15px;margin-bottom: 34px;margin-left: 183px;">Your Information</h4>
-                    <form>
+                    <form action="../controller.php" method="REQUEST">
                         <div class="form-line row">
                             <div class=" col-md-2 col-xs-6">
                                 First Name
                             </div>
 
                             <div class=" col-md-6 col-xs-2">
+                                <input name="src" value="update_supervisor" type="hidden"/>
                                 <input id="first_name" name="First Name" placeholder="First Name" class="form-control" type="text">
                             </div>
                             <div class=" col-md-2 col-xs-2">
@@ -123,7 +124,7 @@
                         </div>
                         <hr>
                         <div class="buttons">
-                            <button class="add"  id='save-changes-btn' type='button' >Save Changes</button>
+                            <input type="submit" class="add"  id='save-changes-btn'  value="Save Changes"/>
                             <button class="like" type='button' onclick="cancel()"><span>Cancel</span></button>
                         </div>
                     </form>

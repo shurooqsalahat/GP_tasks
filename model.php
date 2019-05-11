@@ -139,7 +139,6 @@ function retrieveSudentsByID($id){
     $result = $db->query($query);
     $nor = $result->num_rows;
     if ($nor == 0) {
-        echo " This Id doesn't exist";
         return false;
 
     }
@@ -213,7 +212,7 @@ function retrieveDoctorsByID($id){
     $result = $db->query($query);
     $nor = $result->num_rows;
     if ($nor == 0) {
-        echo " This Id doesn't exist";
+
         return false;
 
     }
@@ -285,7 +284,7 @@ function retrieveSupervisorByID($id){
     $result = $db->query($query);
     $nor = $result->num_rows;
     if ($nor == 0) {
-        echo " This Id doesn't exist";
+
         return false;
 
     }

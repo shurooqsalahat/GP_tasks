@@ -3,7 +3,7 @@ $(document).ready(function() {
     $('#last_name').attr('disabled', 'disabled');
     $('#phone').attr('disabled', 'disabled');
     $('#email').attr('disabled', 'disabled');
-    $('#save-changes-btn').attr('disabled', 'disabled');
+    $('#save-changes-btn').attr('disabled',true);
 
 });
 
@@ -42,6 +42,6 @@ var cancel = function () {
     $('#phone-btn').css('display', 'unset');
     $('#last-name-btn').css('display', 'unset');
     $('#first-name-btn').css('display', 'unset');
-    $('#save-changes-btn').attr('disabled', 'disabled');
+    $('#save-changes-btn').attr('disabled', true);
 
 };

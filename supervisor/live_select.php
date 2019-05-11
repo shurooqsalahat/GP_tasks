@@ -31,7 +31,7 @@ for ($i = 0; $i < $nor; $i++) {
          '<td>'.$row[1].'</td>'.
         '<td>'.$doc["first"].' '. $doc["last"].'</td>'.
          '<td>'.
-            '<button type="button" class="btn btn-primary btn-xs dt-edit update_btn" id="update-modal-btn" >'.
+            '<button  data-toggle="modal" data-target="#update_student_modal" type="button" class="btn btn-primary btn-xs dt-edit update_btn" id="update-modal-btn" data-id="'.$row[0].'">'.
                 '<span class="glyphicon glyphicon-pencil" aria-hidden="true" data-id2="'.$row[0].'"></span>'.
             '</button>'.
             '<button type="button" class="btn btn-danger btn-xs dt-delete">'.

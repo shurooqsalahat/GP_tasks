@@ -2,15 +2,23 @@ $(document).ready(function(){
     $('#MybtnModal').click(function(){
         $('#add_student_modal').modal('show')
     });
-    $('#update-modal-btn').click(function(){
-        console.log("in update modal");
-        $('#update_student_modal').modal('show')
-    });
 
+});
+$(function(){
+    $('#update_student_modal').modal({
+        keyboard: true,
+        backdrop: "static",
+        show:false,
+
+    }).on('show', function(){
+        var getIdFromRow = $(event.target).closest('button').data('id');
+        //make your ajax call populate items or what even you need
+        console.log(getIdFromRow)
+        $(this).find('#update_student_modal').html($('<b> Order Id selected: ' + getIdFromRow  + '</b>'))
+    });
 });
 
 $(document).ready(function(){
-    console.log('first')
     function fetch_data()
     {
         console.log('second')

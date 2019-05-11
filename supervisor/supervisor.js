@@ -63,15 +63,15 @@ function form_submit() {
     $(".error").remove();
 
     if (first_name.length < 1) {
-        $('#u_first_name').after('<div class="error">This field is required</div>');
+        $('#first_name').after('<div class="error">This field is required</div>');
         vaidate =true;
     }
     if (last_name.length < 1) {
-        $('#u_last_name').after('<div class="error">This field is required</div>');
+        $('#last_name').after('<div class="error">This field is required</div>');
         vaidate =true;
     }
     if (doctorName== 0) {
-        $('#u_doctor').after('<div class="error">This field is required</div>');
+        $('#doctor').after('<div class="error">This field is required</div>');
         vaidate =true;
 
     }
@@ -87,16 +87,9 @@ function form_submit() {
     }
     if (phoneNumber.length < 1) {
         
-        $('#u_phone').after('<div class="error">This field is required</div>');
+        $('#phone').after('<div class="error">This field is required</div>');
     }
-    else {
 
-        var regex = /^\+(?:[0-9] ?){6,14}[0-9]$/;
-        var validPhone = regex.test(phoneNumber);
-        if (!validPhone) {
-            $('#phone').after('<div class="error">Enter a valid phone number</div>');
-        }
-    }
 
     if (!vaidate){
         document.getElementById("add_student_form").submit();

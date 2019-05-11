@@ -51,7 +51,8 @@ session_start();
     <!-- Main structure css file -->
     <link href="style.css" rel="stylesheet">
     <link href="log-in.css" rel="stylesheet">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <!-- Google fonts -->
     <link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Varela' rel='stylesheet' type='text/css'>
@@ -135,8 +136,13 @@ session_start();
             unset($_SESSION['Message']);
             ?>
 
-            <?php if (isset($result))
-                echo $result; ?>
+
+            <div class="form-line row">
+                <div class="col-sm-12">
+                    <?php if (isset($result ))
+                        echo $result ; ?>
+                </div>
+            </div>
             <div class="signin-content">
                 <div class="signin-image">
                     <figure><img src="img/signin-image.jpg" alt="sing up image"></figure>

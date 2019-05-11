@@ -123,7 +123,7 @@
                         </div>
                         <hr>
                         <div class="buttons">
-                            <button class="add"  id='save-changes-btn' type='button' >Save Changes</button>
+                            <input type="submit" class="add"  id='save-changes-btn'  value="Save Changes"/>
                             <button class="like" type='button' onclick="cancel()"><span>Cancel</span></button>
                         </div>
                     </form>

@@ -98,7 +98,6 @@ function form_submit() {
 }
 function update_submit() {
     var first_name = $('#u_first_name').val();
-    console.log(first_name)
     var last_name = $('#u_last_name').val();
     var email = $('#u_email').val();
     var doctorName=$('#u_doctor').val();
@@ -122,26 +121,22 @@ function update_submit() {
     }
     if (email.length < 1) {
         $('#email').after('<div class="error">This field is required</div>');
+        vaidate =true;
     } else {
 
         var regEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         var validEmail = regEx.test(email);
         if (!validEmail) {
             $('#email').after('<div class="error">Enter a valid email</div>');
+            vaidate =true;
         }
     }
     if (phoneNumber.length < 1) {
 
         $('#u_phone').after('<div class="error">This field is required</div>');
+        vaidate =true;
     }
-    else {
 
-        var regex = /^\+(?:[0-9] ?){6,14}[0-9]$/;
-        var validPhone = regex.test(phoneNumber);
-        if (!validPhone) {
-            $('#phone').after('<div class="error">Enter a valid phone number</div>');
-        }
-    }
 
     if (!vaidate){
         document.getElementById("update_student_modal").submit();

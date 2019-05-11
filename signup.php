@@ -32,6 +32,8 @@ session_start();
     <link rel='stylesheet prefetch'
           href='https://cdn.rawgit.com/pguso/jquery-plugin-circliful/master/css/jquery.circliful.css'>
     <!-- smooth animate css file -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/animate.css">
     <!-- preloader -->
     <link rel="stylesheet" href="css/queryLoader.css" type="text/css"/>
@@ -110,7 +112,7 @@ session_start();
                     $_SESSION['Message'] == "Check phone structure" || $_SESSION['Message'] = "This user not Exist Signup pleased") {
 
                     $msg = "<div class=\"alert alert-danger\">
-            <a class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+            <a  class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
             <strong>OOPS!</strong> <span id=\"failed-text\">" . $_SESSION['Message'] . "</span>
         </div>";
                 } else {
@@ -122,11 +124,14 @@ session_start();
             }
             unset($_SESSION['Message']);
             ?>
-
-            <?php if (isset($msg ))
-                echo $msg ; ?>
-
+            <div class="form-line row">
+                <div class="col-sm-12">
+                    <?php if (isset($msg ))
+                        echo $msg ; ?>
+                </div>
+            </div>
             <div class="signup-content">
+
                 <div class="signup-form">
                     <h2 class="form-title">Sign up</h2>
                     <form action="controller.php" method="REQUEST" class="register-form" id="register-form">

@@ -55,26 +55,26 @@
     <!-- /#sidebar-wrapper -->
     <!-- Page Content -->
     <div class="form-line row">
-        <div class="col-md-4 py-5 bg-primary text-white text-center" style="height: 464px;">
-            <div class="card-body" style="margin-top: 28px;">
-                <img src="http://www.ansonika.com/mavia/img/registration_bg.svg" style="width:30%">
-                <h2 class="py-3">Welcome {{supervisor name}}</h2>
+        <div class="col-md-4 py-5 text-white text-center" style="height: 464px;">
+            <div class="card-body" style="margin-top: 62px;">
+                <img src="http://www.ansonika.com/mavia/img/registration_bg.svg" style="width:70%">
+                <h2 class="py-3">Welcome </h2>
                 <p>In this page you can see your information and update them.
 
                 </p></div>
         </div>
         <div class="col-md-8 py-5 border" style="margin-top: 17px;">
-                    <h4 class="pb-4" style="margin-top: 59px;">Your Information</h4>
+                    <h4 class="pb-4" style="margin-top: 15px;margin-bottom: 34px;margin-left: 183px;">Your Information</h4>
                     <form>
                         <div class="form-line row">
-                            <div class=" col-md-2">
+                            <div class=" col-md-2 col-xs-6">
                                 First Name
                             </div>
 
-                            <div class=" col-md-6">
+                            <div class=" col-md-6 col-xs-2">
                                 <input id="first_name" name="First Name" placeholder="First Name" class="form-control" type="text">
                             </div>
-                            <div class=" col-md-2" id="first-name-btn">
+                            <div class=" col-md-2 col-xs-2" id="first-name-btn">
                                 <button class="update"   type='button'onclick="updateField('first_name')"><span><i class="fa fa-pencil"></i></span>
                                 </button>
                             </div>
@@ -108,7 +108,7 @@
                             </div>
                         </div>
                         <br>
-                        <div class="form-line row" style="margin-bottom: 162px;">
+                        <div class="form-line row" style="margin-bottom: 62px;">
                             <div class=" col-md-2">
                                 Email
                             </div>
@@ -127,11 +127,6 @@
                             <button class="like" type='button' onclick="cancel()"><span>Cancel</span></button>
                         </div>
                     </form>
-
-
-
-
-
 
 
         </div>

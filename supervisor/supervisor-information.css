@@ -38,3 +38,9 @@ button:hover{
 .update {
     width: 31%;
 }
+
+button:disabled,
+button[disabled]{
+    background-color: #cccccc;
+    color: #666666;
+}

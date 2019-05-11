@@ -74,8 +74,8 @@
                             <div class=" col-md-6 col-xs-2">
                                 <input id="first_name" name="First Name" placeholder="First Name" class="form-control" type="text">
                             </div>
-                            <div class=" col-md-2 col-xs-2" id="first-name-btn">
-                                <button class="update"   type='button'onclick="updateField('first_name')"><span><i class="fa fa-pencil"></i></span>
+                            <div class=" col-md-2 col-xs-2">
+                                <button class="update" id="first-name-btn"  type='button'onclick="updateField('first_name')"><span><i class="fa fa-pencil"></i></span>
                                 </button>
                             </div>
                         </div>
@@ -89,7 +89,7 @@
                                 <input id="last_name" name="last_name" placeholder="Last Name" class="form-control" type="text">
                             </div>
                             <div class=" col-md-2">
-                                <button class="update"  type='button' onclick="updateField('last_name')"><span><i class="fa fa-pencil"></i></span>
+                                <button class="update"  id="last-name-btn" type='button' onclick="updateField('last_name')"><span><i class="fa fa-pencil"></i></span>
                                 </button>
                             </div>
                         </div>
@@ -103,7 +103,7 @@
                                 <input id="phone" name="phone" placeholder="phone" class="form-control" type="text">
                             </div>
                             <div class=" col-md-2">
-                                <button class="update" type='button' onclick="updateField('phone')"><span><i class="fa fa-pencil"></i></span>
+                                <button class="update" id="phone-btn"  type='button' onclick="updateField('phone')"><span><i class="fa fa-pencil"></i></span>
                                 </button>
                             </div>
                         </div>
@@ -117,13 +117,13 @@
                                 <input id="email" name="email" placeholder="Email" class="form-control" type="text">
                             </div>
                             <div class=" col-md-2">
-                                <button class="update" type='button'onclick="updateField('email')"><span><i class="fa fa-pencil"></i></span>
+                                <button class="update" id="email-btn" type='button'onclick="updateField('email')"><span><i class="fa fa-pencil"></i></span>
                                 </button>
                             </div>
                         </div>
                         <hr>
                         <div class="buttons">
-                            <button class="add" type='button'>Save Changes</button>
+                            <button class="add"  id='save-changes-btn' type='button' >Save Changes</button>
                             <button class="like" type='button' onclick="cancel()"><span>Cancel</span></button>
                         </div>
                     </form>

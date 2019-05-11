@@ -23,6 +23,7 @@
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <!-- Superslide css file-->
     <link rel="stylesheet" href="../css/superslides.css">
+    <link rel="stylesheet" href="../style.css">
     <!-- Slick slider css file :: for previous and next-->
     <link href="../css/slick.css" rel="stylesheet">
     <!-- Circle counter cdn css file -->
@@ -53,22 +54,17 @@
     </div>
     <!-- /#sidebar-wrapper -->
     <!-- Page Content -->
-    <div id="supervisor-info">
-        <section id="testimonial">
-            <div class="row " style="background: white;">
-                <div class="col-md-4 py-5 bg-primary text-white text-center ">
-                    <div  style="   margin-top: 68px;">
-                        <div class="card-body">
-                            <img src="http://www.ansonika.com/mavia/img/registration_bg.svg" style="width:30%">
-                            <h2 class="py-3">Welcome {{supervisor name}}</h2>
-                            <p>In this page you can see your information and update them.
+    <div class="form-line row">
+        <div class="col-md-4 py-5 bg-primary text-white text-center" style="height: 464px;">
+            <div class="card-body" style="margin-top: 28px;">
+                <img src="http://www.ansonika.com/mavia/img/registration_bg.svg" style="width:30%">
+                <h2 class="py-3">Welcome {{supervisor name}}</h2>
+                <p>In this page you can see your information and update them.
 
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-8 py-5 border">
-                    <h4 class="pb-4">Your Information</h4>
+                </p></div>
+        </div>
+        <div class="col-md-8 py-5 border" style="margin-top: 17px;">
+                    <h4 class="pb-4" style="margin-top: 59px;">Your Information</h4>
                     <form>
                         <div class="form-line row">
                             <div class=" col-md-2">
@@ -81,7 +77,7 @@
                             <div class=" col-md-2" id="first-name-btn">
                                 <button class="update"   type='button'onclick="updateField('first_name')"><span><i class="fa fa-pencil"></i></span>
                                 </button>
-                        </div>
+                            </div>
                         </div>
                         <br>
                         <div class="form-line row">
@@ -112,7 +108,7 @@
                             </div>
                         </div>
                         <br>
-                        <div class="form-line row">
+                        <div class="form-line row" style="margin-bottom: 162px;">
                             <div class=" col-md-2">
                                 Email
                             </div>
@@ -125,17 +121,21 @@
                                 </button>
                             </div>
                         </div>
-                         <hr>
+                        <hr>
                         <div class="buttons">
                             <button class="add" type='button'>Save Changes</button>
                             <button class="like" type='button' onclick="cancel()"><span>Cancel</span></button>
                         </div>
                     </form>
-                </div>
-            </div>
 
-        </section>
 
+
+
+
+
+
+        </div>
     </div>
+
 </div>
 

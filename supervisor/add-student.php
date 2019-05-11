@@ -122,12 +122,34 @@ session_start();
     <!-- Page Content -->
     <div id="page-content-wrapper">
         <div class="container-fluid">
+            <?php
+
+            if (isset($_SESSION['Message'])) {
+                if ($_SESSION['Message'] == 'This user is already doctor' ||
+                    $_SESSION['Message'] == 'This user is already supervisor' ||
+                    $_SESSION['Message'] == 'This Student is already exist' ) {
+                    $msg = "<div class=\"alert alert-danger\">
+            <a  class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+            <strong>OOPS!</strong> <span id=\"failed-text\">" . $_SESSION['Message'] . "</span>
+        </div>";
+                }
+                else if ($_SESSION['Message'] == 'Student Added successfully') {
+                    $result = "<div class=\"alert alert-success\">
+            <a  class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+            <strong>Good</strong> <span id=\"failed-text\">" . $_SESSION['Message'] . "</span>
+        </div>";
+
+                }
+            }
+
+            unset($_SESSION['Message']);
+
+              ?>
+            <?php if (isset($msg))
+                echo $msg; ?>
+
             <div id="live_data">
-
-
             </div>
-
-
             <div class="form-line row">
                 <div class="col-sm-12 text-right">
                     <button type="button" id="MybtnModal" class="btn btn-primary">Add New Student</button>

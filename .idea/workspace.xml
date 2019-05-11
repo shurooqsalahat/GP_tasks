@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="326f293c-623d-4af7-a89e-eac506c848c8" name="Default Changelist" comment="">
+    <list default="true" id="326f293c-623d-4af7-a89e-eac506c848c8" name="Default Changelist" comment="supervisor information page">
+      <change afterPath="$PROJECT_DIR$/supervisor/supervisor-info.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/supervisor/supervisor-information.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/supervisor/supervisor-information.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/supervisor/add-student.css" beforeDir="false" afterPath="$PROJECT_DIR$/supervisor/add-student.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/supervisor/add-student.php" beforeDir="false" afterPath="$PROJECT_DIR$/supervisor/add-student.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/supervisor/supervisor.js" beforeDir="false" afterPath="$PROJECT_DIR$/supervisor/supervisor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/supervisor/all-students.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/supervisor/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/supervisor/sidebar.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -33,31 +35,42 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model.php">
+        <entry file="file://$PROJECT_DIR$/supervisor/supervisor-information.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="14" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="230">
+              <caret line="40" column="7" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="7" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/supervisor/add-student.php">
+        <entry file="file://$PROJECT_DIR$/supervisor/supervisor-information.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="151">
-              <caret line="167" column="60" selection-start-line="167" selection-start-column="40" selection-end-line="167" selection-end-column="60" />
+            <state relative-caret-position="185">
+              <caret line="131" column="30" selection-start-line="131" selection-start-column="30" selection-end-line="131" selection-end-column="30" />
               <folding>
-                <element signature="n#div#0;n#body#0;n#!!top" />
+                <element signature="n#style#0;n#div#0;n#section#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#1;n#div#0;n#body#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/supervisor/supervisor.js">
+        <entry file="file://$PROJECT_DIR$/supervisor/supervisor-info.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="111" column="53" selection-start-line="111" selection-start-column="53" selection-end-line="111" selection-end-column="53" />
+            <state relative-caret-position="196">
+              <caret line="22" column="10" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/supervisor/sidebar.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="77">
+              <caret line="34" column="43" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -74,10 +87,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ourCourses</find>
-      <find>status</find>
-      <find>font</find>
-      <find>&lt;i</find>
       <find>register-form</find>
       <find>img</find>
       <find>.signup</find>
@@ -104,6 +113,10 @@
       <find>phone</find>
       <find>form_submit</find>
       <find>first_name</find>
+      <find>page-content-wrapper</find>
+      <find>style.cs</find>
+      <find>&lt;script</find>
+      <find>updateField</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -125,10 +138,15 @@
         <option value="$PROJECT_DIR$/login.php" />
         <option value="$PROJECT_DIR$/signup.php" />
         <option value="$PROJECT_DIR$/controller.php" />
-        <option value="$PROJECT_DIR$/model.php" />
         <option value="$PROJECT_DIR$/supervisor/add-student.css" />
         <option value="$PROJECT_DIR$/supervisor/add-student.php" />
+        <option value="$PROJECT_DIR$/model.php" />
+        <option value="$PROJECT_DIR$/supervisor/supervisor-information" />
+        <option value="$PROJECT_DIR$/supervisor/supervisor-information.css" />
         <option value="$PROJECT_DIR$/supervisor/supervisor.js" />
+        <option value="$PROJECT_DIR$/supervisor/supervisor-information.html" />
+        <option value="$PROJECT_DIR$/supervisor/sidebar.html" />
+        <option value="$PROJECT_DIR$/supervisor/supervisor-info.js" />
       </list>
     </option>
   </component>
@@ -226,6 +244,7 @@
       <workItem from="1557382750735" duration="162000" />
       <workItem from="1557400325772" duration="23817000" />
       <workItem from="1557514560682" duration="1755000" />
+      <workItem from="1557558319633" duration="8720000" />
     </task>
     <task id="LOCAL-00001" summary="add student modal">
       <created>1557513398994</created>
@@ -241,17 +260,24 @@
       <option name="project" value="LOCAL" />
       <updated>1557517509396</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="update student modal">
+      <created>1557519400826</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1557519400826</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47914000" />
+    <option name="totallyTimeSpent" value="57977000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28366113" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2881997" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -262,9 +288,9 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49924356" visible="true" weight="0.37806875" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.4977307" visible="true" weight="0.37806875" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.26633987" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50075644" side_tool="true" weight="0.32733223" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50226927" side_tool="true" visible="true" weight="0.37806875" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="bottom" id="PHP-CGI Server" order="12" sideWeight="0.49924356" weight="0.3289689" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -300,7 +326,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add student modal" />
-    <option name="LAST_COMMIT_MESSAGE" value="add student modal" />
+    <MESSAGE value="update student modal" />
+    <option name="LAST_COMMIT_MESSAGE" value="update student modal" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/events-single.html" />
@@ -370,17 +397,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="136" column="14" selection-start-line="136" selection-start-column="14" selection-end-line="136" selection-end-column="14" />
-          <folding>
-            <element signature="e#121#128#1" expanded="true" />
-            <element signature="e#122#129#1" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controller.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -401,13 +417,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/controller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
@@ -425,6 +434,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="306" column="1" selection-start-line="306" selection-start-column="1" selection-end-line="306" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/supervisor/add-student.css">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -434,18 +450,58 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/supervisor/add-student.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="167" column="60" selection-start-line="167" selection-start-column="40" selection-end-line="167" selection-end-column="60" />
-          <folding>
-            <element signature="n#div#0;n#body#0;n#!!top" />
-          </folding>
+        <state relative-caret-position="-75">
+          <caret line="112" selection-start-line="112" selection-end-line="119" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/supervisor/supervisor-information.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="40" column="7" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/supervisor/supervisor.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="111" column="53" selection-start-line="111" selection-start-column="53" selection-end-line="111" selection-end-column="53" />
+        <state relative-caret-position="199">
+          <caret line="114" selection-start-line="114" selection-end-line="114" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/supervisor/supervisor-information.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="131" column="30" selection-start-line="131" selection-start-column="30" selection-end-line="131" selection-end-column="30" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#section#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#1;n#div#0;n#body#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="109" column="18" lean-forward="true" selection-start-line="109" selection-start-column="18" selection-end-line="109" selection-end-column="18" />
+          <folding>
+            <element signature="n#section#0;n#div#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/supervisor/sidebar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="77">
+          <caret line="34" column="43" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/supervisor/supervisor-info.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="22" column="10" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="10" />
         </state>
       </provider>
     </entry>

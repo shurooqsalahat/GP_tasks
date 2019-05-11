@@ -1,3 +1,8 @@
+<?php session_start();
+
+?>
+
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -42,6 +47,14 @@
 
         });
     </script>
+
+
+    <script>
+
+          function myFunction(first, last, email, phone){
+            alert ("first: " + first+ " last: " +last+ " email: "+ email +"  phone"+ phone);
+        }
+    </script>
 </head>
 
 <header id="header">
@@ -55,6 +68,27 @@
     <!-- /#sidebar-wrapper -->
     <!-- Page Content -->
     <div class="form-line row">
+        <?php
+        if (isset($_SESSION['Message'])) {
+            if ($_SESSION['Message'] == 'Something error, Please try later') {
+
+                $msg = "<div class=\"alert alert-danger\">
+            <a class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+            <strong>OOPS!</strong> <span id=\"failed-text\">" . $_SESSION['Message'] . "</span>
+        </div>";
+            } else {
+                $msg  = "<div class=\"alert alert-success\">
+            <a class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+            <strong>Good</strong> <span id=\"failed-text\">" . $_SESSION['Message'] . "</span>
+        </div>";
+            }
+        }
+        unset($_SESSION['Message']);
+        ?>
+
+        <?php if (isset($msg ))
+            echo $msg ; ?>
+
         <div class="col-md-4 py-5 text-white text-center" style="height: 464px;">
             <div class="card-body" style="margin-top: 62px;">
                 <img src="http://www.ansonika.com/mavia/img/registration_bg.svg" style="width:70%">
@@ -64,7 +98,7 @@
                 </p></div>
         </div>
         <div class="col-md-8 py-5 border" style="margin-top: 17px;">
-                    <h4 class="pb-4" style="margin-top: 15px;margin-bottom: 34px;margin-left: 183px;">Your Information</h4>
+                    <h4 class="pb-4" style="margin-top: 50px;margin-bottom: 34px;margin-left: 183px;">Your Information</h4>
                     <form action="../controller.php" method="REQUEST">
                         <div class="form-line row">
                             <div class=" col-md-2 col-xs-6">
@@ -72,8 +106,9 @@
                             </div>
 
                             <div class=" col-md-6 col-xs-2">
-                                <input name="src" value="update_supervisor" type="hidden"/>
-                                <input id="first_name" name="First Name" placeholder="First Name" class="form-control" type="text">
+                                <input name="src" value="update_supervisor_information" type="hidden"/>
+                                <input id="first_name" name="first" placeholder="First Name" class="form-control"
+                                       type="text" value="<?php if(isset($_SESSION['first'])) echo $_SESSION['first']?>">
                             </div>
                             <div class=" col-md-2 col-xs-2">
                                 <button class="update" id="first-name-btn"  type='button'onclick="updateField('first_name')"><span><i class="fa fa-pencil"></i></span>
@@ -87,7 +122,8 @@
                             </div>
 
                             <div class=" col-md-6">
-                                <input id="last_name" name="last_name" placeholder="Last Name" class="form-control" type="text">
+                                <input id="last_name" name="last" placeholder="Last Name" class="form-control"
+                                       type="text" value="<?php if(isset($_SESSION['last'])) echo $_SESSION['last']?>">
                             </div>
                             <div class=" col-md-2">
                                 <button class="update"  id="last-name-btn" type='button' onclick="updateField('last_name')"><span><i class="fa fa-pencil"></i></span>
@@ -101,7 +137,8 @@
                             </div>
 
                             <div class=" col-md-6">
-                                <input id="phone" name="phone" placeholder="phone" class="form-control" type="text">
+                                <input id="phone" name="phone" placeholder="phone" class="form-control" type="text"
+                                       value="<?php if(isset($_SESSION['phone'])) echo $_SESSION['phone']?>">
                             </div>
                             <div class=" col-md-2">
                                 <button class="update" id="phone-btn"  type='button' onclick="updateField('phone')"><span><i class="fa fa-pencil"></i></span>
@@ -115,7 +152,8 @@
                             </div>
 
                             <div class=" col-md-6">
-                                <input id="email" name="email" placeholder="Email" class="form-control" type="text">
+                                <input id="email" name="email" placeholder="Email" class="form-control" type="text"
+                                       value="<?php if(isset($_SESSION['email'])) echo $_SESSION['email']?>">
                             </div>
                             <div class=" col-md-2">
                                 <button class="update" id="email-btn" type='button'onclick="updateField('email')"><span><i class="fa fa-pencil"></i></span>
@@ -125,7 +163,9 @@
                         <hr>
                         <div class="buttons">
                             <input type="submit" class="add"  id='save-changes-btn'  value="Save Changes"/>
-                            <button class="like" type='button' onclick="cancel()"><span>Cancel</span></button>
+                            <button class="like" type='button'
+                                    onclick="cancel(); myFunction('<?php echo $_SESSION['first']?>', '<?php echo $_SESSION['last']?>',
+                                    '<?php echo $_SESSION['email']?>', '<?php echo $_SESSION['phone']?>')"><span>Cancel</span></button>
                         </div>
                     </form>
 

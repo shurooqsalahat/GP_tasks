@@ -9,30 +9,13 @@ unset($_SESSION['Message']);
 
 if (isset($src)) {
     if ($src == "signin") {
-
-        // user already signin
-        if (isset($_SESSION['auth'])) {
-            if (isDoctor($_SESSION['auth'])){
-                header('Location: supervisor/supervisor-information.php');
-                exit;
-            }
-            if (isSupervisor($_SESSION['auth'])){
-
-            }
-            if (isStudent($_SESSION['auth'])){
-
-            }
-
-        }
-
         $email = $_REQUEST["email"];
-        echo "welcome in signin";
+        //echo "welcome in signin";
         $upass = $_REQUEST["password"];
         $encpass = sha1($upass);
-        echo "<br>";
-        echo $encpass;
-        echo "<br>";
         echo $upass;
+        echo "</br>";
+        echo $encpass;
         if (isset($email) and isset($upass)) {
             //User doesn't exit
             if (!isUserExist($email)) {
@@ -74,6 +57,7 @@ if (isset($src)) {
                 }
             } elseif (isSupervisor($email)) {
                 $row = retrieveSupercisorBYEmail($email);
+                echo "isSupervisor";
                 if ($row['email'] == $email and $row['password'] == $encpass) {
                     $_SESSION['email'] = $email;
                     $_SESSION['id'] = $row['id'];
@@ -82,6 +66,8 @@ if (isset($src)) {
                     $_SESSION['phone'] = $row['phone'];
                     echo $_SESSION['first'];
                     $_SESSION['auth']= $email;
+                    header('Location: supervisor/supervisor-information.php');
+                    exit;
                 } else {
                     $_SESSION['Message'] = "incorrect password";
                     echo $_SESSION['Message'];
@@ -90,21 +76,7 @@ if (isset($src)) {
             }
         }
 
-    } else if ($src == "signup") {
-        // user already signin
-        if (isset($_SESSION['auth'])) {
-            if (isDoctor($_SESSION['auth'])){
-                header('Location: supervisor/supervisor-information.php');
-                exit;
-            }
-            if (isSupervisor($_SESSION['auth'])){
-
-            }
-            if (isStudent($_SESSION['auth'])){
-
-            }
-
-        }
+    } else if ($src == "signup"){
 
         //empty cells
         if (strlen(trim($_REQUEST['first'])) == 0 || strlen(trim($_REQUEST['last'])) == 0 ||
@@ -138,8 +110,9 @@ if (isset($src)) {
             exit;
 
         } else {
+            echo sha1($_REQUEST['password']);
             addSupervisor($_REQUEST['phone'], $_REQUEST['first'], $_REQUEST['last'], $_REQUEST['email'],
-                sha1($_REQUEST['password']));
+               $_REQUEST['password']);
             $_SESSION['Message'] = 'Success Operation, Congrats!';
             header('Location: login.php');
 
@@ -175,8 +148,69 @@ if (isset($src)) {
 
     }
 
-    else if ($src == "update_supervisor") {
+    else if ($src == "update_supervisor_information") {
         echo "welcome in update";
+        $flag_update =false;
+        if (isset($_REQUEST['first'])){
+            $first =$_REQUEST['first'];
+            $sql = "UPDATE supervisors SET first='".$first."' WHERE id=".$_SESSION['id'];
+            include ('connect_DB.php');
+            echo $sql;
+            $result = $db->query($sql);
+            if($result){
+                $flag_update =true;
+                $_SESSION['first'] =$first;
+            }
+        }
+
+        if (isset($_REQUEST['last'])) {
+            $last = $_REQUEST['last'];
+            $sql = "UPDATE supervisors SET last='".$last."' WHERE id=".$_SESSION['id'];
+            include ('connect_DB.php');
+            echo $sql;
+            $result = $db->query($sql);
+            if($result){
+                $flag_update =true;
+                $_SESSION['last'] =$last;
+            }
+        }
+
+        if (isset($_REQUEST['email'])) {
+            $email = $_REQUEST['email'];
+            $sql = "UPDATE supervisors SET email='".$email."' WHERE id=".$_SESSION['id'];
+            include ('connect_DB.php');
+            echo $sql;
+            $result = $db->query($sql);
+            if($result){
+                $flag_update =true;
+                $_SESSION['email'] =$email;
+            }
+        }
+
+        if (isset($_REQUEST['phone'])) {
+            $phone = $_REQUEST['phone'];
+            $sql = "UPDATE supervisors SET phone='".$phone."' WHERE id=".$_SESSION['id'];
+            include ('connect_DB.php');
+            echo $sql;
+            $result = $db->query($sql);
+            if($result){
+                $flag_update =true;
+                $_SESSION['phone'] =$phone;
+            }
+        }
+
+        if($flag_update){
+            $_SESSION['Message']= 'Your information updated';
+            header('Location: supervisor/supervisor-information.php');
+            exit;
+        }
+        else{
+            $_SESSION['Message']= 'Something error, Please try later';
+            header('Location: supervisor/supervisor-information.php');
+            exit;
+        }
+
+
     }
 
 }

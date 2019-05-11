@@ -3,6 +3,19 @@ include("model.php");// connect to db
 
 session_start();
 
+if (isset($_SESSION['auth'])) {
+    if (isDoctor($_SESSION['auth'])){
+
+    }
+    if (isSupervisor($_SESSION['auth'])){
+        header('Location: supervisor/supervisor-information.php');
+        exit;
+    }
+    if (isStudent($_SESSION['auth'])){
+
+    }
+
+}
 
 ?>
 

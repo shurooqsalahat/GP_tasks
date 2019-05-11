@@ -56,7 +56,6 @@ function isSupervisor($email)
 
     $nor = $result->num_rows;
     if ($nor == 0) {
-        echo "nooo";
         return false;
 
     } else {
@@ -66,14 +65,14 @@ function isSupervisor($email)
 
 }
 
-function addStudent($phone, $first, $last, $email, $password, $doctor_id, $supervisor_id)
+function addStudent($phone, $first, $last, $email, $pass, $doctor_id, $supervisor_id)
 {
     include 'connect_DB.php';
     if (isUserExist($email)){
         echo "this user already exist";
         return false;
     }
-    $shpass = sha1($password);
+    $shpass = sha1($pass);
     $sql = "INSERT INTO `students`( `phone`, `first`, `last`, `email`, `password`, `doctor_id`, `supervisor_id`) 
 VALUES ('$phone','$first','$last','$email','$shpass','$doctor_id','$supervisor_id')";
     if (mysqli_query($db, $sql)) {
@@ -154,14 +153,14 @@ function retrieveSudentsByID($id){
 }
 //retrieveSudentsByID(100);
 
-function addDoctor($phone, $first, $last, $email, $password)
+function addDoctor($phone, $first, $last, $email, $pass)
 {
     include 'connect_DB.php';
     if (isUserExist($email)){
         echo "this user already exist";
         return false;
     }
-    $shpass = sha1($password);
+    $shpass = sha1($pass);
     $sql = "INSERT INTO `doctors`( `phone`, `first`, `last`, `email`, `password`) 
 VALUES ('$phone','$first','$last','$email','$shpass')";
     if (mysqli_query($db, $sql)) {
@@ -226,14 +225,15 @@ function retrieveDoctorsByID($id){
 
 }
 
-function addSupervisor($phone, $first, $last, $email, $password)
+function addSupervisor($phone, $first, $last, $email, $pass)
 {
     include 'connect_DB.php';
     if (isUserExist($email)){
         echo "this user already exist";
         return false;
     }
-    $shpass = sha1($password);
+    $shpass = sha1($pass);
+
     $sql = "INSERT INTO `supervisors`( `phone`, `first`, `last`, `email`, `password`) 
 VALUES ('$phone','$first','$last','$email','$shpass')";
     if (mysqli_query($db, $sql)) {
@@ -244,7 +244,7 @@ VALUES ('$phone','$first','$last','$email','$shpass')";
         return false;
     }
 }
-//addSupervisor(2578, 'Isam', 'Salahat', "Isam@gmail.com",123456789);
+//addSupervisor(2578, 'Shurooq', 'Salahat', "shurdoo77qsalahat@gmail.com",123456789);
 
 function deleteSupervisor($email){
     include 'connect_DB.php';
@@ -273,7 +273,7 @@ function retrieveSupercisorBYEmail($email){
     $sql = "SELECT * FROM supervisors where email ='$email'";
     $result = $db->query($sql);
     $row = $result->fetch_array();
-    echo $row['id'];
+    //echo $row['id'];
     return $row;
 }
 //retrieveSupervisorBYEmail('ashraf.@gmail.com');
@@ -316,4 +316,14 @@ function getAllStudents(){
     $qstr = "SELECT * FROM `students` ";
     $result = $db->query($qstr);
     return $result;
+}
+
+function updateSupervisor($id){
+    include ('connect_DB.php');
+    $sql = "UPDATE supervisors SET first=' shuro0000oq' WHERE id=".$id;
+
+    echo $sql;
+    if (mysqli_query($db ,$sql)){
+        echo "done";
+    }
 }

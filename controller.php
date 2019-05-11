@@ -5,12 +5,25 @@ session_start();
 
 $src = $_REQUEST["src"];
 unset($_SESSION['Message']);
-//if (isset($_SESSION['email'])) {
-////            header('Location: index.php');
-////            exit;
-////        }
+
+
 if (isset($src)) {
     if ($src == "signin") {
+
+        // user already signin
+        if (isset($_SESSION['auth'])) {
+            if (isDoctor($_SESSION['auth'])){
+                header('Location: supervisor/supervisor-information.php');
+                exit;
+            }
+            if (isSupervisor($_SESSION['auth'])){
+
+            }
+            if (isStudent($_SESSION['auth'])){
+
+            }
+
+        }
 
         $email = $_REQUEST["email"];
         echo "welcome in signin";
@@ -37,6 +50,7 @@ if (isset($src)) {
                     $_SESSION['last'] = $row['last'];
                     $_SESSION['phone'] = $row['phone'];
                     echo $_SESSION['first'];
+                    $_SESSION['auth']= $email;
 
                 } else {
                     $_SESSION['Message'] = "incorrect password";
@@ -51,10 +65,11 @@ if (isset($src)) {
                     $_SESSION['first'] = $row['first'];
                     $_SESSION['last'] = $row['last'];
                     $_SESSION['phone'] = $row['phone'];
+                    $_SESSION['auth']= $email;
                     echo $_SESSION['first'];
                 } else {
                     $_SESSION['Message'] = "incorrect password";
-                    $_SESSION['Message'] = "incorrect password" ;
+
                     //header('Location: signIn.php');
                 }
             } elseif (isSupervisor($email)) {
@@ -66,6 +81,7 @@ if (isset($src)) {
                     $_SESSION['last'] = $row['last'];
                     $_SESSION['phone'] = $row['phone'];
                     echo $_SESSION['first'];
+                    $_SESSION['auth']= $email;
                 } else {
                     $_SESSION['Message'] = "incorrect password";
                     echo $_SESSION['Message'];
@@ -75,11 +91,24 @@ if (isset($src)) {
         }
 
     } else if ($src == "signup") {
+        // user already signin
+        if (isset($_SESSION['auth'])) {
+            if (isDoctor($_SESSION['auth'])){
+                header('Location: supervisor/supervisor-information.php');
+                exit;
+            }
+            if (isSupervisor($_SESSION['auth'])){
 
-        //echo "welcome in signup";
+            }
+            if (isStudent($_SESSION['auth'])){
+
+            }
+
+        }
+
         //empty cells
         if (strlen(trim($_REQUEST['first'])) == 0 || strlen(trim($_REQUEST['last'])) == 0 ||
-                strlen(trim($_REQUEST['password'])) == 0 || strlen(trim($_REQUEST['email'])) == 0) {
+            strlen(trim($_REQUEST['password'])) == 0 || strlen(trim($_REQUEST['email'])) == 0) {
             $_SESSION['Message'] = "This Data is Required";
             //echo $_SESSION['Message'];
             header('Location: signup.php');
@@ -99,53 +128,50 @@ if (isset($src)) {
             echo $_SESSION['Message'];
             header('Location: signup.php');
             exit;
-        }
-        else if ($_REQUEST['phone'] < 0 || !is_numeric($_REQUEST['phone'])) {
+        } else if ($_REQUEST['phone'] < 0 || !is_numeric($_REQUEST['phone'])) {
             $_SESSION['email'] = $_REQUEST['email'];
             $_SESSION['first'] = $_REQUEST['first'];
             $_SESSION['last'] = $_REQUEST['last'];
-            $_SESSION['Message']="Check phone structure";
+            $_SESSION['Message'] = "Check phone structure";
             echo $_SESSION['Message'];
             header('Location: signup.php');
             exit;
 
         } else {
-                addSupervisor($_REQUEST['phone'],$_REQUEST['first'],$_REQUEST['last'],$_REQUEST['email'],
-                    sha1($_REQUEST['password']));
-                $_SESSION['Message']= 'Success Operation, Congrats!';
-                header('Location: login.php');
+            addSupervisor($_REQUEST['phone'], $_REQUEST['first'], $_REQUEST['last'], $_REQUEST['email'],
+                sha1($_REQUEST['password']));
+            $_SESSION['Message'] = 'Success Operation, Congrats!';
+            header('Location: login.php');
 
-            }
-    }
-    else if($src=='addStudent'){
-        $email= $_REQUEST['email'];
+        }
+    } else if ($src == 'addStudent') {
+        $email = $_REQUEST['email'];
 
-         if(isSupervisor($email)){
-             $_SESSION['Message'] ="This user is already supervisor";
-             echo $_SESSION['Message'];
-             header('Location: supervisor/add-student.php');
-             exit;
-         }
-        if(isDoctor($email)){
-            $_SESSION['Message'] ="This user is already doctor";
+        if (isSupervisor($email)) {
+            $_SESSION['Message'] = "This user is already supervisor";
             echo $_SESSION['Message'];
             header('Location: supervisor/add-student.php');
             exit;
         }
-        if (isUserExist($email)){
-            $_SESSION['Message'] ="This Student is already exist";
+        if (isDoctor($email)) {
+            $_SESSION['Message'] = "This user is already doctor";
             echo $_SESSION['Message'];
             header('Location: supervisor/add-student.php');
             exit;
         }
-         else{
+        if (isUserExist($email)) {
+            $_SESSION['Message'] = "This Student is already exist";
+            echo $_SESSION['Message'];
+            header('Location: supervisor/add-student.php');
+            exit;
+        } else {
 
-             addStudent($_REQUEST['phone'], $_REQUEST['first'],$_REQUEST['last'], $_REQUEST['email']
-             ,'123456',$_REQUEST['doctor'], $_SESSION['id']);
-             $_SESSION['Message'] ="Student Added successfully";
-             header('Location: supervisor/add-student.php');
-             exit;
-         }
+            addStudent($_REQUEST['phone'], $_REQUEST['first'], $_REQUEST['last'], $_REQUEST['email']
+                , '123456', $_REQUEST['doctor'], $_SESSION['id']);
+            $_SESSION['Message'] = "Student Added successfully";
+            header('Location: supervisor/add-student.php');
+            exit;
+        }
 
     }
 }

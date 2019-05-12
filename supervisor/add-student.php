@@ -134,7 +134,7 @@ session_start();
         </div>";
                 }
                 else if ($_SESSION['Message'] == 'Student Added successfully') {
-                    $result = "<div class=\"alert alert-success\">
+                    $msg = "<div class=\"alert alert-success\">
             <a  class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
             <strong>Good</strong> <span id=\"failed-text\">" . $_SESSION['Message'] . "</span>
         </div>";

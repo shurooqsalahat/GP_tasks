@@ -83,17 +83,20 @@ function form_submit() {
     }
      if (email.length < 1) {
         $('#email').after('<div class="error">This field is required</div>');
+         vaidate =true;
     } else {
 
          var regEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         var validEmail = regEx.test(email);
         if (!validEmail) {
             $('#email').after('<div class="error">Enter a valid email</div>');
+            vaidate =true;
         }
     }
     if (phoneNumber.length < 1) {
         
         $('#phone').after('<div class="error">This field is required</div>');
+        vaidate =true;
     }
 
 

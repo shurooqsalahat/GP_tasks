@@ -69,7 +69,7 @@ function addStudent($phone, $first, $last, $email, $pass, $doctor_id, $superviso
 {
     include 'connect_DB.php';
     if (isUserExist($email)){
-        echo "this user already exist";
+
         return false;
     }
     $shpass = sha1($pass);
@@ -157,7 +157,7 @@ function addDoctor($phone, $first, $last, $email, $pass)
 {
     include 'connect_DB.php';
     if (isUserExist($email)){
-        echo "this user already exist";
+
         return false;
     }
     $shpass = sha1($pass);
@@ -229,7 +229,7 @@ function addSupervisor($phone, $first, $last, $email, $pass)
 {
     include 'connect_DB.php';
     if (isUserExist($email)){
-        echo "this user already exist";
+
         return false;
     }
     $shpass = sha1($pass);

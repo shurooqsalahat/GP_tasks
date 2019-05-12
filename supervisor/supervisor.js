@@ -124,7 +124,7 @@ function update_submit(e){
 
     var i;
 
-    
+
     for (i = 0; i < optionTexts.length; i++) {
        if(optionTexts[i].text == doctor ){
            $("#u_doctor").val(optionTexts[i].value);

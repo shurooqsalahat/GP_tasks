@@ -134,7 +134,7 @@ session_start();
         </div>";
                 }
                 else if ($_SESSION['Message'] == 'Student Added successfully') {
-                    $result = "<div class=\"alert alert-success\">
+                    $msg = "<div class=\"alert alert-success\">
             <a  class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
             <strong>Good</strong> <span id=\"failed-text\">" . $_SESSION['Message'] . "</span>
         </div>";
@@ -212,7 +212,7 @@ session_start();
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" name="submit" id="submit_update_modal"  >Update</button>
+                            <button type="button" class="btn btn-primary" name="submit" id="submit_update_modal" onclick="validate_update_form()" >Update</button>
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                     </div>

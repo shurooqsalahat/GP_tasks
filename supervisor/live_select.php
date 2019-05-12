@@ -25,7 +25,7 @@ $count =1;
 for ($i = 0; $i < $nor; $i++) {
     $row = $result->fetch_array();
     $doc= retrieveDoctorsByID($row['doctor_id']);
-    echo ' <tr onclick="update_submit(this)">'.
+    echo ' <tr>'.
         '<td>'.$row[0].'</td>'.
         '<td>'.$row['2'].'</td>'.
         '<td>'. $row[3].'</td>'.

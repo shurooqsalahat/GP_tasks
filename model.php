@@ -305,11 +305,7 @@ function getAllDoctors()
     $qstr = "SELECT * FROM `doctors` ";
     $result = $db->query($qstr);
     return $result;
-//    $nor = $result->num_rows;
-//    for ($i = 0; $i < $nor; $i++) {
-//        $row = $result->fetch_array();
-//        echo $row[0] . $row[2] . $row[3];
-//    }
+
 }
 function getAllStudents(){
     include("connect_DB.php");// connect to db
@@ -318,12 +314,4 @@ function getAllStudents(){
     return $result;
 }
 
-function updateSupervisor($id){
-    include ('connect_DB.php');
-    $sql = "UPDATE supervisors SET first=' shuro0000oq' WHERE id=".$id;
 
-    echo $sql;
-    if (mysqli_query($db ,$sql)){
-        echo "done";
-    }
-}

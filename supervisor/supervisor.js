@@ -26,7 +26,6 @@ $(document).ready(function(){
             url:"live_select.php",
             method:"POST",
             success:function(data){
-                console.log("shuroooq")
                 $('#live_data').html(data);
             }
         });
@@ -49,6 +48,28 @@ $(document).ready(function(){
                 }
             });
         }
+
+    });
+
+    $(document).on('click', '.update_btn', function(){
+        var id=$(this).data("id");
+        console.log(id);
+        update_submit();
+        $('#submit_update_modal').click(function(){
+            console.log('innnnn');
+            var form= $('#update_student_form_modal').serialize()
+            $.ajax({
+                url:"live_update.php",
+                method:"POST",
+                data:{id:id, form:form},
+                dataType:"text",
+                success:function(data){
+                    alert(data);
+                    fetch_data();
+                }
+            });
+        });
+
     });
 
 });
@@ -96,50 +117,70 @@ function form_submit() {
     }
 
 }
-function update_submit() {
-    var first_name = $('#u_first_name').val();
-    var last_name = $('#u_last_name').val();
-    var email = $('#u_email').val();
-    var doctorName=$('#u_doctor').val();
-    var phoneNumber = $('#u_phone').val();
-    var vaidate = false;
+function update_submit(e){
+    var table = document.getElementById('students_table');
+    var rowCount = table.rows.length;
+    //console.log("Row index is: " + x.rowIndex);
 
-    $(".error").remove();
+    alert ("Row index is: " + e.rowIndex + table.rows[e.rowIndex]);
 
-    if (first_name.length < 1) {
-        $('#u_first_name').after('<div class="error">This field is required</div>');
-        vaidate =true;
-    }
-    if (last_name.length < 1) {
-        $('#u_last_name').after('<div class="error">This field is required</div>');
-        vaidate =true;
-    }
-    if (doctorName== 0) {
-        $('#u_doctor').after('<div class="error">This field is required</div>');
-        vaidate =true;
-
-    }
-    if (email.length < 1) {
-        $('#email').after('<div class="error">This field is required</div>');
-        vaidate =true;
-    } else {
-
-        var regEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        var validEmail = regEx.test(email);
-        if (!validEmail) {
-            $('#email').after('<div class="error">Enter a valid email</div>');
-            vaidate =true;
-        }
-    }
-    if (phoneNumber.length < 1) {
-
-        $('#u_phone').after('<div class="error">This field is required</div>');
-        vaidate =true;
-    }
-
-
-    if (!vaidate){
-        document.getElementById("update_student_modal").submit();
-    }
-
+    // $("#name").val(parentRow.find("[name='name']").text());
+    // $("#address").val(parentRow.find("[name='address']").text());
+    // //considering you saved the values are male and female in db
+    // if(parentRow.find("[name='gender']").text() == 'male') {
+    //     $('[value="M"]').attr('checked', true)
+    // }
+    // else {
+    //     $('[value="F"]').attr('checked', true)
+    // }
+    // $("#birthdate").val(parentRow.find("[name='birthdate']").text());
 }
+
+
+// function update_submit() {
+//     var first_name = $('#u_first_name').val();
+//     var last_name = $('#u_last_name').val();
+//     var email = $('#u_email').val();
+//     var doctorName=$('#u_doctor').val();
+//     var phoneNumber = $('#u_phone').val();
+//     var vaidate = false;
+//
+//     $(".error").remove();
+//
+//     if (first_name.length < 1) {
+//         $('#u_first_name').after('<div class="error">This field is required</div>');
+//         vaidate =true;
+//     }
+//     if (last_name.length < 1) {
+//         $('#u_last_name').after('<div class="error">This field is required</div>');
+//         vaidate =true;
+//     }
+//     if (doctorName== 0) {
+//         $('#u_doctor').after('<div class="error">This field is required</div>');
+//         vaidate =true;
+//
+//     }
+//     if (email.length < 1) {
+//         $('#email').after('<div class="error">This field is required</div>');
+//         vaidate =true;
+//     } else {
+//
+//         var regEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+//         var validEmail = regEx.test(email);
+//         if (!validEmail) {
+//             $('#email').after('<div class="error">Enter a valid email</div>');
+//             vaidate =true;
+//         }
+//     }
+//     if (phoneNumber.length < 1) {
+//
+//         $('#u_phone').after('<div class="error">This field is required</div>');
+//         vaidate =true;
+//     }
+//
+//
+//     if (!vaidate){
+//         document.getElementById("update_student_form_modal").submit();
+//     }
+//
+// }

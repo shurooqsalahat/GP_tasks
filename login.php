@@ -3,19 +3,6 @@ include("model.php");// connect to db
 
 session_start();
 
-if (isset($_SESSION['auth'])) {
-    if (isDoctor($_SESSION['auth'])){
-
-    }
-    if (isSupervisor($_SESSION['auth'])){
-        header('Location: supervisor/supervisor-information.php');
-        exit;
-    }
-    if (isStudent($_SESSION['auth'])){
-
-    }
-
-}
 
 ?>
 
@@ -75,7 +62,7 @@ if (isset($_SESSION['auth'])) {
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <script src="js/controller.js"> </script>
+    <script src="js/controller.js"></script>
 
     <![endif]-->
 
@@ -116,7 +103,7 @@ if (isset($_SESSION['auth'])) {
                         </li>
                         <li><a href="contact.html">Contact Us</a></li>
                     </ul>
-                    <ul  class="nav navbar-nav navbar-right main-nav" style="margin-right: 0px">
+                    <ul class="nav navbar-nav navbar-right main-nav" style="margin-right: 0px">
                         <li><a href="signup.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                         <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                     </ul>
@@ -130,30 +117,29 @@ if (isset($_SESSION['auth'])) {
 <div class="main">
     <section class="sign-in">
         <div class="container">
+
             <?php
             if (isset($_SESSION['Message'])) {
-                if ($_SESSION['Message'] == 'This Data is Required' || $_SESSION['Message'] == "Password not match"
-                    || $_SESSION['Message'] == "Password Must be 8 digits or more" || $_SESSION['Message'] == "Check phone structure") {
-
-                    $result = "<div class=\"alert alert-danger\">
-            <a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+                if ($_SESSION['Message'] == 'incorrect password') {
+                    $msg = "<div class=\"alert alert-danger\">
+            <a  class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
             <strong>OOPS!</strong> <span id=\"failed-text\">" . $_SESSION['Message'] . "</span>
         </div>";
-                } else {
-                    $result = "<div class=\"alert alert-success\">
-            <a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
-            <strong>Good</strong> <span id=\"failed-text\">" . $_SESSION['Message'] . "</span>
+                }
+                else if ($_SESSION['Message'] == 'Success Operation, Congrats!') {
+                    $msg = "<div class=\"alert alert-success\">
+                   <a class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+                   <strong>Good</strong> <span id=\"failed-text\">" . $_SESSION['Message'] . "</span>
         </div>";
                 }
             }
             unset($_SESSION['Message']);
             ?>
 
-
             <div class="form-line row">
                 <div class="col-sm-12">
-                    <?php if (isset($result ))
-                        echo $result ; ?>
+                    <?php if (isset($msg))
+                        echo $msg; ?>
                 </div>
             </div>
             <div class="signin-content">
@@ -175,8 +161,9 @@ if (isset($_SESSION['auth'])) {
                             <input type="password" name="password" id="your_pass" placeholder="Password"/>
                         </div>
                         <div class="form-group">
-                            <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
-                            <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
+                            <input type="checkbox" name="remember-me" id="remember-me" class="agree-term"/>
+                            <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember
+                                me</label>
                         </div>
                         <div class="form-group form-button">
                             <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>

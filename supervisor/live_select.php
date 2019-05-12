@@ -2,7 +2,7 @@
 include('../model.php');
 
 
-echo '<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">' .
+echo '<table id="students_table" class="table table-striped table-bordered" cellspacing="0" width="100%">' .
     '<thead>' . '<tr>' . '<th>Student ID</th>' .
     '<th>Name</th>' .
     '<th>Email</th>' .
@@ -24,15 +24,15 @@ $count =1;
 for ($i = 0; $i < $nor; $i++) {
     $row = $result->fetch_array();
     $doc= retrieveDoctorsByID($row['doctor_id']);
-    echo ' <tr>'.
+    echo ' <tr onclick="update_submit(this)">'.
         '<td>'.$row[0].'</td>'.
         '<td>'.$row['2'].' '. $row[3].'</td>'.
         '<td>'.$row[4].'</td>'.
          '<td>'.$row[1].'</td>'.
-        '<td>'.$doc["first"].' '. $doc["last"].'</td>'.
+        '<td >'.$doc["first"].' '. $doc["last"].'</td>'.
          '<td>'.
             '<button style="margin-right: 6px;" data-toggle="modal" data-target="#update_student_modal" type="button" class="btn btn-primary btn-sm dt-edit update_btn" id="update-modal-btn" data-id="'.$row[0].'">'.
-                '<span class="glyphicon glyphicon-pencil" aria-hidden="true" data-id2="'.$row[0].'"></span>'.
+                '<span class="glyphicon glyphicon-pencil update_btn" aria-hidden="true" data-id2="'.$row[0].'"></span>'.
             '</button>'.
             '<button type="button" class="btn btn-danger btn-sm dt-delete">'.
                 '<span class="glyphicon glyphicon-remove delete_btn" aria-hidden="true" data-id3="'.$row[0].'"></span>'.

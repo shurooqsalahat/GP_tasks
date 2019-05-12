@@ -21,7 +21,7 @@ if (isset($src)) {
             if (!isUserExist($email)) {
                 $_SESSION['email'] = $email;
                 $_SESSION['Message'] = "This user not Exist Signup please";
-                echo $_SESSION['Message'];
+                //echo $_SESSION['Message'];
                 header('Location: signUp.php');
                 exit;
             } elseif (isDoctor($email)) {
@@ -37,7 +37,7 @@ if (isset($src)) {
 
                 } else {
                     $_SESSION['Message'] = "incorrect password";
-                    //header('Location: signIn.php');
+                     header('Location: login.php');
                 }
 
             } elseif (isStudent($email)) {
@@ -53,7 +53,7 @@ if (isset($src)) {
                 } else {
                     $_SESSION['Message'] = "incorrect password";
 
-                    //header('Location: signIn.php');
+                    header('Location: login.php');
                 }
             } elseif (isSupervisor($email)) {
                 $row = retrieveSupercisorBYEmail($email);
@@ -71,13 +71,13 @@ if (isset($src)) {
                 } else {
                     $_SESSION['Message'] = "incorrect password";
                     echo $_SESSION['Message'];
-                    //header('Location: signIn.php');
+                    header('Location: login.php');
                 }
             }
         }
 
     } else if ($src == "signup"){
-
+           session_destroy();
         //empty cells
         if (strlen(trim($_REQUEST['first'])) == 0 || strlen(trim($_REQUEST['last'])) == 0 ||
             strlen(trim($_REQUEST['password'])) == 0 || strlen(trim($_REQUEST['email'])) == 0) {
@@ -111,10 +111,10 @@ if (isset($src)) {
 
         } else {
             echo sha1($_REQUEST['password']);
-            addSupervisor($_REQUEST['phone'], $_REQUEST['first'], $_REQUEST['last'], $_REQUEST['email'],
+                addSupervisor($_REQUEST['phone'], $_REQUEST['first'], $_REQUEST['last'], $_REQUEST['email'],
                $_REQUEST['password']);
-            $_SESSION['Message'] = 'Success Operation, Congrats!';
-            header('Location: login.php');
+               $_SESSION['Message'] = 'Success Operation, Congrats!';
+                header('Location: login.php');
 
         }
     } else if ($src == 'addStudent') {

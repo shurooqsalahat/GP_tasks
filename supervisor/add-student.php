@@ -167,11 +167,11 @@ session_start();
                             <h4 class="modal-title">Update Student Information</h4>
                         </div>
                         <div class="modal-body">
-                            <form id="update_student_modal" action="../controller.php" method="" method="" >
+                            <form id="update_student_form_modal"  method="" method="" >
                                 <div class="form-line row">
                                     <div class="col-sm-12">
                                         <label for="first_name">First Name:</label>
-                                        <input name="src" value="addStudent" type="hidden"/>
+
                                         <input type="text" id="u_first_name" name="first">
                                     </div>
                                 </div>
@@ -212,7 +212,7 @@ session_start();
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" name="submit" id="submit" onclick="update_submit()">Update</button>
+                            <button type="button" class="btn btn-primary" name="submit" id="submit_update_modal" onclick="update_submit()" >Update</button>
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                     </div>

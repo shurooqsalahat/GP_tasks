@@ -92,7 +92,7 @@ session_start();
                         <li><a href="contact.html">Contact Us</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right main-nav" style="margin-right: 0px">
-                        <li><a href="signup.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                        <li><a href="signup.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                         <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->

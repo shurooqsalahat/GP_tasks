@@ -37,7 +37,7 @@ if (isset($src)) {
 
                 } else {
                     $_SESSION['Message'] = "incorrect password";
-                     header('Location: login.php');
+                    header('Location: login.php');
                 }
 
             } elseif (isStudent($email)) {
@@ -77,7 +77,7 @@ if (isset($src)) {
         }
 
     } else if ($src == "signup"){
-           session_destroy();
+        session_destroy();
         //empty cells
         if (strlen(trim($_REQUEST['first'])) == 0 || strlen(trim($_REQUEST['last'])) == 0 ||
             strlen(trim($_REQUEST['password'])) == 0 || strlen(trim($_REQUEST['email'])) == 0) {
@@ -111,10 +111,10 @@ if (isset($src)) {
 
         } else {
             echo sha1($_REQUEST['password']);
-                addSupervisor($_REQUEST['phone'], $_REQUEST['first'], $_REQUEST['last'], $_REQUEST['email'],
-               $_REQUEST['password']);
-               $_SESSION['Message'] = 'Success Operation, Congrats!';
-                header('Location: login.php');
+            addSupervisor($_REQUEST['phone'], $_REQUEST['first'], $_REQUEST['last'], $_REQUEST['email'],
+                $_REQUEST['password']);
+            $_SESSION['Message'] = 'Success Operation, Congrats!';
+            header('Location: login.php');
 
         }
     } else if ($src == 'addStudent') {

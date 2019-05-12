@@ -50,9 +50,20 @@
 
 
     <script>
-
-          function myFunction(first, last, email, phone){
-            alert ("first: " + first+ " last: " +last+ " email: "+ email +"  phone"+ phone);
+          function cancel(first, last, email, phone){
+              $('input[name="first"]').val(first);
+              $('input[name="last"]').val(last);
+              $('input[name="phone"]').val(phone);
+              $('input[name="email"]').val(email);
+              $('#first_name').attr('disabled', 'disabled');
+              $('#last_name').attr('disabled', 'disabled');
+              $('#phone').attr('disabled', 'disabled');
+              $('#email').attr('disabled', 'disabled');
+              $('#email-btn').css('display', 'unset');
+              $('#phone-btn').css('display', 'unset');
+              $('#last-name-btn').css('display', 'unset');
+              $('#first-name-btn').css('display', 'unset');
+              $('#save-changes-btn').attr('disabled', true);
         }
     </script>
 </head>
@@ -164,7 +175,7 @@
                         <div class="buttons">
                             <input type="submit" class="add"  id='save-changes-btn'  value="Save Changes"/>
                             <button class="like" type='button'
-                                    onclick="cancel(); myFunction('<?php echo $_SESSION['first']?>', '<?php echo $_SESSION['last']?>',
+                                    onclick="cancel('<?php echo $_SESSION['first']?>', '<?php echo $_SESSION['last']?>',
                                     '<?php echo $_SESSION['email']?>', '<?php echo $_SESSION['phone']?>')"><span>Cancel</span></button>
                         </div>
                     </form>

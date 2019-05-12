@@ -105,7 +105,7 @@ function form_submit() {
     }
 
 }
-function update_submit(e){
+function update_submit(){
     var row = $(event.target).closest('tr');
     var id = row.find('td:first').text();
     var first_name = row.find("td:eq(1)").text();
@@ -126,8 +126,6 @@ function update_submit(e){
     });
 
     var i;
-
-
     for (i = 0; i < optionTexts.length; i++) {
        if(optionTexts[i].text == doctor ){
            $("#u_doctor").val(optionTexts[i].value);
@@ -138,51 +136,51 @@ function update_submit(e){
 }
 
 
-// function update_submit() {
-//     var first_name = $('#u_first_name').val();
-//     var last_name = $('#u_last_name').val();
-//     var email = $('#u_email').val();
-//     var doctorName=$('#u_doctor').val();
-//     var phoneNumber = $('#u_phone').val();
-//     var vaidate = false;
-//
-//     $(".error").remove();
-//
-//     if (first_name.length < 1) {
-//         $('#u_first_name').after('<div class="error">This field is required</div>');
-//         vaidate =true;
-//     }
-//     if (last_name.length < 1) {
-//         $('#u_last_name').after('<div class="error">This field is required</div>');
-//         vaidate =true;
-//     }
-//     if (doctorName== 0) {
-//         $('#u_doctor').after('<div class="error">This field is required</div>');
-//         vaidate =true;
-//
-//     }
-//     if (email.length < 1) {
-//         $('#email').after('<div class="error">This field is required</div>');
-//         vaidate =true;
-//     } else {
-//
-//         var regEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-//         var validEmail = regEx.test(email);
-//         if (!validEmail) {
-//             $('#email').after('<div class="error">Enter a valid email</div>');
-//             vaidate =true;
-//         }
-//     }
-//     if (phoneNumber.length < 1) {
-//
-//         $('#u_phone').after('<div class="error">This field is required</div>');
-//         vaidate =true;
-//     }
-//
-//
-//     if (!vaidate){
-//         document.getElementById("update_student_form_modal").submit();
-//     }
-//
-// }
+function validate_update_form() {
+    var first_name = $('#u_first_name').val();
+    var last_name = $('#u_last_name').val();
+    var email = $('#u_email').val();
+    var doctorName=$('#u_doctor').val();
+    var phoneNumber = $('#u_phone').val();
+    var vaidate = false;
+
+    $(".error").remove();
+
+    if (first_name.length < 1) {
+        $('#u_first_name').after('<div class="error">This field is required</div>');
+        vaidate =true;
+    }
+    if (last_name.length < 1) {
+        $('#u_last_name').after('<div class="error">This field is required</div>');
+        vaidate =true;
+    }
+    if (doctorName== 0) {
+        $('#u_doctor').after('<div class="error">This field is required</div>');
+        vaidate =true;
+
+    }
+    if (email.length < 1) {
+        $('#u_email').after('<div class="error">This field is required</div>');
+        vaidate =true;
+    } else {
+
+        var regEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        var validEmail = regEx.test(email);
+        if (!validEmail) {
+            $('#u_email').after('<div class="error">Enter a valid email</div>');
+            vaidate =true;
+        }
+    }
+    if (phoneNumber.length < 1) {
+
+        $('#u_phone').after('<div class="error">This field is required</div>');
+        vaidate =true;
+    }
+
+
+    if (!vaidate){
+        document.getElementById("update_student_form_modal").submit();
+    }
+
+}
 

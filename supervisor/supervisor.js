@@ -39,6 +39,7 @@ $(document).ready(function(){
 
     $(document).on('click', '.update_btn', function(){
         var id=$(this).data("id");
+
         update_submit();
         $('#submit_update_modal').click(function(){
             console.log('innnnn');
@@ -49,7 +50,7 @@ $(document).ready(function(){
                 data:{id:id, form:form},
                 dataType:"text",
                 success:function(data){
-                    alert(data);
+                    //alert(data);
                     fetch_data();
                 }
             });

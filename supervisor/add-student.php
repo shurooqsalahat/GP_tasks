@@ -212,7 +212,7 @@ session_start();
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" name="submit" id="submit_update_modal" onclick="update_submit()" >Update</button>
+                            <button type="button" class="btn btn-primary" name="submit" id="submit_update_modal"  >Update</button>
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                     </div>

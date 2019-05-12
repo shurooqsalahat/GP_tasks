@@ -4,24 +4,11 @@ $(document).ready(function(){
     });
 
 });
-$(function(){
-    $('#update_student_modal').modal({
-        keyboard: true,
-        backdrop: "static",
-        show:false,
 
-    }).on('show', function(){
-        var getIdFromRow = $(event.target).closest('button').data('id');
-        //make your ajax call populate items or what even you need
-        console.log(getIdFromRow)
-        $(this).find('#update_student_modal').html($('<b> Order Id selected: ' + getIdFromRow  + '</b>'))
-    });
-});
 
 $(document).ready(function(){
     function fetch_data()
     {
-        console.log('second')
         $.ajax({
             url:"live_select.php",
             method:"POST",
@@ -34,7 +21,6 @@ $(document).ready(function(){
     fetch_data();
     $(document).on('click', '.delete_btn', function(){
         var id=$(this).data("id3");
-        console.log(id);
         if(confirm("Are you sure you want to delete this?"))
         {
             $.ajax({
@@ -53,7 +39,6 @@ $(document).ready(function(){
 
     $(document).on('click', '.update_btn', function(){
         var id=$(this).data("id");
-        console.log(id);
         update_submit();
         $('#submit_update_modal').click(function(){
             console.log('innnnn');
@@ -118,22 +103,33 @@ function form_submit() {
 
 }
 function update_submit(e){
-    var table = document.getElementById('students_table');
-    var rowCount = table.rows.length;
-    //console.log("Row index is: " + x.rowIndex);
+    var row = $(event.target).closest('tr');
+    var id = row.find('td:first').text();
+    var first_name = row.find("td:eq(1)").text();
+    var last_name = row.find("td:eq(2)").text();
+    var email = row.find("td:eq(3)").text();
+    var phone = row.find("td:eq(4)").text();
+    var doctor= row.find("td:eq(5)").text();
+    $('input[id="u_first_name"]').val(first_name);
+    $('input[id="u_last_name"]').val(last_name);
+    $('input[id="u_email"]').val(email);
+    $('input[id="u_phone"]').val(phone);
+    $('input[id="u_doctor"]').val(doctor);
 
-    alert ("Row index is: " + e.rowIndex + table.rows[e.rowIndex]);
 
-    // $("#name").val(parentRow.find("[name='name']").text());
-    // $("#address").val(parentRow.find("[name='address']").text());
-    // //considering you saved the values are male and female in db
-    // if(parentRow.find("[name='gender']").text() == 'male') {
-    //     $('[value="M"]').attr('checked', true)
-    // }
-    // else {
-    //     $('[value="F"]').attr('checked', true)
-    // }
-    // $("#birthdate").val(parentRow.find("[name='birthdate']").text());
+    var optionTexts=[];
+    $('#u_doctor option').each(function() {
+        optionTexts.push({value :$(this).val(),text:$(this).text()});
+    });
+
+    var i;
+    for (i = 0; i < optionTexts.length; i++) {
+       if(optionTexts[i].text == doctor ){
+           $("#u_doctor").val(optionTexts[i].value);
+       }
+    }
+
+
 }
 
 
@@ -184,3 +180,4 @@ function update_submit(e){
 //     }
 //
 // }
+

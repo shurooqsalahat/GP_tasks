@@ -4,7 +4,8 @@ include('../model.php');
 
 echo '<table id="students_table" class="table table-striped table-bordered" cellspacing="0" width="100%">' .
     '<thead>' . '<tr>' . '<th>Student ID</th>' .
-    '<th>Name</th>' .
+    '<th>First Name</th>' .
+    '<th>Last Name</th>' .
     '<th>Email</th>' .
     '<th>Phone</th>' .
     '<th>Doctor</th>' .
@@ -26,7 +27,8 @@ for ($i = 0; $i < $nor; $i++) {
     $doc= retrieveDoctorsByID($row['doctor_id']);
     echo ' <tr onclick="update_submit(this)">'.
         '<td>'.$row[0].'</td>'.
-        '<td>'.$row['2'].' '. $row[3].'</td>'.
+        '<td>'.$row['2'].'</td>'.
+        '<td>'. $row[3].'</td>'.
         '<td>'.$row[4].'</td>'.
          '<td>'.$row[1].'</td>'.
         '<td >'.$doc["first"].' '. $doc["last"].'</td>'.

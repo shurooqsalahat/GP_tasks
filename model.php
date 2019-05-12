@@ -171,7 +171,7 @@ VALUES ('$phone','$first','$last','$email','$shpass')";
         return false;
     }
 }
-//addDoctor(2578, 'ashraf', 'armoush', "ashraf@gmail.com",123456789);
+addDoctor(2578, 'Samer', 'Arandi', "samer@gmail.com",123456789);
 
 function deleteDoctor($email){
     include 'connect_DB.php';

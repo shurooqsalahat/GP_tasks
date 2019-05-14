@@ -25,7 +25,7 @@ $count =1;
 for ($i = 0; $i < $nor; $i++) {
     $row = $result->fetch_array();
     $doc= retrieveDoctorsByID($row['doctor_id']);
-    echo ' <tr>'.
+    echo ' <tr onclick="update_submit(this)">'.
         '<td>'.$row[0].'</td>'.
         '<td>'.$row['2'].'</td>'.
         '<td>'. $row[3].'</td>'.
@@ -34,10 +34,10 @@ for ($i = 0; $i < $nor; $i++) {
         '<td >'.$doc["first"].' '. $doc["last"].'</td>'.
          '<td>'.
             '<button style="margin-right: 6px;" data-toggle="modal" data-target="#update_student_modal" type="button" class="btn btn-primary btn-sm dt-edit update_btn" id="update-modal-btn" data-id="'.$row[0].'">'.
-                '<span class="glyphicon glyphicon-pencil " aria-hidden="true" data-id2="'.$row[0].'"></span>'.
+                '<span class="glyphicon glyphicon-pencil " aria-hidden="true" ></span>'.
             '</button>'.
-            '<button type="button" class="btn btn-danger btn-sm dt-delete">'.
-                '<span class="glyphicon glyphicon-remove delete_btn" aria-hidden="true" data-id3="'.$row[0].'"></span>'.
+            '<button type="button" class="btn btn-danger btn-sm dt-delete delete_btn" data-id3="'.$row[0].'">'.
+                '<span class="glyphicon glyphicon-remove " aria-hidden="true" ></span>'.
              '</button>'.
         '</td>'.
             '</tr>';

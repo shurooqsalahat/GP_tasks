@@ -105,7 +105,7 @@ function deleteStudentBeEmail($email){
 
 function deleteStudentBeId($id){
     include 'connect_DB.php';
-    echo ($id);
+
     $sql=" DELETE FROM students WHERE id= $id";
     if (mysqli_query($db, $sql)) {
         echo "Record deleted successfully";

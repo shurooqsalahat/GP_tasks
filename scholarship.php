@@ -74,23 +74,23 @@
               </button>
               <!-- LOGO -->
               <!-- TEXT BASED LOGO -->
-              <a class="navbar-brand" href="index.html">WpF <span>Degree</span></a>            
+              <a class="navbar-brand" href="index.php">WpF <span>Degree</span></a>
               <!-- IMG BASED LOGO  -->
-               <!-- <a class="navbar-brand" href="index.html"><img src="img/logo.png" alt="logo"></a>  -->           
+               <!-- <a class="navbar-brand" href="index.php"><img src="img/logo.png" alt="logo"></a>  -->
                      
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.php">Home</a></li>
                 <li><a href="course-archive.html">Course</a></li>
-                <li class="active"><a href="scholarship.html">Scholarship</a></li>
+                <li class="active"><a href="scholarship.php">Scholarship</a></li>
                 <li><a href="events-archive.html">Events</a></li>
                 <li><a href="gallery.html">Gallery</a></li>                
                 <li><a href="blog-archive.html">Blog</a></li>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Page<span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="404.html">404 Page</a></li>
+                    <li><a href="404.php">404 Page</a></li>
                     <li><a href="#">Link Two</a></li>
                     <li><a href="#">Link Three</a></li>               
                   </ul>

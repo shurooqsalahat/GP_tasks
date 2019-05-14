@@ -39,10 +39,10 @@
 
     <script src="supervisor-info.js"></script>
     <link href="supervisor-information.css" rel="stylesheet">
-
+  <?php include "../header.php"?>
     <script>
         $(function () {
-            $("#header").load("../header.html");
+
             $("#sidebar-wrapper").load("sidebar.html");
 
         });

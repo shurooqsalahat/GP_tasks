@@ -44,13 +44,16 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html"> name of <span>website</span></a>
+                    <a class="navbar-brand" href="index.php"> Tasks <span>Tracker</span></a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
 
                     <ul class="nav navbar-nav navbar-right main-nav unlogged-user" style="margin-right: 0px">
                         <li>
-                            <a onclick="myFunction()" class="dropbtn">YARA BARHOUSH</a>
+                            <?php if(isset($_SESSION['first']) && isset($_SESSION['last']))
+                                echo'<a onclick="logout()" class="dropbtn">'.$_SESSION['first']."  ".$_SESSION['last'].
+                                    '</a> '?>
+
                             <div id="myDropdown" class="dropdown-content">
                                 <a href="#">Log out</a>
 

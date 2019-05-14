@@ -1,4 +1,4 @@
-var myFunction = function () {
+var logout = function () {
     document.getElementById("myDropdown").classList.toggle("show");
 }
 

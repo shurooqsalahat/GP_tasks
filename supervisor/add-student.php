@@ -33,10 +33,9 @@ session_start();
     <!-- for validation-->
     <script src="supervisor.js"></script>
     <link href="add-student.css" rel="stylesheet">
-
+    <?php include "../header.php"?>
     <script>
         $(function(){
-            $("#header").load("../header.html");
             $("#sidebar-wrapper").load("sidebar.html");
 
         });
@@ -167,7 +166,7 @@ session_start();
                             <h4 class="modal-title">Update Student Information</h4>
                         </div>
                         <div class="modal-body">
-                            <form id="update_student_form_modal"  method="" method="" >
+                            <form id="update_student_form_modal" method="post">
                                 <div class="form-line row">
                                     <div class="col-sm-12">
                                         <label for="first_name">First Name:</label>

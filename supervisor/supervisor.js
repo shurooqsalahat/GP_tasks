@@ -20,6 +20,7 @@ $(document).ready(function(){
 
     fetch_data();
     $(document).on('click', '.delete_btn', function(){
+        console.log('in delete');
         var id=$(this).data("id3");
         if(confirm("Are you sure you want to delete this?"))
         {
@@ -50,7 +51,8 @@ $(document).ready(function(){
                 data:{id:id, form:form},
                 dataType:"text",
                 success:function(data){
-                    //alert(data);
+                    console.log("in sucsses");
+                    alert(data);
                     fetch_data();
                 }
             });

@@ -29,21 +29,13 @@ session_start();
     <!-- smooth animate css file -->
     <link rel="stylesheet" href="../css/animate.css">
     <!-- Main structure css file -->
-
+    <link href="../style.css" rel="stylesheet">
     <!-- for validation-->
     <script src="supervisor.js"></script>
     <link href="add-student.css" rel="stylesheet">
     <?php include "../header.php"?>
-    <script>
-        $(function(){
-            $("#sidebar-wrapper").load("sidebar.html");
+    <?php include "sidebar.php"?>
 
-        });
-    </script>
-
-    <script>
-
-    </script>
 </head>
 
 <header id="header">

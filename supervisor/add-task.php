@@ -122,7 +122,10 @@ session_start();
                         </div>
                         <div class="tab-pane" id="tab3">
                             <div class="input-group">
-                                <select name="cars" multiple style="width: 300px">
+                            Assign this task to :
+                            </div>
+                            <div class="input-group">
+                                <select name="assignees" multiple style="width: 300px">
                                     <option value="volvo">Volvo</option>
                                     <option value="saab">Saab</option>
                                     <option value="opel">Opel</option>
@@ -254,6 +257,9 @@ session_start();
                                         </div>
                                     </div>
                                     <div class="tab-pane" id="tab3">
+                                        <div class="input-group">
+                                            Assign this task to :
+                                        </div>
                                         <div class="input-group">
                                             <select name="assignees" multiple style="width: 300px">
                                                 <option value="volvo">Volvo</option>

@@ -9,7 +9,7 @@
         <a href="add-student.php">Students</a>
     </li>
     <li>
-        <a href="#">Plans</a>
+        <a href="training-progress.php">training progress</a>
     </li>
     <li>
         <a href="add-task.php">Tasks</a>

@@ -40,13 +40,7 @@
     <script src="supervisor-info.js"></script>
     <link href="supervisor-information.css" rel="stylesheet">
   <?php include "../header.php"?>
-    <script>
-        $(function () {
 
-            $("#sidebar-wrapper").load("sidebar.html");
-
-        });
-    </script>
 
 
     <script>
@@ -75,6 +69,7 @@
 <div id="wrapper">
     <!-- Sidebar -->
     <div id="sidebar-wrapper">
+        <?php include "sidebar.php"?>
     </div>
     <!-- /#sidebar-wrapper -->
     <!-- Page Content -->

@@ -20,6 +20,6 @@
         <a href="#">Doctors</a>
     </li>
     <li style="margin-top:30px">
-        <a href="#">Log Out</a>
+        <a href="../controller.php?src=logout">Log Out</a>
     </li>
 </ul>

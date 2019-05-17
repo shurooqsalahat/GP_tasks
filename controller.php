@@ -212,6 +212,12 @@ if (isset($src)) {
 
     }
 
+    if ($src=='logout'){
+        session_destroy();
+        header('Location: login.php');
+        exit;
+    }
+
 }
 
 

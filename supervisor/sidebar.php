@@ -12,7 +12,7 @@
         <a href="#">Plans</a>
     </li>
     <li>
-        <a href="#">Tasks</a>
+        <a href="add-task.php">Tasks</a>
     </li>
     <li>
         <a href="add-doctor.php">Doctors</a>

@@ -1,7 +1,6 @@
 <?php
 include('../model.php');
 
-echo  '<div class="students_table_header">Tasks</div>';
 echo '<table id="students_table" class="table-users" cellspacing="0" width="100%">' .
     '<tr>' . '<th>Task ID</th>' .
     '<th>Task Name</th>' .

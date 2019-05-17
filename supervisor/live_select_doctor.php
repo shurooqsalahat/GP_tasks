@@ -1,7 +1,6 @@
 <?php
 include('../model.php');
 
-echo  '<div class="students_table_header">Doctors</div>';
 echo '<table id="students_table" class="table-users" cellspacing="0" width="100%">' .
     '<tr>' . '<th>Doctor ID</th>' .
     '<th>First Name</th>' .
@@ -29,10 +28,10 @@ for ($i = 0; $i < $nor; $i++) {
         '<td>'.$row[4].'</td>'.
          '<td>'.$row[1].'</td>'.
          '<td>'.
-            '<button style="margin-right: 6px;" data-toggle="modal" data-target="#update_student_modal" type="button" class="btn btn-primary btn-sm dt-edit update_btn" id="update-modal-btn" data-id="'.$row[0].'">'.
+            '<button style="margin-right: 6px;border-radius: 15px;" data-toggle="modal" data-target="#update_student_modal" type="button" class="btn btn-primary btn-sm dt-edit update_btn"  id="update-modal-btn" data-id="'.$row[0].'">'.
                 '<span class="glyphicon glyphicon-pencil " aria-hidden="true" ></span>'.
             '</button>'.
-            '<button type="button" class="btn btn-danger btn-sm dt-delete delete_btn" data-id3="'.$row[0].'">'.
+            '<button type="button" class="btn btn-danger btn-sm dt-delete delete_btn" style="border-radius: 15px;" data-id3="'.$row[0].'">'.
                 '<span class="glyphicon glyphicon-remove " aria-hidden="true" ></span>'.
              '</button>'.
         '</td>'.

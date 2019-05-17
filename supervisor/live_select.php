@@ -1,9 +1,9 @@
 <?php
 include('../model.php');
 
-
-echo '<table id="students_table" class="table table-striped table-bordered" cellspacing="0" width="100%">' .
-    '<thead>' . '<tr>' . '<th>Student ID</th>' .
+echo  '<div class="students_table_header">Students</div>';
+echo '<table id="students_table" class="table-users" cellspacing="0" width="100%">' .
+  '<tr>' . '<th>Student ID</th>' .
     '<th>First Name</th>' .
     '<th>Last Name</th>' .
     '<th>Email</th>' .

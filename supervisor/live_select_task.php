@@ -1,9 +1,9 @@
 <?php
 include('../model.php');
 
-
-echo '<table id="students_table" class="table table-striped table-bordered" cellspacing="0" width="100%">' .
-    '<thead>' . '<tr>' . '<th>Task ID</th>' .
+echo  '<div class="students_table_header">Tasks</div>';
+echo '<table id="students_table" class="table-users" cellspacing="0" width="100%">' .
+    '<tr>' . '<th>Task ID</th>' .
     '<th>Task Name</th>' .
     '<th>Task Weigt</th>' .
     '<th>Estimation Time</th>' .
@@ -13,7 +13,7 @@ echo '<table id="students_table" class="table table-striped table-bordered" cell
     '</th>' .
     '</th>' .
     '</tr>' .
-    '</thead>' .
+
     '<tbody>';
 $result = getAllStudents();
 $nor = $result->num_rows;

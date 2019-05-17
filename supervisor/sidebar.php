@@ -15,7 +15,7 @@
         <a href="#">Tasks</a>
     </li>
     <li>
-        <a href="#">Doctors</a>
+        <a href="add-doctor.php">Doctors</a>
     </li>
     <li style="margin-top:30px">
         <a href="../controller.php?src=logout">Log Out</a>

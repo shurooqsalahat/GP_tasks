@@ -65,7 +65,6 @@ function form_submit() {
     var first_name = $('#first_name').val();
     var last_name = $('#last_name').val();
     var email = $('#email').val();
-    var doctorName=$('#doctor').val();
     var phoneNumber = $('#phone').val();
     var vaidate = false;
 
@@ -79,11 +78,7 @@ function form_submit() {
         $('#last_name').after('<div class="error">This field is required</div>');
         vaidate =true;
     }
-    if (doctorName== 0) {
-        $('#doctor').after('<div class="error">This field is required</div>');
-        vaidate =true;
 
-    }
      if (email.length < 1) {
         $('#email').after('<div class="error">This field is required</div>');
          vaidate =true;
@@ -115,25 +110,10 @@ function update_submit(){
     var last_name = row.find("td:eq(2)").text();
     var email = row.find("td:eq(3)").text();
     var phone = row.find("td:eq(4)").text();
-    var doctor= row.find("td:eq(5)").text();
     $('input[id="u_first_name"]').val(first_name);
     $('input[id="u_last_name"]').val(last_name);
     $('input[id="u_email"]').val(email);
     $('input[id="u_phone"]').val(phone);
-    $('input[id="u_doctor"]').val(doctor);
-
-
-    var optionTexts=[];
-    $('#u_doctor option').each(function() {
-        optionTexts.push({value :$(this).val(),text:$(this).text()});
-    });
-
-    var i;
-    for (i = 0; i < optionTexts.length; i++) {
-       if(optionTexts[i].text == doctor ){
-           $("#u_doctor").val(optionTexts[i].value);
-       }
-    }
 
 
 }
@@ -143,7 +123,6 @@ function validate_update_form() {
     var first_name = $('#u_first_name').val();
     var last_name = $('#u_last_name').val();
     var email = $('#u_email').val();
-    var doctorName=$('#u_doctor').val();
     var phoneNumber = $('#u_phone').val();
     var vaidate = false;
 
@@ -156,11 +135,6 @@ function validate_update_form() {
     if (last_name.length < 1) {
         $('#u_last_name').after('<div class="error">This field is required</div>');
         vaidate =true;
-    }
-    if (doctorName== 0) {
-        $('#u_doctor').after('<div class="error">This field is required</div>');
-        vaidate =true;
-
     }
     if (email.length < 1) {
         $('#u_email').after('<div class="error">This field is required</div>');

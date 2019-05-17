@@ -1,7 +1,5 @@
 
-<ul class="sidebar-nav" style="z-index: 3333333;
-    padding-top: 123px;
-"
+<ul class="sidebar-nav">
     <li class="sidebar-brand">
         <a href="supervisor-information.php">
             Supervisor

@@ -31,10 +31,28 @@ session_start();
     <!-- Main structure css file -->
     <link href="../style.css" rel="stylesheet">
     <!-- for validation-->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font awesome css file:: for slider -->
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <!-- Superslide css file-->
+    <link rel="stylesheet" href="../css/superslides.css">
+    <!-- Slick slider css file :: for previous and next-->
+    <link href="../css/slick.css" rel="stylesheet">
+    <!-- Circle counter cdn css file -->
+    <link rel='stylesheet prefetch'
+          href='https://cdn.rawgit.com/pguso/jquery-plugin-circliful/master/css/jquery.circliful.css'>
+    <!-- smooth animate css file -->
+    <link rel="stylesheet" href="../css/animate.css">
+    <!-- Main structure css file -->
+    <link href="../style.css" rel="stylesheet">
+
+    <!-- Google fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Varela' rel='stylesheet' type='text/css'>
     <script src="supervisor.js"></script>
     <link href="add-student.css" rel="stylesheet">
     <?php include "../header.php"?>
-    <?php include "sidebar.php"?>
+
 
 </head>
 
@@ -108,6 +126,7 @@ session_start();
 <div id="wrapper">
     <!-- Sidebar -->
     <div id="sidebar-wrapper">
+        <?php include "sidebar.php"?>
     </div>
     <!-- /#sidebar-wrapper -->
     <!-- Page Content -->

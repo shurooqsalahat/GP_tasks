@@ -77,7 +77,6 @@ if (isset($src)) {
         }
 
     } else if ($src == "signup"){
-        session_destroy();
         //empty cells
         if (strlen(trim($_REQUEST['first'])) == 0 || strlen(trim($_REQUEST['last'])) == 0 ||
             strlen(trim($_REQUEST['password'])) == 0 || strlen(trim($_REQUEST['email'])) == 0) {

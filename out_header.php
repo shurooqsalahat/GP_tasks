@@ -22,8 +22,8 @@
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul id="top-menu" class="nav navbar-nav  main-nav">
                         <li class="active"><a href="index.php">Home</a></li>
-                        <li><a href="scholarship.php">About</a></li>
-                        <li class="dropdown">
+                        <li><a href="about-us.php">About</a></li>
+                     <!--   <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-expanded="false">Training Field<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
@@ -31,7 +31,7 @@
                                 <li><a href="#">Link Two</a></li>
                                 <li><a href="#">Link Three</a></li>
                             </ul>
-                        </li>
+                        </li>-->
 
                     </ul>
                     <ul class="nav navbar-nav navbar-right main-nav" style="margin-right: 0px">

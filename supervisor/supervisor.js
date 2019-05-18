@@ -38,27 +38,27 @@ $(document).ready(function(){
 
     });
 
-    $(document).on('click', '.update_btn', function(){
-        var id=$(this).data("id");
-
-        update_submit();
-        $('#submit_update_modal').click(function(){
-            console.log('innnnn');
-            var form= $('#update_student_form_modal').serialize()
-            $.ajax({
-                url:"live_update.php",
-                method:"POST",
-                data:{id:id, form:form},
-                dataType:"text",
-                success:function(data){
-                    console.log("in sucsses");
-                    alert(data);
-                    fetch_data();
-                }
-            });
-        });
-
-    });
+    // $(document).on('click', '.update_btn', function(){
+    //     var id=$(this).data("id");
+    //
+    //     update_submit();
+    //     $('#submit_update_modal').click(function(){
+    //         console.log('innnnn');
+    //         var form= $('#update_student_form_modal').serialize()
+    //         $.ajax({
+    //             url:"live_update.php",
+    //             method:"POST",
+    //             data:{id:id, form:form},
+    //             dataType:"text",
+    //             success:function(data){
+    //                 console.log("in sucsses");
+    //                 //alert(data);
+    //                 fetch_data();
+    //             }
+    //         });
+    //     });
+    //
+    // });
 
 });
 function form_submit() {
@@ -67,6 +67,7 @@ function form_submit() {
     var email = $('#email').val();
     var doctorName=$('#doctor').val();
     var phoneNumber = $('#phone').val();
+
     var vaidate = false;
 
     $(".error").remove();
@@ -116,11 +117,13 @@ function update_submit(){
     var email = row.find("td:eq(3)").text();
     var phone = row.find("td:eq(4)").text();
     var doctor= row.find("td:eq(5)").text();
+
     $('input[id="u_first_name"]').val(first_name);
     $('input[id="u_last_name"]').val(last_name);
     $('input[id="u_email"]').val(email);
     $('input[id="u_phone"]').val(phone);
     $('input[id="u_doctor"]').val(doctor);
+    $('input[id="u_id"]').val(id);
 
 
     var optionTexts=[];

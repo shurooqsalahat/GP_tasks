@@ -30,7 +30,7 @@ $(document).ready(function(){
                 data:{id:id},
                 dataType:"text",
                 success:function(data){
-                    alert(data);
+                    //alert(data);
                     fetch_data();
                 }
             });
@@ -38,27 +38,7 @@ $(document).ready(function(){
 
     });
 
-    $(document).on('click', '.update_btn', function(){
-        var id=$(this).data("id");
 
-        update_submit();
-        $('#submit_update_modal').click(function(){
-            console.log('innnnn');
-            var form= $('#update_student_form_modal').serialize()
-            $.ajax({
-                url:"live_update_doctor.php",
-                method:"POST",
-                data:{id:id, form:form},
-                dataType:"text",
-                success:function(data){
-                    console.log("in sucsses");
-                    alert(data);
-                    fetch_data();
-                }
-            });
-        });
-
-    });
 
 });
 function form_submit() {
@@ -114,6 +94,8 @@ function update_submit(){
     $('input[id="u_last_name"]').val(last_name);
     $('input[id="u_email"]').val(email);
     $('input[id="u_phone"]').val(phone);
+    $('input[id="u_id"]').val(id);
+
 
 
 }

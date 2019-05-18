@@ -5,7 +5,7 @@ session_start();
 
 $src = $_REQUEST["src"];
 unset($_SESSION['Message']);
-
+//echo $src;
 
 if (isset($src)) {
     if ($src == "signin") {
@@ -217,6 +217,186 @@ if (isset($src)) {
         header('Location: login.php');
         exit;
     }
+
+    if ($src=='addDoctor'){
+        $email = $_REQUEST['email'];
+
+        if (isSupervisor($email)) {
+            $_SESSION['Message'] = "This user is already supervisor";
+            echo $_SESSION['Message'];
+            header('Location: supervisor/add-doctor.php');
+            exit;
+        }
+        if (isStudent($email)) {
+            $_SESSION['Message'] = "This user is already students";
+            echo $_SESSION['Message'];
+            header('Location: supervisor/add-doctor.php');
+            exit;
+        }
+        if (isUserExist($email)) {
+            $_SESSION['Message'] = "This doctor is already exist";
+            echo $_SESSION['Message'];
+            header('Location: supervisor/add-doctor.php');
+            exit;
+        } else {
+
+            addDoctor($_REQUEST['phone'], $_REQUEST['first'], $_REQUEST['last'], $_REQUEST['email']
+                , '123456');
+            $_SESSION['Message'] = "Doctor Added successfully";
+            header('Location: supervisor/add-doctor.php');
+            exit;
+        }
+    }
+    if($src=='update_student_'){
+        $first= $_POST['first'];
+        $last= $_POST['last'];
+        $email= $_POST['email'];
+        $phone= $_POST['phone'];
+        $doctor= $_POST['doctor'];
+        $id= $_POST['id'];
+        $update_flag =false;
+        $original=retrieveSudentsByID($id);
+        if ($original['email']!=$email && isUserExist($email)){
+            $_SESSION['Message']='This email is used';
+            header('Location: supervisor/add-student.php');
+            exit;
+        }
+        if($first!= $original['first']) {
+            $sql1 = "UPDATE students SET first='" . $first . "' WHERE id=" . $id;
+            $result = $db->query($sql1);
+            $update_flag=true;
+        }
+        if($last!= $original['last']) {
+            $sql2 = "UPDATE students SET last='" . $last . "' WHERE id=" . $id;
+            $result = $db->query($sql2);
+            $update_flag=true;
+        }
+        if($email!= $original['email']) {
+            $sql3 = "UPDATE students SET email='" . $email . "' WHERE id=" . $id;
+            $result = $db->query($sql3);
+            $update_flag=true;
+        }
+        if($phone!= $original['phone']) {
+            $sql4 = "UPDATE students SET phone='" . $phone . "' WHERE id=" . $id;
+            $result = $db->query($sql4);
+            $update_flag=true;
+        }
+        if($doctor!= $original['doctor_id']) {
+            $sql5 = "UPDATE students SET doctor_id='" . $doctor . "' WHERE id=" . $id;
+            $result = $db->query($sql5);
+            $update_flag=true;
+        }
+        if ($update_flag) {
+            $_SESSION['Message'] = 'Student updated successfully';
+            header('Location: supervisor/add-student.php');
+            exit;
+        }
+        header('Location: supervisor/add-student.php');
+        exit;
+
+    }
+
+
+    if($src=='update_doctor_'){
+        $first= $_POST['first'];
+        $last= $_POST['last'];
+        $email= $_POST['email'];
+        $phone= $_POST['phone'];
+        $id= $_POST['id'];
+        $update_flag= false;
+
+
+         $original=retrieveDoctorsByID($id);
+       if ($original['email']!=$email && isUserExist($email)){
+            $_SESSION['Message']='This email is used';
+
+            header('Location: supervisor/add-doctor.php');
+            exit;
+        }
+       if($first!= $original['first']) {
+            $sql1 = "UPDATE doctors SET first='" . $first . "' WHERE id=" . $id;
+            $result = $db->query($sql1);
+            $update_flag= true;
+        }
+       if($last!= $original['last']) {
+            $sql2 = "UPDATE doctors SET last='" . $last . "' WHERE id=" . $id;
+            $result = $db->query($sql2);
+            $update_flag= true;
+        }
+       if($email!= $original['email']) {
+            $sql3 = "UPDATE doctors SET email='" . $email . "' WHERE id=" . $id;
+            $result = $db->query($sql3);
+            $update_flag= true;
+        }
+        if($phone!= $original['phone']) {
+            $sql4 = "UPDATE doctors SET phone='" . $phone . "' WHERE id=" . $id;
+            $result = $db->query($sql4);
+            $update_flag= true;
+        }
+        if ($update_flag) {
+            $_SESSION['Message'] = 'Doctor updated successfully';
+            header('Location: supervisor/add-doctor.php');
+            exit;
+        }
+         header('Location: supervisor/add-doctor.php');
+        exit;
+    }
+
+    if($src=='addTasks'){
+
+
+        $task_name= $_POST['task_name'];
+        $weight =$_POST['weight'];
+        $description =$_POST['description'];
+        $estimation_time= $_POST['estimation_time'];
+
+        if (isTaskExist($task_name)){
+          $_SESSION['Message']='This Task is already exist';
+            header('Location: supervisor/add-task.php');
+            exit;
+
+        }
+
+        $errors= array();
+        $file_name = $_FILES['fileToUpload']['name'];
+        $file_size =$_FILES['fileToUpload']['size'];
+        $file_tmp =$_FILES['fileToUpload']['tmp_name'];
+        $file_type=$_FILES['fileToUpload']['type'];
+        $new_name=$_REQUEST['task_name'];
+
+        $file_ext=strtolower(end(explode('.',$file_name)));
+
+        $extensions= array("txt");
+
+        if(in_array($file_ext,$extensions)=== false){
+            $errors[]="extension not allowed, please choose a TXT.";
+            $_SESSION['Message']= 'extension not allowed, please choose a TXT.';
+            header('Location: supervisor/add-task.php');
+            exit;
+        }
+
+        if($file_size > 2097152){
+            $errors[]='File size must be less than 2 MB';
+            $_SESSION['Message']= 'File size must be less than 2 MB';
+            header('Location: supervisor/add-task.php');
+            exit;
+        }
+
+        if(empty($errors)==true){
+            echo $_SESSION['id'];
+            move_uploaded_file($file_tmp,"Tasks_files/".$new_name.".".$file_ext);
+            addTask($task_name, $weight, $description, $estimation_time,
+                "Tasks_files/".$new_name.".".$file_ext, $_SESSION['id']);
+            $_SESSION['Message']='Task added successfully';
+            header('Location: supervisor/add-task.php');
+
+        }else{
+            $_SESSION['Message']='Something error, try again later';
+            header('Location: supervisor/add-task.php');
+        }
+    }
+
+
 
 }
 

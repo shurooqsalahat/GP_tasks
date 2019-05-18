@@ -1,6 +1,9 @@
 <?php
 include("../model.php");// connect to db
 session_start();
+if(!isset($_SESSION['email'])){ //if login in session is not set
+    header("Location: ../404.php");
+}
 
 ?>
 
@@ -71,7 +74,7 @@ session_start();
                 <h4 class="modal-title">Add New Task</h4>
             </div>
             <div class="modal-body">
-                <form id="add_task_form" action="../controller.php" method="REQUEST" method="post">
+                <form id="add_task_form" action="../controller.php"  enctype="multipart/form-data" method="post">
                     <ul class="tab-list">
                         <li class="tab-list__item active">
                             <a class="tab-list__link" href="#tab1" data-toggle="tab">
@@ -95,6 +98,7 @@ session_start();
                     <div class="tab-content">
                         <div class="tab-pane active" id="tab1">
                             <div class="input-group">
+                                <input name="src" value="addTasks" type="hidden"/>
                                 <input class="input--style-1" type="text" id="task_name" name="task_name"
                                        placeholder="Task Name here">
 
@@ -111,14 +115,19 @@ session_start();
                             </div>
                         </div>
                         <div class="tab-pane" id="tab2">
+                            <br>
+                            <div class="input-group">
+                                <input class="input--style-1" type="text" id="estimation_time" name="description"
+                                       placeholder="Task description">
+                            </div>
+                            <br>
                             <h6>Select Task file to upload:</h6>
                             <div class="input-group">
                                 <input type="file" name="fileToUpload" id="fileToUpload">
+<!--                                <input type="text" name="test" >-->
                             </div>
                             <br>
-                            <div class="input-group">
-                                <input style="padding: 8px 10px;" type="submit" value="Upload File" name="submit">
-                            </div>
+
                         </div>
                         <div class="tab-pane" id="tab3">
                             <div class="input-group">
@@ -126,10 +135,14 @@ session_start();
                             </div>
                             <div class="input-group">
                                 <select name="assignees" multiple style="width: 300px">
-                                    <option value="volvo">Volvo</option>
-                                    <option value="saab">Saab</option>
-                                    <option value="opel">Opel</option>
-                                    <option value="audi">Audi</option>
+                                    <?php
+                                    $result = getSupervisorStudents($_SESSION['id']);
+                                    $nor = $result->num_rows;
+                                    for ($i = 0; $i < $nor; $i++) {
+                                        $row = $result->fetch_array();
+                                        echo " <option value= '$row[0]''>" . $row[2] ." ".$row[3] . "</option>";
+                                    }
+                                    ?>
                                 </select>
                             </div>
                         </div>
@@ -165,14 +178,15 @@ session_start();
             <?php
 
             if (isset($_SESSION['Message'])) {
-                if ($_SESSION['Message'] == 'This user is already doctor' ||
-                    $_SESSION['Message'] == 'This user is already supervisor' ||
-                    $_SESSION['Message'] == 'This Student is already exist') {
+                if ($_SESSION['Message'] == 'extension not allowed, please choose a TXT.' ||
+                    $_SESSION['Message'] == 'This Task is already exist' ||
+                    $_SESSION['Message'] == 'File size must be less than 2 MB' ||
+                    $_SESSION['Message']=='Something error, try again later') {
                     $msg = "<div class=\"alert alert-danger\">
             <a  class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
             <strong>OOPS!</strong> <span id=\"failed-text\">" . $_SESSION['Message'] . "</span>
         </div>";
-                } else if ($_SESSION['Message'] == 'Student Added successfully') {
+                } else if ($_SESSION['Message'] == 'Task added successfully') {
                     $msg = "<div class=\"alert alert-success\">
             <a  class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
             <strong>Good</strong> <span id=\"failed-text\">" . $_SESSION['Message'] . "</span>
@@ -206,7 +220,7 @@ session_start();
                             <h4 class="modal-title">Update task requirement </h4>
                         </div>
                         <div class="modal-body">
-                            <form id="update_task_form_modal" method="post">
+                            <form id="update_task_form_modal" action="../controller.php" enctype="multipart/form-data" method="post">
                                 <ul class="tab-list">
                                     <li class="tab-list__item active">
                                         <a class="tab-list__link" href="#tab1" data-toggle="tab">
@@ -248,13 +262,10 @@ session_start();
                                     <div class="tab-pane" id="tab2">
                                         <h6>Select Task file to upload:</h6>
                                         <div class="input-group">
-                                            <input type="file" name="fileToUpload" id="u_fileToUpload">
+
                                         </div>
                                         <br>
-                                        <div class="input-group">
-                                            <input style="padding: 8px 10px;" type="submit" value="Upload File"
-                                                   name="submit">
-                                        </div>
+
                                     </div>
                                     <div class="tab-pane" id="tab3">
                                         <div class="input-group">
@@ -262,10 +273,14 @@ session_start();
                                         </div>
                                         <div class="input-group">
                                             <select name="assignees" multiple style="width: 300px">
-                                                <option value="volvo">Volvo</option>
-                                                <option value="saab">Saab</option>
-                                                <option value="opel">Opel</option>
-                                                <option value="audi">Audi</option>
+                                                <?php
+                                                $result = getSupervisorStudents($_SESSION['id']);
+                                                $nor = $result->num_rows;
+                                                for ($i = 0; $i < $nor; $i++) {
+                                                    $row = $result->fetch_array();
+                                                    echo " <option value= '$row[0]''>" . $row[2] ." ".$row[3] . "</option>";
+                                                }
+                                                ?>
                                             </select>
                                         </div>
                                     </div>
@@ -281,6 +296,8 @@ session_start();
                             </div>
                         </div>
                         <div class="modal-footer">
+<!--                            <input style="padding: 8px 10px;" type="submit" value="Upload File"-->
+<!--                                   name="submit">-->
                             <button type="button" class="btn btn-primary" name="submit" id="submit_update_modal"
                                     onclick="validate_update_form()">Update
                             </button>

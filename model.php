@@ -116,6 +116,20 @@ function deleteStudentBeId($id){
     }
 
 }
+
+function deleteTaskBeId($id){
+    include 'connect_DB.php';
+
+    $sql=" DELETE FROM tasks WHERE id= $id";
+    if (mysqli_query($db, $sql)) {
+        echo "Record deleted successfully";
+        return true;
+    } else {
+        echo "cannot delete the record: " . mysqli_error($db);
+        return false;
+    }
+
+}
 //deleteStudentBeId(2);
 function retrieveStudentBYEmail($email){
     include 'connect_DB.php';
@@ -171,7 +185,7 @@ VALUES ('$phone','$first','$last','$email','$shpass')";
         return false;
     }
 }
-addDoctor(2578, 'Samer', 'Arandi', "samer@gmail.com",123456789);
+//addDoctor(2578, 'Samer', 'Arandi', "samer@gmail.com",123456789);
 
 function deleteDoctor($email){
     include 'connect_DB.php';
@@ -190,6 +204,18 @@ function deleteDoctor($email){
 
 }
 //deleteDoctor('ashraf@gmail.com');
+function deleteDoctorById($id){
+    include 'connect_DB.php';
+    $sql=" DELETE FROM doctors WHERE id= $id";
+    if (mysqli_query($db, $sql)) {
+        echo "Record deleted successfully";
+        return true;
+    } else {
+        echo "cannot delete the record: " . mysqli_error($db);
+        return false;
+    }
+
+}
 
 function retrieveDoctorBYEmail($email){
     include 'connect_DB.php';
@@ -314,4 +340,46 @@ function getAllStudents(){
     return $result;
 }
 
+function getSupervisorStudents($id){
+    include("connect_DB.php");// connect to db
+    $qstr = "SELECT * FROM `students` WHERE supervisor_id=$id";
+    $result = $db->query($qstr);
+    return $result;
+}
+function getSupervisorTasks($id){
+    include("connect_DB.php");// connect to db
+    $qstr = "SELECT * FROM `tasks` WHERE supervisor_id=$id";
+    $result = $db->query($qstr);
+    return $result;
+}
 
+function isTaskExist($task_name){
+    include("connect_DB.php");// connect to db
+    $query = "SELECT `task_name` FROM tasks WHERE task_name='$task_name'";
+    $result = $db->query($query);
+    $nor = $result->num_rows;
+    if ($nor == 0) {
+        return false;
+
+    } else {
+
+        return true;
+    }
+
+}
+
+
+function addTask($name, $weight, $description, $estimation_time, $task_file,$supervisor_id){
+    include 'connect_DB.php';
+
+
+    $sql = "INSERT INTO `tasks`( `task_name`, `weight`, `description`, `estimation_time`, `task_file`, `supervisor_id`) 
+VALUES ('$name',$weight ,'$description',$estimation_time,'$task_file', $supervisor_id)";
+    if (mysqli_query($db, $sql)) {
+        echo "Record inserted successfully";
+        return true;
+    } else {
+        echo "Error inserted record: " . mysqli_error($db);
+        return false;
+    }
+}

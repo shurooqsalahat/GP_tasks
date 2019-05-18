@@ -1,6 +1,9 @@
 <?php
 include("../model.php");// connect to db
 session_start();
+if(!isset($_SESSION['email'])){ //if login in session is not set
+    header("Location: ../404.php");
+}
 
 ?>
 
@@ -63,11 +66,11 @@ session_start();
                             fill the form with doctor info :
                         </div>
                     </div>
-                        <form id="add_student_form" action="../controller.php" method="REQUEST" method="post" >
+                        <form id="add_student_form" action="../controller.php" method="REQUEST"  >
                             <div class="form-line row">
                                 <div class="col-sm-12">
                                     <label for="first_name">First Name:</label>
-                                    <input name="src" value="addStudent" type="hidden"/>
+                                    <input name="src" value="addDoctor" type="hidden"/>
                                     <input type="text" id="first_name" name="first"></input>
                                 </div>
                             </div>
@@ -112,15 +115,17 @@ session_start();
             <?php
 
             if (isset($_SESSION['Message'])) {
-                if ($_SESSION['Message'] == 'This user is already doctor' ||
-                    $_SESSION['Message'] == 'This user is already supervisor' ||
-                    $_SESSION['Message'] == 'This Student is already exist' ) {
+                if ($_SESSION['Message'] == 'This user is already supervisor' ||
+                    $_SESSION['Message'] == 'This user is already students' ||
+                    $_SESSION['Message'] == 'This doctor is already exist' ||
+                     $_SESSION['Message']=='This email is used') {
                     $msg = "<div class=\"alert alert-danger\">
             <a  class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
             <strong>OOPS!</strong> <span id=\"failed-text\">" . $_SESSION['Message'] . "</span>
         </div>";
                 }
-                else if ($_SESSION['Message'] == 'Student Added successfully') {
+                else if ($_SESSION['Message'] == 'Doctor Added successfully' ||
+                          $_SESSION['Message']=='Doctor updated successfully') {
                     $msg = "<div class=\"alert alert-success\">
             <a  class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
             <strong>Good</strong> <span id=\"failed-text\">" . $_SESSION['Message'] . "</span>
@@ -154,11 +159,12 @@ session_start();
                             <h4 class="modal-title">Update Doctor Information</h4>
                         </div>
                         <div class="modal-body">
-                            <form id="update_student_form_modal" method="post">
+                            <form id="update_student_form_modal" method="post" action="../controller.php">
                                 <div class="form-line row">
                                     <div class="col-sm-12">
                                         <label for="first_name">First Name:</label>
-
+                                        <input name="src" value="update_doctor_" type="hidden"/>
+                                        <input type="text" id="u_id" name="id" hidden>
                                         <input type="text" id="u_first_name" name="first">
                                     </div>
                                 </div>

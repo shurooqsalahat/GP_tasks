@@ -13,7 +13,7 @@ echo '<table id="students_table" class="table-users" cellspacing="0" width="100%
     '</th>' .
     '</tr>' .
     '<tbody>';
-$result = getAllStudents();
+$result = getAllDoctors();
 $nor = $result->num_rows;
 if ($nor<= 0){
     return;

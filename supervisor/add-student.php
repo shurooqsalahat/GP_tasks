@@ -1,9 +1,11 @@
 <?php
 include("../model.php");// connect to db
 session_start();
+if(!isset($_SESSION['email'])){ //if login in session is not set
+    header("Location: ../404.php");
+}
 
 ?>
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -137,13 +139,15 @@ session_start();
             if (isset($_SESSION['Message'])) {
                 if ($_SESSION['Message'] == 'This user is already doctor' ||
                     $_SESSION['Message'] == 'This user is already supervisor' ||
-                    $_SESSION['Message'] == 'This Student is already exist' ) {
+                    $_SESSION['Message'] == 'This Student is already exist' ||
+                     $_SESSION['Message']=='This email is used') {
                     $msg = "<div class=\"alert alert-danger\">
             <a  class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
             <strong>OOPS!</strong> <span id=\"failed-text\">" . $_SESSION['Message'] . "</span>
         </div>";
                 }
-                else if ($_SESSION['Message'] == 'Student Added successfully') {
+                else if ($_SESSION['Message'] == 'Student Added successfully' ||
+                    $_SESSION['Message']=='Student updated successfully'   ) {
                     $msg = "<div class=\"alert alert-success\">
             <a  class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
             <strong>Good</strong> <span id=\"failed-text\">" . $_SESSION['Message'] . "</span>
@@ -177,11 +181,12 @@ session_start();
                             <h4 class="modal-title">Update Student Information</h4>
                         </div>
                         <div class="modal-body">
-                            <form id="update_student_form_modal" method="post">
+                            <form id="update_student_form_modal" method="post" action="../controller.php">
                                 <div class="form-line row">
                                     <div class="col-sm-12">
                                         <label for="first_name">First Name:</label>
-
+                                        <input name="src" value="update_student_" type="hidden"/>
+                                        <input type="text" id="u_id" name="id" hidden>
                                         <input type="text" id="u_first_name" name="first">
                                     </div>
                                 </div>
@@ -207,7 +212,7 @@ session_start();
                                 <div class="form-line row">
                                     <div class="col-sm-12">
                                         <select name="doctor" id="u_doctor" class="required">
-                                            <option value="0"> select Dctor</option>
+                                            <option value="0"> select Doctor</option>
                                             <?php
                                             $result = getAllDoctors();
                                             $nor = $result->num_rows;

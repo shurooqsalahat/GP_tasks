@@ -4,7 +4,7 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>website Name</title>
+    <title>Tasks Tracker</title>
 
     <!-- Mobile Specific Metas
     ================================================== -->
@@ -13,103 +13,82 @@
     <!-- CSS
     ================================================== -->
     <!-- Bootstrap css file-->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font awesome css file:: for slider -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
     <link href="css/font-awesome.min.css" rel="stylesheet">
-    <!-- Superslide css file-->
-    <link rel="stylesheet" href="css/superslides.css">
-    <!-- Slick slider css file :: for previous and next-->
-    <link href="css/slick.css" rel="stylesheet">
-    <!-- Circle counter cdn css file -->
-    <link rel='stylesheet prefetch'
-          href='https://cdn.rawgit.com/pguso/jquery-plugin-circliful/master/css/jquery.circliful.css'>
-    <!-- smooth animate css file -->
-    <link rel="stylesheet" href="css/animate.css">
-    <!-- Main structure css file -->
     <link href="style.css" rel="stylesheet">
 
-    <!-- Google fonts -->
     <link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Varela' rel='stylesheet' type='text/css'>
 </head>
 <body>
 
-<!-- SCROLL TOP BUTTON -->
 <a class="scrollToTop" href="#"></a>
-<!-- END SCROLL TOP BUTTON -->
+<?php include "out_header.php" ?>
 
-<!--=========== BEGIN HEADER SECTION ================-->
-<?php include "out_header.php"?>
-<!--=========== END HEADER SECTION ================-->
+<section style="background-color: #f6f6f6">
+    <div class="container" style="width: 100%">
+        <h2>Carousel Example</h2>
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
 
-<!--=========== BEGIN SLIDER SECTION ================-->
-<section id="slider">
-    <div class="row">
-        <div class="col-lg-12 col-md-12">
-            <div class="slider_area">
-                <!-- Start super slider -->
-                <div id="slides">
-                    <ul class="slides-container">
-                        <li>
-                            <img src="img/slider/2.jpg" alt="img">
-                            <div class="slider_caption">
-                                <h2>About</h2>
-                                <p>
-                                    Due to the development of information technology, we need to exploit this
-                                    development to solve problems and facilitate life. We in our project focus on the
-                                    graduates sector in terms of training, provide graduates student with a training
-                                    opportunities in different companies and a way to communicate with these companies.
-                                    In addition, the system enables the supervisors in the company and the university to
-                                    track the trainees and monitor their performance during their training in the
-                                    company. Further, the T P system creates a communication channel between the
-                                    employers and the student supervisor in order to provide periodic feedback.</p>
-                                <a class="slider_btn" href="#">Know More</a>
-                            </div>
-                        </li>
-                        <!-- Start single slider-->
-                        <li>
-                            <img src="img/slider/i1.png" alt="img">
-                            <div class="slider_caption slider_right_caption">
-                                <h2>Better Education Environment</h2>
-                                <p>It is a long established fact that a reader will be distracted by the readable
-                                    content of a page when looking at its layout.The point of using Lorem Ipsum is that
-                                    it has a more-or-less normal distribution of letters.Many desktop publishing
-                                    packages and web page editors now use Lorem Ipsum as their default model text, and a
-                                    search</p>
-                                <a class="slider_btn" href="#">Know More</a>
-                            </div>
-                        </li>
-                        <!-- Start single slider-->
-                        <li>
-                            <img src="img/slider/i3.jpg" alt="img">
-                            <div class="slider_caption">
-                                <h2>Find out you in better way</h2>
-                                <p>It is a long established fact that a reader will be distracted by the readable
-                                    content of a page when looking at its layout.The point of using Lorem Ipsum is that
-                                    it has a more-or-less normal distribution of letters.Many desktop publishing
-                                    packages and web page editors now use Lorem Ipsum as their default model text, and a
-                                    search</p>
-                                <a class="slider_btn" href="#">Know More</a>
-                            </div>
-                        </li>
-                    </ul>
-                    <nav class="slides-navigation">
-                        <a href="#" class="next"></a>
-                        <a href="#" class="prev"></a>
-                    </nav>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+
+                <div class="item active">
+                    <img src="img/slider/4.jpg" alt="Chicago" style="width:100%;">
+
+                    <div class="carousel-caption">
+                        <h3 style="font-size: 18px">Task Tracking</h3>
+                        <p>You can see students progress in tasks you give to them!</p>
+                    </div>
                 </div>
+
+                <div class="item">
+                    <img src="img/slider/2.jpg" alt="Los Angeles" style="width:100%;">
+                    <div class="carousel-caption">
+                        <h3>Monitors student performance</h3>
+                        <p>You can easily track your students while their training in different companies!</p>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="img/slider/3.jpg" alt="New York" style="width:100%;">
+                    <div class="carousel-caption">
+                        <h3>Task Delivering</h3>
+                        <p>You can easily Deliver your tasks during your training</p>
+                    </div>
+                </div>
+
             </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
     </div>
 </section>
-
 <section id="ourCourses">
+    <hr style="color: black;">
     <div class="container">
         <!-- Our courses titile -->
         <div class="row">
             <div class="col-lg-12 col-md-12">
                 <div class="title_area">
-                    <h2 class="title_two">Palestine Companies</h2>
+                    <h2 class="title_two">Search for jobs or training opportunities in: </h2>
                     <span></span>
                 </div>
             </div>
@@ -123,121 +102,115 @@
                         <li>
                             <div class="single_course">
                                 <div class="singCourse_imgarea">
-                                    <img src="img/course-1.jpg"/>
+                                    <img src="img/com-1.jpg"/>
                                     <div class="mask">
-                                        <a href="#" class="course_more">Palestine Companies</a>
+                                        <a href="https://www.asaltech.com/" class="course_more">Visit Page</a>
                                     </div>
                                 </div>
                                 <div class="singCourse_content">
-                                    <h3 class="singCourse_title"><a href="#">Introduction To Matrix</a></h3>
-                                    <p class="singCourse_price"><span>$20</span> Per One Month</p>
-                                    <p>when an unknown printer took a galley of type and scrambled it to make a type
-                                        specimen book</p>
+                                    <h3 class="singCourse_title"><a href="https://www.asaltech.com/">ASAL
+                                            Technologies</a></h3>
+                                    <p>It is a software and IT services outsourcing company in Ramallah,
+                                        Palestine that was founded in 2000. From the beginning, ASAL has worked
+                                        towards providing excellence in ICT solutions for a large number of local,
+                                        regional and international organizations such as Cisco Systems..</p>
                                 </div>
-                                <div class="singCourse_author">
-                                    <img src="img/author.jpg" alt="img">
-                                    <p>Richard Remus, Teacher</p>
-                                </div>
+
                             </div>
                         </li>
                         <li>
                             <div class="single_course">
                                 <div class="singCourse_imgarea">
-                                    <img src="img/course-2.jpg"/>
+                                    <img src="img/com-2.jpg"/>
                                     <div class="mask">
-                                        <a href="#" class="course_more">View Course</a>
+                                        <a href="#" class="course_more">Visit Page</a>
                                     </div>
                                 </div>
                                 <div class="singCourse_content">
-                                    <h3 class="singCourse_title"><a href="#">Introduction To Matrix</a></h3>
-                                    <p class="singCourse_price"><span>$20</span> Per One Month</p>
-                                    <p>when an unknown printer took a galley of type and scrambled it to make a type
-                                        specimen book</p>
-                                </div>
-                                <div class="singCourse_author">
-                                    <img src="img/author.jpg" alt="img">
-                                    <p>Richard Remus, Teacher</p>
-                                </div>
+                                    <h3 class="singCourse_title"><a href="http://www.exalt-tech.com/">EXALT Technologies
+                                            Ltd.</a></h3>
+                                    <p>EXALT is a software development center of excellence specialized in Web Services,
+                                        Backend/API Development, Mobile Apps and Validation. Established in 1997, EXALT
+                                        spearheaded the software development services industry to meet global market
+                                        needs for innovative technologies. </p>
+                                    <br></div>
                             </div>
                         </li>
                         <li>
                             <div class="single_course">
                                 <div class="singCourse_imgarea">
-                                    <img src="img/course-1.jpg"/>
+                                    <img src="img/com-3.jpg"/>
                                     <div class="mask">
-                                        <a href="#" class="course_more">View Course</a>
+                                        <a href="https://www.itgsoftware.com/" class="course_more">Visit Page</a>
                                     </div>
                                 </div>
                                 <div class="singCourse_content">
-                                    <h3 class="singCourse_title"><a href="#">Introduction To Matrix</a></h3>
-                                    <p class="singCourse_price"><span>$20</span> Per One Month</p>
-                                    <p>when an unknown printer took a galley of type and scrambled it to make a type
-                                        specimen book</p>
+                                    <h3 class="singCourse_title"><a href="https://www.itgsoftware.com/">Infinite Tiers
+                                            Group, Inc</a></h3>
+                                    <p>Obsessed with Software Engineering Excellence.
+                                        Digital Commerce Solutions*SharePoint Solutions*Custom Development*Mobile
+                                        ITG provides digital commerce solutions to the world's best known brands.
+                                        ITG provides SharePoint Solutions to numerous clients including fortune 500
+                                        clients</p>
                                 </div>
-                                <div class="singCourse_author">
-                                    <img src="img/author.jpg" alt="img">
-                                    <p>Richard Remus, Teacher</p>
-                                </div>
+
                             </div>
                         </li>
                         <li>
                             <div class="single_course">
                                 <div class="singCourse_imgarea">
-                                    <img src="img/course-2.jpg"/>
+                                    <img src="img/com-4.jpg"/>
                                     <div class="mask">
-                                        <a href="#" class="course_more">View Course</a>
+                                        <a href="https://www.freightos.com" class="course_more">Visit Page</a>
                                     </div>
                                 </div>
                                 <div class="singCourse_content">
-                                    <h3 class="singCourse_title"><a href="#">Introduction To Matrix</a></h3>
-                                    <p class="singCourse_price"><span>$20</span> Per One Month</p>
-                                    <p>when an unknown printer took a galley of type and scrambled it to make a type
-                                        specimen book</p>
+                                    <h3 class="singCourse_title"><a href="https://www.freightos.com ">Freightos Ltd</a>
+                                    </h3>
+                                    <p>While 90% of everything we eat, wear or use is shipped by the trillion dollar
+                                        freight industry, freight sales technology is stuck in the ‘90s, lacking online
+                                        automation and pricing transparency. Freightos is automating online freight
+                                        sales, with proven startup success and world-class investors. Freightos is
+                                        already helping some of the world’s biggest freight companies automate their
+                                        operations.</p>
                                 </div>
-                                <div class="singCourse_author">
-                                    <img src="img/author.jpg" alt="img">
-                                    <p>Richard Remus, Teacher</p>
-                                </div>
+
                             </div>
                         </li>
                         <li>
                             <div class="single_course">
                                 <div class="singCourse_imgarea">
-                                    <img src="img/course-1.jpg"/>
+                                    <img src="img/com-5.jpg"/>
                                     <div class="mask">
-                                        <a href="#" class="course_more">View Course</a>
+                                        <a href="https://www.yamsafer.com/ar" class="course_more">Visit Page</a>
                                     </div>
                                 </div>
                                 <div class="singCourse_content">
-                                    <h3 class="singCourse_title"><a href="#">Introduction To Matrix</a></h3>
-                                    <p class="singCourse_price"><span>$20</span> Per One Month</p>
-                                    <p>when an unknown printer took a galley of type and scrambled it to make a type
-                                        specimen book</p>
+                                    <h3 class="singCourse_title"><a href="https://www.yamsafer.com/ar">Yamsafer</a></h3>
+                                    <p>A PLATFORM FOR FAST-MOVERS
+                                        We care less about where you're starting; we care more about how fast you move
+                                        and how far you can get. We'll expect you to constantly punch above your weight
+                                        while working together with some of Palestine's smartest people.</p>
                                 </div>
-                                <div class="singCourse_author">
-                                    <img src="img/author.jpg" alt="img">
-                                    <p>Richard Remus, Teacher</p>
-                                </div>
+
                             </div>
                         </li>
                         <li>
                             <div class="single_course">
                                 <div class="singCourse_imgarea">
-                                    <img src="img/course-2.jpg"/>
+                                    <img src="img/com-6.jpg"/>
                                     <div class="mask">
-                                        <a href="#" class="course_more">View Course</a>
+                                        <a href="https://www.harri.com/" class="course_more">Visit Page</a>
                                     </div>
                                 </div>
                                 <div class="singCourse_content">
-                                    <h3 class="singCourse_title"><a href="#">Introduction To Matrix</a></h3>
-                                    <p class="singCourse_price"><span>$20</span> Per One Month</p>
-                                    <p>when an unknown printer took a galley of type and scrambled it to make a type
-                                        specimen book</p>
+                                    <h3 class="singCourse_title"><a href="https://www.harri.com/">HARRI</a></h3>
+                                    <p> Harri, the number one talent marketplace for hospitality, provides the most
+                                        comprehensive suite of tools to help companies attract, discover and connect
+                                        with the best talent for their needs. Their Total Talent Solution enhances every
+                                        aspect of managing employees from start to finish. </p>
                                 </div>
-                                <div class="singCourse_author">
-                                    <img src="img/author.jpg" alt="img">
-                                    <p>Richard Remus, Teacher</p>
-                                </div>
+
                             </div>
                         </li>
                     </ul>
@@ -248,29 +221,7 @@
     </div>
 </section>
 
-<!-- Javascript Files
-================================================== -->
 
-<!-- initialize jQuery Library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<!-- Preloader js file -->
-<script src="js/queryloader2.min.js" type="text/javascript"></script>
-<!-- For smooth animatin  -->
-<script src="js/wow.min.js"></script>
-<!-- Bootstrap js -->
-<script src="js/bootstrap.min.js"></script>
-<!-- slick slider -->
-<script src="js/slick.min.js"></script>
-<!-- superslides slider -->
-<script src="js/jquery.easing.1.3.js"></script>
-<script src="js/jquery.animate-enhanced.min.js"></script>
-<script src="js/jquery.superslides.min.js" type="text/javascript" charset="utf-8"></script>
-<!-- for circle counter -->
-<script src='https://cdn.rawgit.com/pguso/jquery-plugin-circliful/master/js/jquery.circliful.min.js'></script>
-<!-- Gallery slider -->
-<script type="text/javascript" language="javascript" src="js/jquery.tosrus.min.all.js"></script>
-
-<!-- Custom js-->
 <script src="js/custom.js"></script>
 
 

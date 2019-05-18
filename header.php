@@ -2,7 +2,7 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>website Name</title>
+    <title>Tasks Tracker</title>
 
     <!-- Mobile Specific Metas
     ================================================== -->
@@ -44,7 +44,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.php"> Tasks <span>Tracker</span></a>
+                    <a class="navbar-brand" href="../index.php"> Tasks <span>Tracker</span></a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
 

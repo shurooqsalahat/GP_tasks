@@ -34,8 +34,6 @@ div.table-title {
     border-radius: 3px;
     border-collapse: collapse;
     height: 100px;
-    /* margin: auto; */
-    max-width: 500px;
     padding:5px;
     width: 100%;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
@@ -49,7 +47,7 @@ th {
     border-right: 1px solid #343a45;
     font-size:18px;
     font-weight: 100;
-    padding:24px;
+    padding:20px;
     text-align:left;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
     vertical-align:middle;
@@ -108,7 +106,7 @@ td {
     padding:20px;
     text-align:left;
     vertical-align:middle;
-    font-weight:300;
+    font-weight:200;
     font-size:14px;
     text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
     border-right: 1px solid #C1C3D1;
@@ -180,4 +178,8 @@ td.text-right {
 .button:hover span:after {
     opacity: 1;
     right: 0;
+}
+.error{
+    color:red;
+    font-size: 12px;
 }

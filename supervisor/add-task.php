@@ -223,26 +223,26 @@ if(!isset($_SESSION['email'])){ //if login in session is not set
                             <form id="update_task_form_modal" action="../controller.php" enctype="multipart/form-data" method="post">
                                 <ul class="tab-list">
                                     <li class="tab-list__item active">
-                                        <a class="tab-list__link" href="#tab1" data-toggle="tab">
+                                        <a class="tab-list__link" href="#tab1-update" data-toggle="tab">
                                             <span class="step">1</span>
                                             <span class="desc">Task Information</span>
                                         </a>
                                     </li>
                                     <li class="tab-list__item">
-                                        <a class="tab-list__link" href="#tab2" data-toggle="tab">
+                                        <a class="tab-list__link" href="#tab2-update" data-toggle="tab">
                                             <span class="step">2</span>
                                             <span class="desc">Upload Task File</span>
                                         </a>
                                     </li>
                                     <li class="tab-list__item">
-                                        <a class="tab-list__link" href="#tab3" data-toggle="tab">
+                                        <a class="tab-list__link" href="#tab3-update" data-toggle="tab">
                                             <span class="step">3</span>
                                             <span class="desc">Assign Task</span>
                                         </a>
                                     </li>
                                 </ul>
                                 <div class="tab-content">
-                                    <div class="tab-pane active" id="tab1">
+                                    <div class="tab-pane active" id="tab1-update">
                                         <div class="input-group">
                                             <input class="input--style-1" type="text" id="u_task_name" name="task_name"
                                                    placeholder="Task Name here">
@@ -259,15 +259,16 @@ if(!isset($_SESSION['email'])){ //if login in session is not set
                                                    name="estimation_time" placeholder="estimation time for task">
                                         </div>
                                     </div>
-                                    <div class="tab-pane" id="tab2">
+                                    <div class="tab-pane" id="tab2-update">
                                         <h6>Select Task file to upload:</h6>
                                         <div class="input-group">
-
+                                            <input type="file" name="fileToUpload" id="u_fileToUpload">
+                                            <!--  <input type="text" name="test" >-->
                                         </div>
                                         <br>
 
                                     </div>
-                                    <div class="tab-pane" id="tab3">
+                                    <div class="tab-pane" id="tab3-update">
                                         <div class="input-group">
                                             Assign this task to :
                                         </div>

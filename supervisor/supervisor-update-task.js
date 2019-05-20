@@ -49,7 +49,7 @@ function form_submit() {
 
     var vaidate = false;
 
-   // $("#errorMsg").remove();
+    $("#errorMsg").remove();
 
     if (weight == "") {
         requiredFeilds.push('Task Weigt')
@@ -93,12 +93,13 @@ function update_submit(){
     var task_name = row.find("td:eq(1)").text();
     var weight = row.find("td:eq(2)").text();
     var estimation_time = row.find("td:eq(3)").text();
-    var file = row.find("td:eq(4)").text();
+   var file = row.find("td:eq(1)").find('a')[0].getAttribute('href');
+   console.log(file)
 
     $('input[id="u_task_name"]').val(task_name);
     $('input[id="u_weight"]').val(weight);
     $('input[id="u_estimation_time"]').val(estimation_time);
-    $('input[id="u_fileToUpload"]').val(file);
+   //$('input[id="u_fileToUpload"]').val(file);
 
 
 }
@@ -106,15 +107,15 @@ function update_submit(){
 
 function validate_update_form() {
     console.log('gg')
-    var task_name = $('#task_name').val();
-    var weight = $('#weight').val();
-    var estimation_time = $('#estimation_time').val();
-    var fileToUpload=$('#fileToUpload').val();
+    var task_name = $('#u_task_name').val();
+    var weight = $('#u_weight').val();
+    var estimation_time = $('#u_estimation_time').val();
+   // var fileToUpload=$('#u_fileToUpload').val();
     var requiredFeilds=[];
 
     var vaidate = false;
 
-    // $("#errorMsg").remove();
+ $("#updateError").text('');
 
     if (weight == "") {
         requiredFeilds.push('Task Weigt')
@@ -130,10 +131,10 @@ function validate_update_form() {
         requiredFeilds.push('Task estimation time')
         vaidate =true;
     }
-    if (fileToUpload == "") {
+   /* if (fileToUpload == "") {
         requiredFeilds.push('task file')
         vaidate =true;
-    }
+    }*/
 
 
     if (!vaidate){

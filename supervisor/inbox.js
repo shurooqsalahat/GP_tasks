@@ -28,3 +28,30 @@ var openSentMsg = function (msgTitle,reciverEmail,content,reciverName) {
     $('#sent-opened-msg').find('#reciver-name').text(reciverName);
     $('#sent-opened-msg').find('#msg-content').text(content);
 };
+function validate_send_msg() {
+    var msgTitle = $('#message_subject').val();
+    var senderEmail = $('#send-to-emails').val();
+    var content = $('#msg-content').val();
+    var vaidate = false;
+
+    $(".error").remove();
+
+    if (msgTitle.length < 1) {
+        $('#message_subject').after('<div  style="color:red">This field is required</div>');
+        vaidate =true;
+    }
+    if (content.length < 1) {
+        $('#message').after('<div style="color:red">This field is required</div>');
+        vaidate =true;
+    }
+    if ( senderEmail == null) {
+        $('#send-to-emails').after('<div style="color:red">This field is required</div>');
+        vaidate =true;
+    }
+
+
+    if (!vaidate){
+        document.getElementById("send_email").submit();
+    }
+
+}

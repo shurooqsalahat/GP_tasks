@@ -95,9 +95,8 @@
                                         </div>
                                       <div class="col-sm-8">
 
-                                      <select multiple class="form-control" id="sel2">
-                                             <option value="-1">All doctors</option>
-                                              <option value="0">All students</option>
+                                      <select multiple class="form-control" id="send-to-emails">
+
                                               <option>1</option>
                                               <option>2</option>
                                               <option>3</option>
@@ -112,12 +111,15 @@
                                 </div>
                                 <div class="form-group">
                                 <input type="text" class="form-control" id="message_subject" name="message_subject"
-                                       placeholder="Message Subject" required>
+                                       placeholder="Message Subject" >
                                 </div>
-                                <div class="form-group"><textarea class="form-control" id="message" name="body" rows="12"
-                                                                  placeholder="Click here to reply" required></textarea></div>
                                 <div class="form-group">
-                                    <button tabindex="3" type="submit" class="btn btn-success">Send message</button>
+                                    <textarea class="form-control" id="message" name="body" rows="12"
+                                                                  placeholder="Click here to write the msg" >
+
+                                    </textarea></div>
+                                <div class="form-group">
+                                    <button   onclick="validate_send_msg()" type="submit" class="btn btn-success">Send message</button>
                                 </div>
                             </form>
                         </div>

@@ -95,129 +95,133 @@
         </div>
         <!-- End Our courses titile -->
         <!-- Start Our courses content -->
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12">
-                <div class="ourCourse_content">
-                    <ul class="course_nav">
-                        <li>
-                            <div class="single_course">
-                                <div class="singCourse_imgarea">
-                                    <img src="img/com-1.jpg"/>
-                                    <div class="mask">
-                                        <a href="https://www.asaltech.com/" class="course_more">Visit Page</a>
-                                    </div>
-                                </div>
-                                <div class="singCourse_content">
-                                    <h3 class="singCourse_title"><a href="https://www.asaltech.com/">ASAL
-                                            Technologies</a></h3>
-                                    <p>It is a software and IT services outsourcing company in Ramallah,
-                                        Palestine that was founded in 2000. From the beginning, ASAL has worked
-                                        towards providing excellence in ICT solutions for a large number of local,
-                                        regional and international organizations such as Cisco Systems..</p>
-                                </div>
+        <div class="form-line row">
+         <div class="col-sm-4">
 
-                            </div>
-                        </li>
-                        <li>
-                            <div class="single_course">
-                                <div class="singCourse_imgarea">
-                                    <img src="img/com-2.jpg"/>
-                                    <div class="mask">
-                                        <a href="#" class="course_more">Visit Page</a>
-                                    </div>
-                                </div>
-                                <div class="singCourse_content">
-                                    <h3 class="singCourse_title"><a href="http://www.exalt-tech.com/">EXALT Technologies
-                                            Ltd.</a></h3>
-                                    <p>EXALT is a software development center of excellence specialized in Web Services,
-                                        Backend/API Development, Mobile Apps and Validation. Established in 1997, EXALT
-                                        spearheaded the software development services industry to meet global market
-                                        needs for innovative technologies. </p>
-                                    <br></div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="single_course">
-                                <div class="singCourse_imgarea">
-                                    <img src="img/com-3.jpg"/>
-                                    <div class="mask">
-                                        <a href="https://www.itgsoftware.com/" class="course_more">Visit Page</a>
-                                    </div>
-                                </div>
-                                <div class="singCourse_content">
-                                    <h3 class="singCourse_title"><a href="https://www.itgsoftware.com/">Infinite Tiers
-                                            Group, Inc</a></h3>
-                                    <p>Obsessed with Software Engineering Excellence.
-                                        Digital Commerce Solutions*SharePoint Solutions*Custom Development*Mobile
-                                        ITG provides digital commerce solutions to the world's best known brands.
-                                        ITG provides SharePoint Solutions to numerous clients including fortune 500
-                                        clients</p>
-                                </div>
+                 <div class="single_course">
+                     <div class="singCourse_imgarea">
+                         <img src="img/com-1.jpg"/>
+                         <div class="mask">
+                             <a href="https://www.asaltech.com/" class="course_more">Visit Page</a>
+                         </div>
+                     </div>
+                     <div class="singCourse_content">
+                         <h3 class="singCourse_title"><a href="https://www.asaltech.com/">ASAL
+                                 Technologies</a></h3>
+                         <p>It is a software and IT services outsourcing company in Ramallah,
+                             Palestine that was founded in 2000. From the beginning, ASAL has worked
+                             towards providing excellence in ICT solutions for a large number of local,
+                             regional and international organizations such as Cisco Systems..</p>
+                     </div>
 
-                            </div>
-                        </li>
-                        <li>
-                            <div class="single_course">
-                                <div class="singCourse_imgarea">
-                                    <img src="img/com-4.jpg"/>
-                                    <div class="mask">
-                                        <a href="https://www.freightos.com" class="course_more">Visit Page</a>
-                                    </div>
-                                </div>
-                                <div class="singCourse_content">
-                                    <h3 class="singCourse_title"><a href="https://www.freightos.com ">Freightos Ltd</a>
-                                    </h3>
-                                    <p>While 90% of everything we eat, wear or use is shipped by the trillion dollar
-                                        freight industry, freight sales technology is stuck in the ‘90s, lacking online
-                                        automation and pricing transparency. Freightos is automating online freight
-                                        sales, with proven startup success and world-class investors. Freightos is
-                                        already helping some of the world’s biggest freight companies automate their
-                                        operations.</p>
-                                </div>
+                 </div>
 
-                            </div>
-                        </li>
-                        <li>
-                            <div class="single_course">
-                                <div class="singCourse_imgarea">
-                                    <img src="img/com-5.jpg"/>
-                                    <div class="mask">
-                                        <a href="https://www.yamsafer.com/ar" class="course_more">Visit Page</a>
-                                    </div>
-                                </div>
-                                <div class="singCourse_content">
-                                    <h3 class="singCourse_title"><a href="https://www.yamsafer.com/ar">Yamsafer</a></h3>
-                                    <p>A PLATFORM FOR FAST-MOVERS
-                                        We care less about where you're starting; we care more about how fast you move
-                                        and how far you can get. We'll expect you to constantly punch above your weight
-                                        while working together with some of Palestine's smartest people.</p>
-                                </div>
+         </div>
+            <div class="col-sm-4">
 
+                    <div class="single_course">
+                        <div class="singCourse_imgarea">
+                            <img src="img/com-2.jpg"/>
+                            <div class="mask">
+                                <a href="#" class="course_more">Visit Page</a>
                             </div>
-                        </li>
-                        <li>
-                            <div class="single_course">
-                                <div class="singCourse_imgarea">
-                                    <img src="img/com-6.jpg"/>
-                                    <div class="mask">
-                                        <a href="https://www.harri.com/" class="course_more">Visit Page</a>
-                                    </div>
-                                </div>
-                                <div class="singCourse_content">
-                                    <h3 class="singCourse_title"><a href="https://www.harri.com/">HARRI</a></h3>
-                                    <p> Harri, the number one talent marketplace for hospitality, provides the most
-                                        comprehensive suite of tools to help companies attract, discover and connect
-                                        with the best talent for their needs. Their Total Talent Solution enhances every
-                                        aspect of managing employees from start to finish. </p>
-                                </div>
+                        </div>
+                        <div class="singCourse_content">
+                            <h3 class="singCourse_title"><a href="http://www.exalt-tech.com/">EXALT Technologies
+                                    Ltd.</a></h3>
+                            <p>EXALT is a software development center of excellence specialized in Web Services,
+                                Backend/API Development, Mobile Apps and Validation. Established in 1997, EXALT
+                                spearheaded the software development services industry to meet global market
+                                needs for innovative technologies. </p>
+                            <br></div>
+                    </div>
 
+            </div>
+            <div class="col-sm-4">
+                    <div class="single_course">
+                        <div class="singCourse_imgarea">
+                            <img src="img/com-3.jpg"/>
+                            <div class="mask">
+                                <a href="https://www.itgsoftware.com/" class="course_more">Visit Page</a>
                             </div>
-                        </li>
-                    </ul>
-                </div>
+                        </div>
+                        <div class="singCourse_content">
+                            <h3 class="singCourse_title"><a href="https://www.itgsoftware.com/">Infinite Tiers
+                                    Group, Inc</a></h3>
+                            <p>Obsessed with Software Engineering Excellence.
+                                Digital Commerce Solutions*SharePoint Solutions*Custom Development*Mobile
+                                ITG provides digital commerce solutions to the world's best known brands.
+                                ITG provides SharePoint Solutions to numerous clients including fortune 500
+                                clients</p>
+                        </div>
+
+                    </div>
             </div>
         </div>
-        <!-- End Our courses content -->
+        <br>
+        <div class="form-line row">
+        <div class="col-sm-4">
+                <div class="single_course">
+                    <div class="singCourse_imgarea">
+                        <img src="img/com-4.jpg"/>
+                        <div class="mask">
+                            <a href="https://www.freightos.com" class="course_more">Visit Page</a>
+                        </div>
+                    </div>
+                    <div class="singCourse_content">
+                        <h3 class="singCourse_title"><a href="https://www.freightos.com ">Freightos Ltd</a>
+                        </h3>
+                        <p> Freightos is automating online freight
+                            sales, with proven startup success and world-class investors. Freightos is
+                            already helping some of the world’s biggest freight companies automate their
+                            operations.<br><br></p>
+                    </div>
+
+                </div>
+
+        </div>
+            <div class="col-sm-4">
+
+                    <div class="single_course">
+                        <div class="singCourse_imgarea">
+                            <img src="img/com-5.jpg"/>
+                            <div class="mask">
+                                <a href="https://www.yamsafer.com/ar" class="course_more">Visit Page</a>
+                            </div>
+                        </div>
+                        <div class="singCourse_content">
+                            <h3 class="singCourse_title"><a href="https://www.yamsafer.com/ar">Yamsafer</a></h3>
+                            <p>A PLATFORM FOR FAST-MOVERS<br>
+                                We care less about where you're starting; we care more about how fast you move
+                                and how far you can get. We'll expect you to constantly punch above your weight
+                                while working together with some of Palestine's smartest people.</p>
+                        </div>
+
+                    </div>
+
+            </div>
+            <div class="col-sm-4">
+
+                    <div class="single_course">
+                        <div class="singCourse_imgarea">
+                            <img src="img/com-6.jpg"/>
+                            <div class="mask">
+                                <a href="https://www.harri.com/" class="course_more">Visit Page</a>
+                            </div>
+                        </div>
+                        <div class="singCourse_content">
+                            <h3 class="singCourse_title"><a href="https://www.harri.com/">HARRI</a></h3>
+                            <p> Number one talent marketplace for hospitality, provides the most
+                                comprehensive suite of tools to help companies attract, discover and connect
+                                with the best talent for their needs. Their Total Talent Solution enhances every
+                                aspect of managing employees from start to finish. </p>
+                        </div>
+                    </div>
+
+            </div>
+
+        </div>
+
     </div>
 </section>
 

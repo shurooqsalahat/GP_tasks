@@ -1,0 +1,46 @@
+img {width:100%;}
+#supervisor-info {
+    background: #ffffff;
+    padding-top: 20px;
+}
+
+#testimonial {
+
+    overflow: hidden;
+
+    border-radius: 10px;
+}
+button ,input[type=submit] {
+    background: darken(#E0C9CB, 10%);
+    padding: 10px;
+    display: inline-block;
+    outline: 0;
+    border: 0;
+    margin: -1px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #FFFFFF;
+    cursor: pointer;
+
+}
+button:hover ,input[type=submit]:hover{
+    background: #337ab7;
+    transition: all .4s ease-in-out;
+}
+.add {
+    width: 67%;
+}
+
+.like {
+    width: 22%;
+}
+.update {
+    width: 31%;
+}
+
+input[type=submit]:disabled,
+input[type=submit][disabled]{
+    background-color: #cccccc;
+    color: #666666;
+}

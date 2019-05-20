@@ -111,16 +111,15 @@ session_start();
                 </div>
                 <div class="form-group" id="NAME">
                     <label for="search_name">Name:</label>
-                    <input type="text" class="form-control" id="search_name">
+                    <input type="text" class="form-control" id="search_name" onchange="showDataName()">
                 </div>
                 <div class="form-group"  id="ID" style="display: none">
                     <label for="search_id">ID:</label>
-                    <input type="text" class="form-control"  id="search_id">
+                    <input type="text" class="form-control"  id="search_id" onchange="showDataID()">
                 </div>
                 <div style="float: right">
-                    <button type="button" class="button" id="search-btn" onclick="validate_search_btn()"><span>Search</span></button>
-                    <button type="button" class="button" style="vertical-align:middle;display: none" id="assign-new-task-btn" data-toggle="modal" data-target="#assign_new_task_modal"><span>Assign new task</span></button>
-                    <button type="button" class="button" style="vertical-align:middle;display: none" id="assign-new-student-btn" data-toggle="modal" data-target="#assign_new_student_modal"><span>Assign new student</span></button>
+                    <button type="button" class="button" style="vertical-align:middle;display: none" id="assign-new-task-btn" data-toggle="modal" data-target="#assign_new_task_modal"><span>ASSIGN</span></button>
+
                 </div>
             </form>
 <br>
@@ -160,14 +159,27 @@ session_start();
                         <div class="modal-body">
                             <form id="add_new_task_for_student_form" action="../controller.php" method="REQUEST" method="post" >
                                 <h4 style="color: #5d7efe">Choose task/s you want to assign to this student:</h4>
-                                <div class="input-group">
-                                    <select name="assignees" id="assigned_tasks" multiple style="width: 300px">
-                                        <option value="volvo">task1</option>
-                                        <option value="saab">task2</option>
-                                        <option value="opel">task2</option>
-                                        <option value="audi">task3</option>
-                                    </select>
+                                <div class="form-line row">
+                                    <div class="col-sm-6">
+                                            <select name="assignees" id="assigned_tasks" multiple style="width: 100%">
+                                                <option value="volvo">task1</option>
+                                                <option value="saab">task2</option>
+                                                <option value="opel">task2</option>
+                                                <option value="audi">task3</option>
+                                            </select>
+
+                                    </div>
+
+                                 <div class="col-sm-6">
+                                         <select name="assignees" id="assigned_tasks" multiple style="width: 100%">
+                                             <option value="volvo">task1</option>
+                                             <option value="saab">task2</option>
+                                             <option value="opel">task2</option>
+                                             <option value="audi">task3</option>
+                                         </select>
+                                 </div>
                                 </div>
+
                             </form>
 
                         </div>
@@ -178,33 +190,7 @@ session_start();
                     </div><!-- /.modal-content -->
                 </div><!-- /.modal-dialog -->
             </div><!-- /.modal -->
-            <div class="modal fade" tabindex="-1" role="dialog" id="assign_new_student_modal">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title">Add New Student</h4>
-                        </div>
-                        <div class="modal-body">
-                            <form id="add_new_student_for_task_form" action="../controller.php" method="REQUEST" method="post" >
-                                <h4 style="color: #5d7efe">Choose student/s to assign this task for him/them:</h4>
-                                <div class="input-group">
-                                    <select name="assignees" id="students_to_assign_task" multiple style="width: 300px">
-                                        <option value="volvo">yara</option>
-                                        <option value="saab">shurooq</option>
-                                        <option value="opel">fatima</option>
-                                    </select>
-                                </div>
-                            </form>
 
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" onclick="atLeastChooseOneStudent()">Add</button>
-                        </div>
-                    </div><!-- /.modal-content -->
-                </div><!-- /.modal-dialog -->
-            </div><!-- /.modal -->
             <div class="modal fade" id="add_score_modal" tabindex="-1" role="dialog"  aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">

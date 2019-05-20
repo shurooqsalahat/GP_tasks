@@ -383,3 +383,21 @@ VALUES ('$name',$weight ,'$description',$estimation_time,'$task_file', $supervis
         return false;
     }
 }
+
+
+
+function getByTaskName($name){
+    include 'connect_DB.php';
+    $qstr = "SELECT * FROM student_task WHERE task_name LIKE '%$name%'";
+   // echo $qstr;
+    $result = $db->query($qstr);
+    return $result;
+
+}
+function getAllTaskStudent(){
+    include 'connect_DB.php';
+    $qstr = "SELECT * FROM student_task ";
+    $result = $db->query($qstr);
+    return $result;
+
+}

@@ -75,11 +75,7 @@
            </div>
       </div>
     </section>
-    <!--=========== END GALLERY SECTION ================-->
-    
-    <!--=========== BEGIN FOOTER SECTION ================-->
 
-    <!--=========== END FOOTER SECTION ================--> 
 
   
 

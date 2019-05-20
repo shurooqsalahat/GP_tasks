@@ -126,97 +126,28 @@ session_start();
 <br>
             <hr>
             <div class="search">
-                <table class="table-fill" id="assign-tasks-table" style="float: left;display: none">
-                    <thead>
-                    <tr>
+           <table class="table-fill"  style="float: left;">
+                <thead>
+                <tr>
 
-                        <th class="text-left">Task ID</th>
-                        <th class="text-left">Task Name</th>
-                        <th class="text-left">Time</th>
-                        <th class="text-left">Delivered</th>
-                        <th class="text-left">Evaluation</th>
-                        <th class="text-left">Delivered On</th>
-                        <th class="text-left">Action</th>
-                    </tr>
-                    </thead>
-                    <tbody class="table-hover">
-                    <tr>
-                        <td class="text-left">2</td>
-                        <td class="text-left">ts</td>
-                        <td class="text-left">5</td>
-                        <td class="text-left">2 mar</td>
-                        <td class="text-left">5</td>
-                        <td class="text-left">3 mar</td>
-                        <td>
-                            <div class="btn-group btn-group-xs">
-                                <button type="button" class="btn" data-id='2'  data-toggle="modal" data-target="#add_score_modal"  style="padding: 10px;"><span class="glyphicon glyphicon-star">Add Task Score</span></button>
-                            </div>
-                        </td>
+                    <th class="text-left">Student ID</th>
+                    <th class="text-left">Student Name</th>
+                    <th class="text-left">Task Name</th>
+                    <th class="text-left">Doctor Name</th>
+                    <th class="text-left">Student Received</th>
+                    <th class="text-left">Student Sent</th>
+                    <th class="text-left">Total Time</th>
+                    <th class="text-left">Status</th>
+                    <th class="text-left">evaluation</th>
+                    <th class="text-left"> action</th>
 
 
-                    </tr>
-                    <tr>
-                        <td class="text-left">2</td>
-                        <td class="text-left">task2</td>
-                        <td class="text-left">5</td>
-                        <td class="text-left">2 mar</td>
-                        <td class="text-left">5</td>
-                        <td class="text-left">3 mar</td>
-                        <td>
-                            <div class="btn-group btn-group-xs" ng-show="row == $index">
-                                <button type="button" class="btn" data-id='2'  data-toggle="modal" data-target="#add_score_modal"  style="padding: 10px;"><span class="glyphicon glyphicon-star">Add Task Score</span></button>
-                            </div>
-                        </td>
+                </tr>
+                </thead>
+                <tbody class="table-hover" id="live_data_progress">
 
-                    </tr>
-                    </tbody>
-                </table>
-                <table class="table-fill" id="assign-students-table" style="float: left;display: none">
-                    <thead>
-                    <tr>
-
-                        <th class="text-left">Student ID</th>
-                        <th class="text-left">Student Name</th>
-                        <th class="text-left">Time</th>
-                        <th class="text-left">Delivered</th>
-                        <th class="text-left">Evaluation</th>
-                        <th class="text-left">Delivered On</th>
-                        <th class="text-left">Action</th>
-                    </tr>
-                    </thead>
-                    <tbody class="table-hover">
-                    <tr>
-                        <td class="text-left">2</td>
-                        <td class="text-left">ts</td>
-                        <td class="text-left">5</td>
-                        <td class="text-left">2 mar</td>
-                        <td class="text-left">5</td>
-                        <td class="text-left">3 mar</td>
-                        <td>
-                            <div class="btn-group btn-group-xs">
-                                <button type="button" class="btn" data-id='2'  data-toggle="modal" data-target="#add_score_modal"  style="padding: 10px;"><span class="glyphicon glyphicon-star">Add Task Score</span></button>
-                            </div>
-                        </td>
-
-
-                    </tr>
-                    <tr>
-                        <td class="text-left">2</td>
-                        <td class="text-left">task2</td>
-                        <td class="text-left">5</td>
-                        <td class="text-left">2 mar</td>
-                        <td class="text-left">5</td>
-                        <td class="text-left">3 mar</td>
-                        <td>
-                            <div class="btn-group btn-group-xs">
-                                <button type="button" class="btn" data-id='2'  data-toggle="modal" data-target="#add_score_modal"  style="padding: 10px;"><span class="glyphicon glyphicon-star">Add Task Score</span></button>
-                            </div>
-                        </td>
-
-                    </tr>
-                    </tbody>
-                </table>
-
+                </tbody>
+            </table>
             </div>
 
             <div class="modal fade" tabindex="-1" role="dialog" id="assign_new_task_modal">

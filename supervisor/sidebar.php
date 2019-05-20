@@ -17,6 +17,9 @@
     <li>
         <a href="add-doctor.php">Doctors</a>
     </li>
+    <li>
+        <a href="inbox.php">inbox</a>
+    </li>
     <li style="margin-top:30px">
         <a href="../controller.php?src=logout">Log Out</a>
     </li>

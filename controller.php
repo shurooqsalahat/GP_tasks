@@ -396,8 +396,17 @@ if (isset($src)) {
         }
     }
 
-    if ($src=='assign_tasks'){
+    if ($src=='assign_tasks') {
+        if (isset($_REQUEST['tasks'])) {
 
+            foreach ($_REQUEST['tasks'] as $subject)
+                print "You selected tasks $subject<br/>";
+        }
+        if (isset($_REQUEST['students'])) {
+
+            foreach ($_REQUEST['students'] as $subject)
+                print "You selected tasks $subject<br/>";
+        }
     }
 
 

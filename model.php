@@ -516,7 +516,7 @@ function addStudentTask($student_id, $student_name, $task_name, $doctor_id, $is_
     $sql = "INSERT INTO `student_task`( `student_id`, `student_name`, `task_name`, `doctor_id`, `is_delivered`, 
     `evaluation`, `student_sent`, `student_recived`, `feed_back`, `solution_link`) 
     VALUES ('$student_id','$student_name','$task_name','$doctor_id',$is_delivered,$evaluation,$student_sent,
-    $student_recived, '$feed_back', '$solution_link' )";
+    now(), '$feed_back', '$solution_link' )";
     if (mysqli_query($db, $sql)) {
         echo "Record inserted successfully";
         return true;
@@ -525,4 +525,4 @@ function addStudentTask($student_id, $student_name, $task_name, $doctor_id, $is_
         return false;
     }
 }
-//addStudentTask(17,"yara","Task3","3",0, 5, "0-0-0 ", date("Y-m-d"),"good","github" );
+//addStudentTask(18,"yara","Task_1","3",0, 5, "0-0-0", date("Y-m-d"),"good","github" );

@@ -165,7 +165,7 @@ session_start();
                                 <div class="form-line row">
 
                                     <div class="col-sm-6">
-                                        <select name="assignees" id="assigned_tasks" multiple style="width: 100%">
+                                        <select name="tasks[]" id="assigned_tasks" multiple="multiple" style="width: 100%">
                                             <?php
                                             $result = getSupervisorTasks($_SESSION['id']);
                                             $nor = $result->num_rows;
@@ -181,8 +181,8 @@ session_start();
                                     </div>
 
                                     <div class="col-sm-6">
-                                        <select name="assignees" id="assigned_tasks" multiple style="width: 100%">
-                                            <?php
+                                        <select name="students[]" id="assigned_tasks" multiple="multiple" style="width: 100%">
+                                            --><?php
                                             $result = getSupervisorStudents($_SESSION['id']);
                                             $nor = $result->num_rows;
                                             for ($i = 0; $i < $nor; $i++) {

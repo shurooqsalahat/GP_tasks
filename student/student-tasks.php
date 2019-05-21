@@ -113,14 +113,15 @@ if(!isset($_SESSION['email'])){ //if login in session is not set
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Uplode task file</h4>
+                            <h4 class="modal-title">solution  file</h4>
                         </div>
                         <div class="modal-body">
                             <form id="update_task_form_modal" action="../controller.php" enctype="multipart/form-data" method="post">
-                                <div class="input-group">
-                                    <input type="file" name="fileToUpload" id="u_fileToUpload">
-                                    <!--  <input type="text" name="test" >-->
-                                </div>
+                                <label for="url">Enter an git Hub link for your solution:</label>
+                                <input type="url" name="url" id="url"
+                                       placeholder="https://example.com"
+                                       pattern="https://.*" size="30"
+                                       required>
                             </form>
                             <div class="form-line row">
                                 <div class="error col-sm-12" id="updateError">

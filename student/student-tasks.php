@@ -108,7 +108,7 @@ if(!isset($_SESSION['email'])){ //if login in session is not set
             </div>
 
             <!-- .modal -->
-            <div class="modal fade" id="update_task_modal" style="z-index: 2000">
+            <div class="modal fade" id="solution_modal" style="z-index: 2000">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -116,23 +116,23 @@ if(!isset($_SESSION['email'])){ //if login in session is not set
                             <h4 class="modal-title">solution  file</h4>
                         </div>
                         <div class="modal-body">
-                            <form id="update_task_form_modal" action="../controller.php" enctype="multipart/form-data" method="post">
+                            <form id="solution_form" action=""  method="post">
                                 <label for="url">Enter an git Hub link for your solution:</label>
-                                <input type="url" name="url" id="url"
+                                <input type="url" name="url"
                                        placeholder="https://example.com"
-                                       pattern="https://.*" size="30"
-                                       required>
+                                       id="solution-url"
+                                       >
                             </form>
                             <div class="form-line row">
-                                <div class="error col-sm-12" id="updateError">
+                                <div class="error col-sm-12" id="error" style="color: red">
                                 </div>
                             </div>
                         </div>
                         <div class="modal-footer">
 <!--                            <input style="padding: 8px 10px;" type="submit" value="Upload File"-->
 <!--                                   name="submit">-->
-                            <button type="button" class="btn btn-primary" name="submit" id="submit_update_modal"
-                                    onclick="validate_update_form()">Save
+                            <button type="button" class="btn btn-primary" name="submit" id="solution_modal_btn"
+                                    onclick="validate_solution_url_form()">Save
                             </button>
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>

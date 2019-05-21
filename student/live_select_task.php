@@ -36,7 +36,7 @@ for ($i = 0; $i < $nor; $i++) {
         '<td>'.$row[3].'</td>'.
         '<td>'.$row[3].'</td>'.
          '<td>'.
-            '<button style="margin-right: 6px; border-radius: 15px;" data-toggle="modal" data-target="#update_task_modal" type="button" class="btn btn-primary btn-sm dt-edit update_btn" id="update-modal-btn" data-id="'.$row[0].'">'.
+            '<button style="margin-right: 6px; border-radius: 15px;" data-toggle="modal" data-target="#solution_modal" type="button" class="btn btn-primary btn-sm dt-edit update_btn" id="update-modal-btn" data-id="'.$row[0].'">'.
                 '<span class="glyphicon glyphicon-pencil " aria-hidden="true" >upload task solution</span>'.
             '</button>'.
         '</td>'.

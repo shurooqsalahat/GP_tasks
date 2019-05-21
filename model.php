@@ -148,7 +148,7 @@ function retrieveStudentBYEmail($email){
 
 function retrieveSudentsByID($id){
     include 'connect_DB.php';
-    $query = "SELECT `id` FROM students WHERE id=$id";
+    $query = "SELECT *  FROM students WHERE id=$id";
     $result = $db->query($query);
     $nor = $result->num_rows;
     if ($nor == 0) {
@@ -367,8 +367,16 @@ function isTaskExist($task_name){
     }
 
 }
+function getTaskByName($name){
+    include 'connect_DB.php';
 
+    $sql = "SELECT * FROM tasks where task_name ='$name'";
+    $result = $db->query($sql);
+    $row = $result->fetch_array();
 
+    return $row;
+}
+//getTaskByName('Task_1');
 function addTask($name, $weight, $description, $estimation_time, $task_file,$supervisor_id){
     include 'connect_DB.php';
 
@@ -386,7 +394,7 @@ VALUES ('$name',$weight ,'$description',$estimation_time,'$task_file', $supervis
 
 
 
-function getByTaskName($name){
+function getTrainingLikeTaskName($name){
     include 'connect_DB.php';
     $qstr = "SELECT * FROM student_task WHERE task_name LIKE '%$name%'";
    // echo $qstr;
@@ -394,6 +402,47 @@ function getByTaskName($name){
     return $result;
 
 }
+
+function getTrainingLikeStudentName($name){
+    include 'connect_DB.php';
+    $qstr = "SELECT * FROM student_task WHERE student_name LIKE '%$name%'";
+    // echo $qstr;
+    $result = $db->query($qstr);
+    return $result;
+
+}
+function getTaskByID($id){
+    include 'connect_DB.php';
+    $qstr = "SELECT * FROM tasks WHERE id=$id";
+    // echo $qstr;
+    $result = $db->query($qstr);
+    $row = $result->fetch_array();
+    //echo $row[1];
+    return $row;
+
+}
+function getTrainingByTaskName($name){
+    include 'connect_DB.php';
+    $qstr = "SELECT * FROM student_task WHERE task_name ='$name'";
+    //echo $qstr;
+    $result = $db->query($qstr);
+    $row = $result->fetch_array();
+    //echo $row[1];
+    return $row;
+
+}
+
+function getTrainingByStudentId($id){
+    include 'connect_DB.php';
+    $qstr = "SELECT * FROM student_task WHERE student_id=$id";
+    // echo $qstr;
+    $result = $db->query($qstr);
+    $row = $result->fetch_array();
+    //echo $row[1];
+    return $row;
+
+}
+//getTrainingByTaskName('Task_2');
 function getAllTaskStudent(){
     include 'connect_DB.php';
     $qstr = "SELECT * FROM student_task ";

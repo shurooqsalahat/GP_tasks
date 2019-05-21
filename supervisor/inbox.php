@@ -10,7 +10,7 @@
     <script src="inbox.js"></script>
     <link href="../style.css" rel="stylesheet">
     <link href="inbox.css" rel="stylesheet">
-    <?php include "../header.php"?>
+
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
 
@@ -22,8 +22,9 @@
 
 </head>
 
-<header id="header">
-</header>
+
+<?php include "../header.php"?>
+
 <body>
 <div id="wrapper">
     <!-- Sidebar -->

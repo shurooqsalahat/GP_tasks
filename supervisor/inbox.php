@@ -1,3 +1,8 @@
+<?php
+include("../model.php");// connect to db
+session_start();
+
+?>
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -12,28 +17,22 @@
     <link href="inbox.css" rel="stylesheet">
     <?php include "../header.php"?>
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
 
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
-
-    <!-- (Optional) Latest compiled and minified JavaScript translation files -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/i18n/defaults-*.min.js"></script>
 
 </head>
 
 <header id="header">
+
 </header>
 <body>
 <div id="wrapper">
     <!-- Sidebar -->
-    <div id="sidebar-wrapper">
+    <div id="sidebar-wrapper" style="margin-top:-20px">
         <?php include "sidebar.php"?>
     </div>
     <!-- /#sidebar-wrapper -->
     <!-- Page Content -->
     <div id="page-content-wrapper">
-
         <div class="container-fluid">
             <div class="row inbox">
                 <ul class="nav nav-tabs">
@@ -57,9 +56,9 @@
                             </div>
                             <br>
                             <div class="form-line row">
-                             <div class="col-sm-4">
-                                 <a href="#" onclick="showNewMsgForm()" class="btn btn-danger btn-block">New Email</a>
-                             </div>
+                                <div class="col-sm-4">
+                                    <a href="#" onclick="showNewMsgForm()" class="btn btn-danger btn-block">New Email</a>
+                                </div>
 
                             </div>
                             <br><br>
@@ -93,29 +92,29 @@
                                             <label for="sel2">Select Email/s:</label>
 
                                         </div>
-                                      <div class="col-sm-8">
+                                        <div class="col-sm-8">
 
-                                      <select multiple class="form-control" id="send-to-emails">
+                                            <select multiple class="form-control" id="send-to-emails">
 
-                                              <option>1</option>
-                                              <option>2</option>
-                                              <option>3</option>
-                                              <option>4</option>
-                                              <option>5</option>
-                                          </select>
-                                       <!--   <select class="selectpicker" id="selectpicker" multiple data-live-search="true">
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                            </select>
+                                            <!--   <select class="selectpicker" id="selectpicker" multiple data-live-search="true">
 
-                                          </select>-->
-                                      </div>
+                                               </select>-->
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                <input type="text" class="form-control" id="message_subject" name="message_subject"
-                                       placeholder="Message Subject" >
+                                    <input type="text" class="form-control" id="message_subject" name="message_subject"
+                                           placeholder="Message Subject" >
                                 </div>
                                 <div class="form-group">
                                     <textarea class="form-control" id="message" name="body" rows="12"
-                                                                  placeholder="Click here to write the msg" >
+                                              placeholder="Click here to write the msg" >
 
                                     </textarea></div>
                                 <div class="form-group">

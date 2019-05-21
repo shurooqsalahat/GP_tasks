@@ -102,11 +102,11 @@ session_start();
                 <div class="form-group">
                     <label for="search-type">Search (select one):</label>
                     <select class="form-control" id="search-type" onchange="changeLabel()"
-                        <option value="">select</option>
-                        <option value="student_name">Student Name</option>
-                        <option value="student_id">Student Id</option>
-                        <option value="task_name">Task Name</option>
-                        <option value="task_id">Task id</option>
+                    <option value="">select</option>
+                    <option value="student_name">Student Name</option>
+                    <option value="student_id">Student Id</option>
+                    <option value="task_name">Task Name</option>
+                    <option value="task_id">Task id</option>
                     </select>
                 </div>
                 <div class="form-group" id="NAME">
@@ -115,38 +115,38 @@ session_start();
                 </div>
                 <div class="form-group"  id="ID" style="display: none">
                     <label for="search_id">ID:</label>
-                    <input type="text" class="form-control"  id="search_id" onchange="showDataID()">
+                    <input type="text" class="form-control"  id="search_id">
                 </div>
                 <div style="float: right">
                     <button type="button" class="button" style="vertical-align:middle;display: none" id="assign-new-task-btn" data-toggle="modal" data-target="#assign_new_task_modal"><span>ASSIGN</span></button>
 
                 </div>
             </form>
-<br>
+            <br>
             <hr>
             <div class="search">
-           <table class="table-fill"  style="float: left;">
-                <thead>
-                <tr>
+                <table class="table-fill"  style="float: left;">
+                    <thead>
+                    <tr>
 
-                    <th class="text-left">Student ID</th>
-                    <th class="text-left">Student Name</th>
-                    <th class="text-left">Task Name</th>
-                    <th class="text-left">Doctor Name</th>
-                    <th class="text-left">Student Received</th>
-                    <th class="text-left">Student Sent</th>
-                    <th class="text-left">Total Time</th>
-                    <th class="text-left">Status</th>
-                    <th class="text-left">evaluation</th>
-                    <th class="text-left"> action</th>
+                        <th class="text-left">Student ID</th>
+                        <th class="text-left">Student Name</th>
+                        <th class="text-left">Task Name</th>
+                        <th class="text-left">Doctor Name</th>
+                        <th class="text-left">Student Received</th>
+                        <th class="text-left">Student Sent</th>
+                        <th class="text-left">Total Time</th>
+                        <th class="text-left">Status</th>
+                        <th class="text-left">evaluation</th>
+                        <th class="text-left"> action</th>
 
 
-                </tr>
-                </thead>
-                <tbody class="table-hover" id="live_data_progress">
+                    </tr>
+                    </thead>
+                    <tbody class="table-hover" id="live_data_progress">
 
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
             </div>
 
             <div class="modal fade" tabindex="-1" role="dialog" id="assign_new_task_modal">
@@ -161,23 +161,23 @@ session_start();
                                 <h4 style="color: #5d7efe">Choose task/s you want to assign to this student:</h4>
                                 <div class="form-line row">
                                     <div class="col-sm-6">
-                                            <select name="assignees" id="assigned_tasks" multiple style="width: 100%">
-                                                <option value="volvo">task1</option>
-                                                <option value="saab">task2</option>
-                                                <option value="opel">task2</option>
-                                                <option value="audi">task3</option>
-                                            </select>
+                                        <select name="assignees" id="assigned_tasks" multiple style="width: 100%">
+                                            <option value="volvo">task1</option>
+                                            <option value="saab">task2</option>
+                                            <option value="opel">task2</option>
+                                            <option value="audi">task3</option>
+                                        </select>
 
                                     </div>
 
-                                 <div class="col-sm-6">
-                                         <select name="assignees" id="assigned_tasks" multiple style="width: 100%">
-                                             <option value="volvo">task1</option>
-                                             <option value="saab">task2</option>
-                                             <option value="opel">task2</option>
-                                             <option value="audi">task3</option>
-                                         </select>
-                                 </div>
+                                    <div class="col-sm-6">
+                                        <select name="assignees" id="assigned_tasks" multiple style="width: 100%">
+                                            <option value="volvo">task1</option>
+                                            <option value="saab">task2</option>
+                                            <option value="opel">task2</option>
+                                            <option value="audi">task3</option>
+                                        </select>
+                                    </div>
                                 </div>
 
                             </form>

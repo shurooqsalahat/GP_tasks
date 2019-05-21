@@ -61,6 +61,8 @@ if(!isset($_SESSION['email'])){ //if login in session is not set
     <!-- Font special for pages-->
     <?php include "../header.php" ?>
     <link href="add_task_form.css" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 
 <header id="header">
@@ -124,14 +126,14 @@ if(!isset($_SESSION['email'])){ //if login in session is not set
                             <h6>Select Task file to upload:</h6>
                             <div class="input-group">
                                 <input type="file" name="fileToUpload" id="fileToUpload">
-<!--                                <input type="text" name="test" >-->
+                                <!--                                <input type="text" name="test" >-->
                             </div>
                             <br>
 
                         </div>
                         <div class="tab-pane" id="tab3">
                             <div class="input-group">
-                            Assign this task to :
+                                Assign this task to :
                             </div>
                             <div class="input-group">
                                 <select name="assignees" multiple style="width: 300px">
@@ -260,11 +262,23 @@ if(!isset($_SESSION['email'])){ //if login in session is not set
                                         </div>
                                     </div>
                                     <div class="tab-pane" id="tab2-update">
-                                        <h6>Select Task file to upload:</h6>
                                         <div class="input-group">
-                                            <input type="file" name="fileToUpload" id="u_fileToUpload">
-                                            <!--  <input type="text" name="test" >-->
+                                            <input class="input--style-1" type="text" id="u_estimation_time" name="description"
+                                                   placeholder="Task description">
                                         </div>
+                                        <br>
+                                        <div class="input-group">
+                                            currnet file : <a id="current_file" href=""><span id="file_name"></span></a>
+                                            <a href="#" class="fas fa-trash"><i></i></a>
+                                        </div>
+                                        <div id="m">
+                                            <h6>Select another file to be upload</h6>
+                                            <div class="input-group">
+                                                <input type="file" name="fileToUpload" id="u_fileToUpload">
+
+                                            </div>
+                                        </div>
+
                                         <br>
 
                                     </div>
@@ -297,8 +311,8 @@ if(!isset($_SESSION['email'])){ //if login in session is not set
                             </div>
                         </div>
                         <div class="modal-footer">
-<!--                            <input style="padding: 8px 10px;" type="submit" value="Upload File"-->
-<!--                                   name="submit">-->
+                            <!--                            <input style="padding: 8px 10px;" type="submit" value="Upload File"-->
+                            <!--                                   name="submit">-->
                             <button type="button" class="btn btn-primary" name="submit" id="submit_update_modal"
                                     onclick="validate_update_form()">Update
                             </button>

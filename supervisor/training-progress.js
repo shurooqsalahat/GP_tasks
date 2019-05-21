@@ -48,6 +48,13 @@ $(document).ready(function () {
         }
         var select = $('#search-type').val();
 
+        if (search) {
+            $("#assign-new-task-btn").show();
+        }
+        else {
+            $("#assign-new-task-btn").hide();
+        }
+
         //alert('Select field value has changed to' + $('#search_id').val());
 
         $.ajax({
@@ -79,14 +86,19 @@ $(document).ready(function () {
         var search = $('#search_name').val();
         if (search==''){
             $.ajax({
-            type: 'POST',
-            url: 'live_training_fetch_all.php',
-            dataType: "text",
-            success: function (data) {
-                $('#live_data_progress').html(data);
-            }
-        });
+                type: 'POST',
+                url: 'live_training_fetch_all.php',
+                dataType: "text",
+                success: function (data) {
+                    $('#live_data_progress').html(data);
+                }
+            });
+            $("#assign-new-task-btn").hide();
         }
+        else{
+            $("#assign-new-task-btn").show();
+        }
+
         console.log(search);
         var select = $('#search-type').val();
         $.ajax({
@@ -146,20 +158,20 @@ $(document).ready(function () {
 }*/
 
 var changeLabel = function () {
-    $('#assign-students-table').hide();
-    $('#assign-tasks-table').hide();
     $('#assign-new-task-btn').hide();
-    $('#assign-new-student-btn').hide();
     var selected = document.getElementById('search-type');
     if (selected.value == 'student_name' || selected.value == 'task_name') {
         $('#NAME').show();
         $('#ID').hide();
+        showDataName();
 
     } else if (selected.value == 'student_id' || selected.value == 'task_id') {
         $('#ID').show();
         $('#NAME').hide();
+        //showDataID();
 
     }
+
 };
 
 var atLeastChooseOneTask = function () {
@@ -187,17 +199,31 @@ var atLeastChooseOneStudent = function () {
 };
 
 var showDataName=function () {
-    var value = $('#search_name').val();
-    if(value !=''){
-        $('#assign-new-task-btn').show();
-    }
-    else{
-        $('#assign-new-task-btn').hide();
-    }
-    
+    /*    var value = $('#search_name').val();
+        if(value !=''){
+            $('#assign-new-task-btn').show();
+        }
+        else{
+            $('#assign-new-task-btn').hide();
+        }*/
+    console.log('func called')
+
+    $("input").keyup(function () {
+        console.log('ggg')
+        if ($(this).val()) {
+            $("#assign-new-task-btn").show();
+        }
+        else {
+            $("#assign-new-task-btn").hide();
+        }
+    });
+    $("#assign-new-task-btn").click(function () {
+        $("#search_name").val('');
+        $(this).hide();
+    });
 };
 
-var showDataID = function () {
+/*var showDataID = function () {
     var value = $('#search_id').val();
     if (value != '') {
         $('#assign-new-task-btn').show();
@@ -205,4 +231,19 @@ var showDataID = function () {
         $('#assign-new-task-btn').hide();
     }
 
-}
+}*/
+
+$("#search_id").keyup(function () {
+    console.log('heee')
+    if ($(this).val()) {
+        $("#assign-new-task-btn").show();
+    }
+    else {
+        $("#assign-new-task-btn").hide();
+    }
+});
+$("#assign-new-task-btn").click(function () {
+    $("#search_id").val('');
+    $(this).hide();
+});
+

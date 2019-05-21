@@ -13,13 +13,13 @@ for ($i = 0; $i < $nor; $i++) {
     $row = $result->fetch_array();
     $student =retrieveSudentsByID($row['student_id']);
     $doctor =retrieveDoctorsByID($row['doctor_id']);
-    $task = getTaskByName($row[2]);
+    $task = getTaskByName($row['task_name']);
     echo $row[2];
 
     echo '<tr> <td class="text-left">'.$row[1].'</td>'
             .'<td class="text-left">'.$student['first']." ". $student['last'].'</td>'
             .'<td class="text-left">'.$task['id'].'</td>'
-            .'<td class="text-left">'.$row[2].'</td>'
+            .'<td class="text-left">'.$row['task_name'].'</td>'
             .'<td class="text-left">'.$row['student_recived'].'</td>'
             .'<td class="text-left">'.$row['student_sent'].'</td>'
             .'<td class="text-left">'.$row['is_delivered'].'</td>'

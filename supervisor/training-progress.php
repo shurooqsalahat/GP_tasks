@@ -102,96 +102,113 @@ session_start();
                 <div class="form-group">
                     <label for="search-type">Search (select one):</label>
                     <select class="form-control" id="search-type" onchange="changeLabel()"
-                        <option value="">select</option>
-                        <option value="student_name">Student Name</option>
-                        <option value="student_id">Student Id</option>
-                        <option value="task_name">Task Name</option>
-                        <option value="task_id">Task id</option>
+                    <option value="">select</option>
+                    <option value="student_name">Student Name</option>
+                    <option value="student_id">Student Id</option>
+                    <option value="task_name">Task Name</option>
+                    <option value="task_id">Task id</option>
                     </select>
                 </div>
                 <div class="form-group" id="NAME">
                     <label for="search_name">Name:</label>
                     <input type="text" class="form-control" id="search_name" onchange="showDataName()">
                 </div>
-                <div class="form-group"  id="ID" style="display: none">
+                <div class="form-group" id="ID" style="display: none">
                     <label for="search_id">ID:</label>
-                    <input type="text" class="form-control"  id="search_id" onchange="showDataID()">
+                    <input type="text" class="form-control" id="search_id" onchange="showDataID()">
                 </div>
                 <div style="float: right">
-                    <button type="button" class="button" style="vertical-align:middle;display: none" id="assign-new-task-btn" data-toggle="modal" data-target="#assign_new_task_modal"><span>ASSIGN</span></button>
+                    <button type="button" class="button" style="vertical-align:middle;" id="assign-new-task-btn"
+                            data-toggle="modal" data-target="#assign_new_task_modal"><span>ASSIGN</span></button>
 
                 </div>
             </form>
-<br>
+            <br>
             <hr>
             <div class="search">
-           <table class="table-fill"  style="float: left;">
-                <thead>
-                <tr>
+                <table class="table-fill" style="float: left;">
+                    <thead>
+                    <tr>
 
-                    <th class="text-left">Student ID</th>
-                    <th class="text-left">Student Name</th>
-                    <th class="text-left">Task ID</th>
-                    <th class="text-left">Task Name</th>
-                    <th class="text-left">Student Received</th>
-                    <th class="text-left">Student Sent</th>
-                    <th class="text-left">Status</th>
-                    <th class="text-left">Solution Link</th>
-                    <th class="text-left">evaluation</th>
-                    <th class="text-left"> action</th>
+                        <th class="text-left">Student ID</th>
+                        <th class="text-left">Student Name</th>
+                        <th class="text-left">Task ID</th>
+                        <th class="text-left">Task Name</th>
+                        <th class="text-left">Student Received</th>
+                        <th class="text-left">Student Sent</th>
+                        <th class="text-left">Status</th>
+                        <th class="text-left">Solution Link</th>
+                        <th class="text-left">evaluation</th>
+                        <th class="text-left"> action</th>
 
 
-                </tr>
-                </thead>
-                <tbody class="table-hover" id="live_data_progress">
+                    </tr>
+                    </thead>
+                    <tbody class="table-hover" id="live_data_progress">
 
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
             </div>
 
             <div class="modal fade" tabindex="-1" role="dialog" id="assign_new_task_modal">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                        aria-hidden="true">&times;</span></button>
                             <h4 class="modal-title">Assign new Task</h4>
                         </div>
                         <div class="modal-body">
-                            <form id="add_new_task_for_student_form" action="../controller.php" method="REQUEST" method="post" >
+                            <form id="add_new_task_for_student_form" action="../controller.php" method="REQUEST">
+                                <input name="src" value="assign_tasks" hidden>
                                 <h4 style="color: #5d7efe">Choose task/s you want to assign to this student:</h4>
                                 <div class="form-line row">
+
                                     <div class="col-sm-6">
-                                            <select name="assignees" id="assigned_tasks" multiple style="width: 100%">
-                                                <option value="volvo">task1</option>
-                                                <option value="saab">task2</option>
-                                                <option value="opel">task2</option>
-                                                <option value="audi">task3</option>
-                                            </select>
+                                        <select name="assignees" id="assigned_tasks" multiple style="width: 100%">
+                                            <?php
+                                            $result = getSupervisorTasks($_SESSION['id']);
+                                            $nor = $result->num_rows;
+                                            for ($i = 0; $i < $nor; $i++) {
+
+                                                $row = $result->fetch_array();
+                                                echo " <option value= '$row[1]'>" . $row['task_name'] . "</option>";
+                                            }
+                                            ?>
+
+                                        </select>
 
                                     </div>
 
-                                 <div class="col-sm-6">
-                                         <select name="assignees" id="assigned_tasks" multiple style="width: 100%">
-                                             <option value="volvo">task1</option>
-                                             <option value="saab">task2</option>
-                                             <option value="opel">task2</option>
-                                             <option value="audi">task3</option>
-                                         </select>
-                                 </div>
+                                    <div class="col-sm-6">
+                                        <select name="assignees" id="assigned_tasks" multiple style="width: 100%">
+                                            <?php
+                                            $result = getSupervisorStudents($_SESSION['id']);
+                                            $nor = $result->num_rows;
+                                            for ($i = 0; $i < $nor; $i++) {
+                                                $row = $result->fetch_array();
+                                                echo " <option value= '$row[0]''>" . $row[2] . " " . $row[3] . "</option>";
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
                                 </div>
 
                             </form>
 
                         </div>
                         <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" onclick="atLeastChooseOneTask()">Assign
+                            </button>
+
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" onclick="atLeastChooseOneTask()">Assign</button>
+
                         </div>
                     </div><!-- /.modal-content -->
                 </div><!-- /.modal-dialog -->
             </div><!-- /.modal -->
 
-            <div class="modal fade" id="add_score_modal" tabindex="-1" role="dialog"  aria-hidden="true">
+            <div class="modal fade" id="add_score_modal" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">

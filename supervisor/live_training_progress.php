@@ -55,6 +55,9 @@ if (isset($_POST['select'])) {
         if($id ==null){
             return;
         }
+        if (! is_numeric($id)){
+           return;
+        }
 
         $row = getTrainingByStudentId($id);
         if ($row == null){
@@ -104,7 +107,7 @@ if (isset($_POST['select'])) {
             echo '<tr> <td class="text-left">'.$row[1].'</td>'
                 .'<td class="text-left">'.$student['first']." ". $student['last'].'</td>'
                 .'<td class="text-left">'.$task['id'].'</td>'
-                .'<td class="text-left">'.$row[2].'</td>'
+                .'<td class="text-left">'.$row['task_name'].'</td>'
                 .'<td class="text-left">'.$row['student_recived'].'</td>'
                 .'<td class="text-left">'.$row['student_sent'].'</td>'
                 .'<td class="text-left">'.$row['is_delivered'].'</td>'
@@ -125,6 +128,9 @@ if (isset($_POST['select'])) {
 
     if ($select == 'task_id') {
         if($id ==null){
+            return;
+        }
+        if (! is_numeric($id)){
             return;
         }
              $task =getTaskByID($id);

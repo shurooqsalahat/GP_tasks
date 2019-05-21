@@ -221,11 +221,11 @@ session_start();
                             <form>
                                 <div class="form-group">
                                     <label for="recipient-name" class="col-form-label">Task Name:</label>
-                                    <input type="text" class="form-control" id="recipient-name">
+                                    <input type="text" class="form-control" id="task-name" disabled>
                                 </div>
                                 <div class="form-group">
                                     <label for="recipient-name" class="col-form-label">Student Name:</label>
-                                    <input type="text" class="form-control" id="recipient-name">
+                                    <input type="text" class="form-control" id="student-name" disabled>
                                 </div>
                                 <div class="form-group">
                                     <label for="recipient-name" class="col-form-label">Task Score:</label>

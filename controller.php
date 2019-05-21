@@ -399,14 +399,22 @@ if (isset($src)) {
     if ($src=='assign_tasks') {
         if (isset($_REQUEST['tasks'])) {
 
-            foreach ($_REQUEST['tasks'] as $subject)
-                print "You selected tasks $subject<br/>";
-        }
-        if (isset($_REQUEST['students'])) {
+            foreach ($_REQUEST['tasks'] as $task)
+                foreach ($_REQUEST['students'] as $student) {
+                    $rstudent =retrieveSudentsByID($student);
+                    $rtasks = getTaskByName($task);
+                     if (isTaskAssigne($student,$task)){
+                         $_SESSION['Message']="This Task already assignee to selected students";
+                         echo "cannot";
+                         exit;
+                     }
+                     addStudentTask($student,$rstudent['first']." ".$rstudent['last'],$task,
+                         $rstudent['doctor_id'],0,0," ", " ");
+                     echo "done";
 
-            foreach ($_REQUEST['students'] as $subject)
-                print "You selected tasks $subject<br/>";
+                }
         }
+
     }
 
 

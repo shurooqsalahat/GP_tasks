@@ -164,7 +164,6 @@ function retrieveSudentsByID($id)
         $sql = "SELECT * FROM students where id =$id";
         $result = $db->query($sql);
         $row = $result->fetch_array();
-        echo $row['first'];
         return $row;
     }
 
@@ -505,7 +504,7 @@ function isTaskAssigne( $student_id,$task_name)
 }
 
 function addStudentTask($student_id, $student_name, $task_name, $doctor_id, $is_delivered, $evaluation,
-                        $student_sent, $student_recived, $feed_back, $solution_link)
+                         $feed_back, $solution_link)
 {
     include 'connect_DB.php';
     if (isTaskAssigne($student_id, $task_name)) {
@@ -515,8 +514,8 @@ function addStudentTask($student_id, $student_name, $task_name, $doctor_id, $is_
     //$date=date("Y-m-d",strtotime($date))
     $sql = "INSERT INTO `student_task`( `student_id`, `student_name`, `task_name`, `doctor_id`, `is_delivered`, 
     `evaluation`, `student_sent`, `student_recived`, `feed_back`, `solution_link`) 
-    VALUES ('$student_id','$student_name','$task_name','$doctor_id',$is_delivered,$evaluation,$student_sent,
-    now(), '$feed_back', '$solution_link' )";
+    VALUES ('$student_id','$student_name','$task_name','$doctor_id',$is_delivered,$evaluation,'0-0-0',
+    now(),'$feed_back', '$solution_link' )";
     if (mysqli_query($db, $sql)) {
         echo "Record inserted successfully";
         return true;

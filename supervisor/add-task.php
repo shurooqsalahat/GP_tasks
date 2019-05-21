@@ -268,7 +268,7 @@ if(!isset($_SESSION['email'])){ //if login in session is not set
                                         </div>
                                         <br>
                                         <div class="input-group">
-                                            currnet file : <a id="current_file" href=""><span id="file_name"></span></a>
+                                            currnet file : <a id="current_file" href="" download="tasks"><span id="file_name"></span></a>
                                             <a href="#" class="fas fa-trash"><i></i></a>
                                         </div>
                                         <div id="m">

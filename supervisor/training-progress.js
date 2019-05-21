@@ -31,6 +31,7 @@ var selectedItem = function (selected) {
 
     }
 };
+
 $(document).ready(function () {
     $('#search_id').on('input', function (e) {
         console.log('in search id');
@@ -114,7 +115,7 @@ $(document).ready(function () {
 //     });
 // });
 
-var validate_search_btn = function () {
+/*var validate_search_btn = function () {
     var Type = $('#search-type').val();
     var name = $('#search_name').val();
     var id = $('#search_id').val();
@@ -142,7 +143,7 @@ var validate_search_btn = function () {
         // document.getElementById("search_form").submit();
         selectedItem(Type);
     }
-}
+}*/
 
 var changeLabel = function () {
     $('#assign-students-table').hide();
@@ -185,3 +186,23 @@ var atLeastChooseOneStudent = function () {
     }
 };
 
+var showDataName=function () {
+    var value = $('#search_name').val();
+    if(value !=''){
+        $('#assign-new-task-btn').show();
+    }
+    else{
+        $('#assign-new-task-btn').hide();
+    }
+    
+};
+
+var showDataID = function () {
+    var value = $('#search_id').val();
+    if (value != '') {
+        $('#assign-new-task-btn').show();
+    } else {
+        $('#assign-new-task-btn').hide();
+    }
+
+}

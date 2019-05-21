@@ -129,16 +129,16 @@ session_start();
                     <thead>
                     <tr>
 
-                        <th class="text-left">Student ID</th>
-                        <th class="text-left">Student Name</th>
-                        <th class="text-left">Task Name</th>
-                        <th class="text-left">Doctor Name</th>
-                        <th class="text-left">Student Received</th>
-                        <th class="text-left">Student Sent</th>
-                        <th class="text-left">Total Time</th>
-                        <th class="text-left">Status</th>
-                        <th class="text-left">evaluation</th>
-                        <th class="text-left"> action</th>
+                    <th class="text-left">Student ID</th>
+                    <th class="text-left">Student Name</th>
+                    <th class="text-left">Task ID</th>
+                    <th class="text-left">Task Name</th>
+                    <th class="text-left">Student Received</th>
+                    <th class="text-left">Student Sent</th>
+                    <th class="text-left">Status</th>
+                    <th class="text-left">Solution Link</th>
+                    <th class="text-left">evaluation</th>
+                    <th class="text-left"> action</th>
 
 
                     </tr>

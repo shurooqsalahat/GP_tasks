@@ -36,7 +36,16 @@ $(document).ready(function () {
     $('#search_id').on('input', function (e) {
         console.log('in search id');
         var search = $('#search_id').val();
-
+        if (search==''){
+            $.ajax({
+                type: 'POST',
+                url: 'live_training_fetch_all.php',
+                dataType: "text",
+                success: function (data) {
+                    $('#live_data_progress').html(data);
+                }
+            });
+        }
         var select = $('#search-type').val();
 
         if (search) {

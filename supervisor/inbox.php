@@ -15,15 +15,17 @@ session_start();
     <script src="inbox.js"></script>
     <link href="../style.css" rel="stylesheet">
     <link href="inbox.css" rel="stylesheet">
-    <?php include "../header.php"?>
+
     <!-- Latest compiled and minified CSS -->
 
 
 </head>
-
 <header id="header">
-
+    <?php include "../header.php"?>
 </header>
+
+
+
 <body>
 <div id="wrapper">
     <!-- Sidebar -->

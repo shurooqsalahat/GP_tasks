@@ -247,3 +247,12 @@ $("#assign-new-task-btn").click(function () {
     $(this).hide();
 });
 
+var getData =function () {
+    var row = $(event.target).closest('tr');
+    var id = row.find('td:first').text();
+    var task_name = row.find("td:eq(3)").text();
+    var student_name = row.find("td:eq(1)").text();
+
+    $('input[id="task-name"]').val(task_name);
+    $('input[id="student-name"]').val(student_name);
+}

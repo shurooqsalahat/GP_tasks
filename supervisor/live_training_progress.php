@@ -42,7 +42,9 @@ if (isset($_POST['select'])) {
 
                 .'<td>
             <div class="btn-group btn-group-xs">
-            <button type="button" class="btn" data-id=\'2\'  data-toggle="modal" data-target="#add_score_modal"  style="padding: 10px;"><span class="glyphicon glyphicon-star">Add Task Score</span></button>
+            <button type="button" class="btn" data-id=\'2\'  data-toggle="modal" data-target="#add_score_modal"  style="padding: 10px;    margin-bottom: 6px;" onclick="getData()><span class="glyphicon glyphicon-star">Add Task Score</span></button>
+          <button type="button" class="btn" data-id=\'2\'   style="padding: 10px;"><span class="fa fa-trash">Delete Task Assignee</span></button>
+
             </div>
             </td></tr>';
 
@@ -81,7 +83,9 @@ if (isset($_POST['select'])) {
 
             .'<td>
             <div class="btn-group btn-group-xs">
-            <button type="button" class="btn" data-id=\'2\'  data-toggle="modal" data-target="#add_score_modal"  style="padding: 10px;"><span class="glyphicon glyphicon-star">Add Task Score</span></button>
+            <button onclick="getData() type="button" class="btn" data-id=\'2\'  data-toggle="modal" data-target="#add_score_modal"  style="padding: 10px;    margin-bottom: 6px;"><span class="glyphicon glyphicon-star">Add Task Score</span></button>
+                     <button type="button" class="btn" data-id=\'2\'  style="padding: 10px;"><span class="fa fa-trash">Delete Task Assignee</span></button>
+
             </div>
             </td></tr>';
 
@@ -117,7 +121,9 @@ if (isset($_POST['select'])) {
 
                 .'<td>
             <div class="btn-group btn-group-xs">
-            <button type="button" class="btn" data-id=\'2\'  data-toggle="modal" data-target="#add_score_modal"  style="padding: 10px;"><span class="glyphicon glyphicon-star">Add Task Score</span></button>
+            <button onclick="getData() type="button" class="btn" data-id=\'2\'  data-toggle="modal" data-target="#add_score_modal"  style="padding: 10px;margin-bottom: 6px"><span class="glyphicon glyphicon-star">Add Task Score</span></button>
+                        <button type="button" class="btn" data-id=\'2\'  style="padding: 10px;"><span class="fa fa-trash">Delete Task assignee</span></button>
+
             </div>
             </td></tr>';
 
@@ -156,7 +162,8 @@ if (isset($_POST['select'])) {
 
                 .'<td>
             <div class="btn-group btn-group-xs">
-            <button type="button" class="btn" data-id=\'2\'  data-toggle="modal" data-target="#add_score_modal"  style="padding: 10px;"><span class="glyphicon glyphicon-star">Add Task Score</span></button>
+  <button  onclick="getData() type="button" class="btn" data-id=\'2\'  data-toggle="modal" data-target="#add_score_modal"  style="padding: 10px;margin-bottom: 6px"><span class="glyphicon glyphicon-star">Add Task Score</span></button>
+                        <button type="button" class="btn" data-id=\'2\'   style="padding: 10px;"><span class="fa fa-trash">Delete Task assignee</span></button>
             </div>
             </td></tr>';
 

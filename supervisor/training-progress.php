@@ -74,14 +74,15 @@ session_start();
             <?php
 
             if (isset($_SESSION['Message'])) {
-                if ($_SESSION['Message'] == 'This user is already doctor' ||
-                    $_SESSION['Message'] == 'This user is already supervisor' ||
+                if ($_SESSION['Message'] == 'This Task already assignee to selected students' ||
+                    $_SESSION['Message'] == 'This Task not assigned to this student' ||
                     $_SESSION['Message'] == 'This Student is already exist') {
                     $msg = "<div class=\"alert alert-danger\">
             <a  class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
             <strong>OOPS!</strong> <span id=\"failed-text\">" . $_SESSION['Message'] . "</span>
         </div>";
-                } else if ($_SESSION['Message'] == 'Student Added successfully') {
+                } else if ($_SESSION['Message'] == 'Tasks assigned Successfully' ||
+                    $_SESSION['Message']=='Data updated') {
                     $msg = "<div class=\"alert alert-success\">
             <a  class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
             <strong>Good</strong> <span id=\"failed-text\">" . $_SESSION['Message'] . "</span>
@@ -218,29 +219,39 @@ session_start();
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form>
+                            <form action="../controller.php" method="REQUEST">
                                 <div class="form-group">
+                                    <input type="text" name="src" value="evaluate_task" hidden>
+                                    <input type="text" name="student_id" id ="student_id"  hidden>
+                                    <input type="text" name="task_id" id ="id_task"  hidden>
+
+
                                     <label for="recipient-name" class="col-form-label">Task Name:</label>
                                     <input type="text" class="form-control" id="task-name" disabled>
+
+
                                 </div>
                                 <div class="form-group">
                                     <label for="recipient-name" class="col-form-label">Student Name:</label>
-                                    <input type="text" class="form-control" id="student-name" disabled>
+                                    <input type="text" class="form-control" id="student-name" name="student_name" disabled>
+
                                 </div>
                                 <div class="form-group">
                                     <label for="recipient-name" class="col-form-label">Task Score:</label>
-                                    <input type="text" class="form-control" id="recipient-name">
+                                    <input type="number" class="form-control" id="recipient-name" name="score">
                                 </div>
                                 <div class="form-group">
                                     <label for="message-text" class="col-form-label">Feedback:</label>
-                                    <textarea class="form-control" id="message-text"></textarea>
+                                    <textarea class="form-control" id="message-text" name="feed_back"></textarea>
+                                </div>
+                                <div class="modal-footer">
+                                    <input  type="submit" class="btn btn-primary">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
                                 </div>
                             </form>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Submit</button>
-                        </div>
+
                     </div>
                 </div>
             </div>

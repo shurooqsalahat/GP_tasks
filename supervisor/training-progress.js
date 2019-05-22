@@ -80,6 +80,7 @@ $(document).ready(function () {
             $('#live_data_progress').html(data);
         }
     });
+
     $('#search_name').on('input', function (e) {
         //console.log('in search name');
 
@@ -99,7 +100,6 @@ $(document).ready(function () {
             $("#assign-new-task-btn").show();
         }
 
-        console.log(search);
         var select = $('#search-type').val();
         $.ajax({
             type: 'POST',
@@ -115,18 +115,26 @@ $(document).ready(function () {
 });
 
 
-// $(document).ready(function () {
-//
-//     $.ajax({
-//         type: 'POST',
-//         url: 'live_training_fetch_all.php',
-//         dataType: "text",
-//         success: function (data) {
-//             $('#live_data_progress').html(data);
-//         }
-//     });
-// });
+var delete_bt = function () {
 
+    console.log('in delete');
+        var id =$(this).attr('value');
+    console.log(id);
+    if (confirm("Are you sure you want to delete this?")) {
+        $.ajax({
+            url: "live_delete_training_progress.php",
+            method: "POST",
+            data: {id: id},
+            dataType: "text",
+            success: function (data) {
+                alert(data);
+
+            }
+        });
+    }
+
+
+}
 /*var validate_search_btn = function () {
     var Type = $('#search-type').val();
     var name = $('#search_name').val();
@@ -206,7 +214,7 @@ var showDataName=function () {
         else{
             $('#assign-new-task-btn').hide();
         }*/
-    console.log('func called')
+
 
     $("input").keyup(function () {
         console.log('ggg')
@@ -252,7 +260,14 @@ var getData =function () {
     var id = row.find('td:first').text();
     var task_name = row.find("td:eq(3)").text();
     var student_name = row.find("td:eq(1)").text();
+    var task_id= row.find("td:eq(2)").text();
+    console.log(task_id);
 
     $('input[id="task-name"]').val(task_name);
     $('input[id="student-name"]').val(student_name);
+    $('input[id="student_id"]').val(id);
+    $('input[id="id_task"]').val(task_id);
+
+
+
 }

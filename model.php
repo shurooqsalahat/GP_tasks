@@ -524,4 +524,25 @@ function addStudentTask($student_id, $student_name, $task_name, $doctor_id, $is_
         return false;
     }
 }
-//addStudentTask(18,"yara","Task_1","3",0, 5, "0-0-0", date("Y-m-d"),"good","github" );
+function deleteTrainingByStudentID($student_id){
+    include 'connect_DB.php';
+
+    $sql = " DELETE FROM student_task WHERE student_id=".$student_id;
+    if (mysqli_query($db, $sql)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
+function deleteTrainingByStudentTaskName($task_name){
+    include 'connect_DB.php';
+
+    $sql = "DELETE FROM student_task WHERE task_name='".$task_name."'";
+    if (mysqli_query($db, $sql)) {
+        return true;
+    } else {
+        return false;
+    }
+}

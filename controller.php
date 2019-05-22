@@ -387,12 +387,26 @@ if (isset($src)) {
             move_uploaded_file($file_tmp,"Tasks_files/".$new_name.".".$file_ext);
             addTask($task_name, $weight, $description, $estimation_time,
                 "Tasks_files/".$new_name.".".$file_ext, $_SESSION['id']);
-            $_SESSION['Message']='Task added successfully';
+
+            if (isset($_REQUEST['assignees1'])) {
+                echo "in";
+                foreach ($_REQUEST['assignees1'] as $student) {
+                    $rstudent = retrieveSudentsByID($student);
+                    addStudentTask($student, $rstudent['first'] . " " . $rstudent['last'], $task_name,
+                        $rstudent['doctor_id'], 0, 0, " ", " ");
+
+                }
+
+            }
+
+            $_SESSION['Message']='Task added and assigned successfully';
             header('Location: supervisor/add-task.php');
+            exit;
 
         }else{
             $_SESSION['Message']='Something error, try again later';
             header('Location: supervisor/add-task.php');
+            exit;
         }
     }
 
@@ -405,16 +419,61 @@ if (isset($src)) {
                     $rtasks = getTaskByName($task);
                      if (isTaskAssigne($student,$task)){
                          $_SESSION['Message']="This Task already assignee to selected students";
-                         echo "cannot";
+                         header('Location: supervisor/training-progress.php');
                          exit;
                      }
                      addStudentTask($student,$rstudent['first']." ".$rstudent['last'],$task,
                          $rstudent['doctor_id'],0,0," ", " ");
-                     echo "done";
+                    $_SESSION['Message']="Tasks assigned Successfully";
+                    header('Location: supervisor/training-progress.php');
+                    exit;
 
                 }
         }
 
+    }
+
+    if($src=='evaluate_task'){
+        $student_id =$_REQUEST['student_id'];
+        echo $student_id;
+        $task_id =$_REQUEST['task_id'];
+
+        $row =getTaskByID($task_id);
+        $t_name =$row['task_name'];
+        $update_flag=false;
+
+        if(!isTaskAssigne($student_id, $row['task_name'])){
+            $_SESSION['Message']="This Task not assigned to this student";
+            header('Location: supervisor/training-progress.php');
+            exit;
+        }
+        else{
+
+            if(isset($_REQUEST['score'])){
+                $score =$_REQUEST['score'];
+                $sql3 = "UPDATE student_task SET evaluation=".$score." WHERE task_name='".$t_name."' and 
+                 student_id=".$student_id;
+                echo $sql3;
+                $result = $db->query($sql3);
+                $update_flag=true;
+
+
+            }
+            if (isset($_REQUEST['feed_back'])){
+                $feed_back= $_REQUEST['feed_back'];
+                $sql3 = "UPDATE student_task SET feed_back='".$feed_back."' WHERE task_name='".$t_name."' and 
+                 student_id=".$student_id;
+
+                $result = $db->query($sql3);
+                $update_flag=true;
+            }
+            if ($update_flag){
+                $_SESSION['Message']="Data updated";
+                header('Location: supervisor/training-progress.php');
+                exit;
+            }
+
+        }
     }
 
 

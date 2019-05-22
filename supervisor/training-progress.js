@@ -72,6 +72,33 @@ $(document).ready(function () {
 
 
 $(document).ready(function () {
+    $(document).on('click', '.delete_btn', function(){
+        console.log('in delete');
+        var id=$(this).data("id3");
+        if(confirm("Are you sure you want to delete this?"))
+        {
+            $.ajax({
+                url:"live_delete_training_progress.php",
+                method:"POST",
+                data:{id:id},
+                dataType:"text",
+                success:function(data){
+                    alert(data);
+                    $.ajax({
+                        type: 'POST',
+                        url: 'live_training_fetch_all.php',
+                        dataType: "text",
+                        success: function (data) {
+                            $('#live_data_progress').html(data);
+                        }
+                    });
+
+                }
+            });
+        }
+
+    });
+
     $.ajax({
         type: 'POST',
         url: 'live_training_fetch_all.php',
@@ -115,55 +142,26 @@ $(document).ready(function () {
 });
 
 
-var delete_bt = function () {
-
-    console.log('in delete');
-        var id =$(this).attr('value');
-    console.log(id);
-    if (confirm("Are you sure you want to delete this?")) {
-        $.ajax({
-            url: "live_delete_training_progress.php",
-            method: "POST",
-            data: {id: id},
-            dataType: "text",
-            success: function (data) {
-                alert(data);
-
-            }
-        });
-    }
-
-
-}
-/*var validate_search_btn = function () {
-    var Type = $('#search-type').val();
-    var name = $('#search_name').val();
-    var id = $('#search_id').val();
-
-    var vaidate = false;
-
-    $(".error").remove();
-
-    if (name.length < 1 && (Type == 'student_name' || Type == 'task_name')) {
-        $('#search_name').after('<div class="error">This field is required</div>');
-        vaidate = true;
-    }
-    if (id.length < 1 && (Type == 'student_id' || Type == 'task_id')) {
-        $('#search_id').after('<div class="error">This field is required</div>');
-        vaidate = true;
-    }
-    if (Type == '') {
-        $('#search-type').after('<div class="error">This field is required</div>');
-        vaidate = true;
-
-    }
-
-
-    if (!vaidate) {
-        // document.getElementById("search_form").submit();
-        selectedItem(Type);
-    }
-}*/
+// var delete_bt = function () {
+//
+//     console.log('in delete');
+//     var id =$('#test_delete').data('id3');
+//     console.log(id);
+//     if (confirm("Are you sure you want to delete this?")) {
+//         $.ajax({
+//             url: "live_delete_training_progress.php",
+//             method: "POST",
+//             data: {id: id},
+//             dataType: "text",
+//             success: function (data) {
+//                 alert(data);
+//
+//             }
+//         });
+//     }
+//
+//
+// }
 
 var changeLabel = function () {
     $('#assign-new-task-btn').hide();

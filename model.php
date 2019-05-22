@@ -546,3 +546,15 @@ function deleteTrainingByStudentTaskName($task_name){
         return false;
     }
 }
+
+function deleteTrainingByID($id){
+    include 'connect_DB.php';
+    $sql = "DELETE FROM student_task WHERE id=".$id;
+    if (mysqli_query($db, $sql)) {
+        echo "Record deleted successfully";
+        return true;
+    } else {
+        echo "Cannot delete this Record";
+        return false;
+    }
+}

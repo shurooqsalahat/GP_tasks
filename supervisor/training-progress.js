@@ -259,13 +259,37 @@ var getData =function () {
     var task_name = row.find("td:eq(3)").text();
     var student_name = row.find("td:eq(1)").text();
     var task_id= row.find("td:eq(2)").text();
-    console.log(task_id);
-
+    var evaluation=row.find("td:eq(8)").text();
+   console.log(evaluation)
     $('input[id="task-name"]').val(task_name);
     $('input[id="student-name"]').val(student_name);
     $('input[id="student_id"]').val(id);
     $('input[id="id_task"]').val(task_id);
+    if(evaluation){
+        $('input[id="task-score"]').val(evaluation);
+    }
+
+};
+var validate_task_eval_form =function () {
+    console.log('fff')
+    var score = $('#task-score').val();
+    var feedBack = $('#task-feedback').val();
+    var vaidate = false;
 
 
+    $(".error").remove();
 
+    if (!score) {
+        $('#task-score').after('<div  style="color:red">This field is required</div>');
+        vaidate =true;
+    }
+    if (feedBack.length < 1) {
+        $('#task-feedback').after('<div style="color:red">This field is required</div>');
+        vaidate =true;
+    }
+
+
+    if (!vaidate){
+        document.getElementById("task_eval").submit();
+    }
 }

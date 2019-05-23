@@ -226,7 +226,7 @@ if (!isSupervisor($_SESSION['email'])){
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="../controller.php" method="REQUEST">
+                            <form action="../controller.php" method="REQUEST" id="task_eval">
                                 <div class="form-group">
                                     <input type="text" name="src" value="evaluate_task" hidden>
                                     <input type="text" name="student_id" id ="student_id"  hidden>
@@ -245,14 +245,14 @@ if (!isSupervisor($_SESSION['email'])){
                                 </div>
                                 <div class="form-group">
                                     <label for="recipient-name" class="col-form-label">Task Score:</label>
-                                    <input type="number" class="form-control" id="recipient-name" name="score">
+                                    <input type="number" class="form-control" id="task-score" name="score">
                                 </div>
                                 <div class="form-group">
                                     <label for="message-text" class="col-form-label">Feedback:</label>
-                                    <textarea class="form-control" id="message-text" name="feed_back"></textarea>
+                                    <textarea class="form-control" id="task-feedback" name="feed_back"></textarea>
                                 </div>
                                 <div class="modal-footer">
-                                    <input  type="submit" class="btn btn-primary">
+                                    <input  type="button" class="btn btn-primary" value="Submit" onclick="validate_task_eval_form()">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 
                                 </div>

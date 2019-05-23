@@ -101,13 +101,8 @@ if (!isSupervisor($_SESSION['email'])){
                             <form method="post" id="send_email" action="../controller.php" style="display: none;">
                                 <div class="form-group">
                                     <div class="form-line row">
-                                        <div class="col-sm-2">
+                                        <div class="col-sm-12">
                                             <input name="src" value="send_message" hidden>
-                                            <label for="sel2">Select Email/s:</label>
-
-                                        </div>
-                                        <div class="col-sm-8">
-
                                             <select multiple="multiple" class="form-control" id="send-to-emails" name="students[]">
 
                                                 <?php
@@ -119,9 +114,7 @@ if (!isSupervisor($_SESSION['email'])){
                                                 }
                                                 ?>
                                             </select>
-                                            <!--   <select class="selectpicker" id="selectpicker" multiple data-live-search="true">
 
-                                               </select>-->
                                         </div>
                                     </div>
                                 </div>
@@ -135,7 +128,7 @@ if (!isSupervisor($_SESSION['email'])){
 
                                     </textarea></div>
                                 <div class="form-group">
-                                    <input   onclick="validate_send_msg()" type="submit" class="btn btn-success" value="Send message">
+                                    <input   onclick="validate_send_msg()" type="button" class="btn btn-success" value="Send message">
                                 </div>
                             </form>
                         </div>

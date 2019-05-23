@@ -42,7 +42,7 @@ if (isset($_POST['select'])) {
                 .'<td class="text-left">'.$row['student_recived'].'</td>'
                 .'<td class="text-left">'.$row['student_sent'].'</td>'
                 .'<td class="text-left">'.$status.'</td>'
-                .'<td class="text-left">'.$row['solution_link'].'</td>'
+                .'<td class="text-left"><a href="'.$row['solution_link'].'">'.$row['solution_link'].'</a></td>'
                 .'<td class="text-left">'.$row['evaluation'].'</td>'
 
 
@@ -90,7 +90,7 @@ if (isset($_POST['select'])) {
             .'<td class="text-left">'.$row['student_recived'].'</td>'
             .'<td class="text-left">'.$row['student_sent'].'</td>'
             .'<td class="text-left">'.$status.'</td>'
-            .'<td class="text-left">'.$row['solution_link'].'</td>'
+            .'<td class="text-left"><a href="'.$row['solution_link'].'">'.$row['solution_link'].'</a></td>'
             .'<td class="text-left">'.$row['evaluation'].'</td>'
 
 
@@ -134,7 +134,7 @@ if (isset($_POST['select'])) {
                 .'<td class="text-left">'.$row['student_recived'].'</td>'
                 .'<td class="text-left">'.$row['student_sent'].'</td>'
                 .'<td class="text-left">'.$status.'</td>'
-                .'<td class="text-left">'.$row['solution_link'].'</td>'
+                .'<td class="text-left"><a href="'.$row['solution_link'].'">'.$row['solution_link'].'</a></td>'
                 .'<td class="text-left">'.$row['evaluation'].'</td>'
 
 
@@ -183,7 +183,7 @@ if (isset($_POST['select'])) {
             .'<td class="text-left">'.$row['student_recived'].'</td>'
             .'<td class="text-left">'.$row['student_sent'].'</td>'
             .'<td class="text-left">'.$status.'</td>'
-            .'<td class="text-left">'.$row['solution_link'].'</td>'
+            .'<td class="text-left"><a href="'.$row['solution_link'].'"></a>'.$row['solution_link'].'</td>'
             .'<td class="text-left">'.$row['evaluation'].'</td>'
 
 

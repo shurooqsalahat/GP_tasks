@@ -96,9 +96,9 @@ $(document).ready(function(){
 function validate_send_msg() {
     var msgTitle = $('#message_subject').val();
     var senderEmail = $('#send-to-emails').val();
-    var content = $('#msg-content').val();
+    var content = $('#message').val();
     var vaidate = false;
-
+     console.log(senderEmail);
     $(".error").remove();
 
     if (msgTitle.length < 1) {
@@ -114,9 +114,8 @@ function validate_send_msg() {
         vaidate =true;
     }
 
-
     if (!vaidate){
-        document.getElementById("send_email").submit();
+      document.getElementById("send_email").submit();
     }
 
 }

@@ -4,11 +4,10 @@ session_start();
 if(!isset($_SESSION['email']) ){ //if login in session is not set
     header("Location: ../404.php");
 }
-if (!isSupervisor($_SESSION['emil'])){
+if (!isSupervisor($_SESSION['email'])){
     header("Location: ../404.php");
 
 }
-
 ?>
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>

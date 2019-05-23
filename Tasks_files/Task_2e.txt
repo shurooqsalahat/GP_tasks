@@ -1,0 +1,43 @@
+template TC077 (in come runinng just remove isolate policy) , iterations is 10, dynamictp 
+************
+change files( dynmictp, dpdk_thropuhput, TC077 (make sure that line_rate :25G, pps: 4Milion, runner is dynamictp  ) 
+***********
+max ppm in both TC008 and TC077 is 10 
+
+TC077 VLAN : has two network (trywith both ) 
+
+Bandwidth in tepmlate (10 or 25) ?? 
+
+
+TC077 iteration or dynaamictp , duration, Always MQ (Always)  ? 
+
+
+
+
+iMAGE OF TC008 and TC077 (can we use same image ) ? 
+running TC008 over ovs  (dynmictp )
+ 
+
+running TC008 over sriov () 
+
+Time of running TC008 (SRIOV) need 16 hours !
+
+MQ in SRIOV ( Just in files) 
+
+discusse result 
+
+Ask Ameed to change dpdk.sh in new version. 
+
+
+fraser branch 
+
+command to stop run ?
+
+files to be changed in YS automation image:
+
+testpmd_rev.bash 
+pktgen_dpdk_benchmark.bash
+pktgen.py
+pktgen_dpdk_throughput
+iteration.py
+dynamictp.py

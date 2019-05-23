@@ -144,7 +144,6 @@ function retrieveStudentBYEmail($email)
     $sql = "SELECT * FROM students where email ='$email'";
     $result = $db->query($sql);
     $row = $result->fetch_array();
-    echo $row['id'];
     return $row;
 }
 
@@ -235,7 +234,7 @@ function retrieveDoctorBYEmail($email)
     $sql = "SELECT * FROM doctors where email ='$email'";
     $result = $db->query($sql);
     $row = $result->fetch_array();
-    echo $row['id'];
+
     return $row;
 }
 
@@ -313,7 +312,7 @@ function retrieveSupercisorBYEmail($email)
     $sql = "SELECT * FROM supervisors where email ='$email'";
     $result = $db->query($sql);
     $row = $result->fetch_array();
-    //echo $row['id'];
+
     return $row;
 }
 
@@ -587,4 +586,24 @@ function sendMails($from, $to, $subject,$content){
         return false;
     }
 }
+
+function retrieveInboxByID($id)
+{
+    include 'connect_DB.php';
+    $query = "SELECT *  FROM inbox WHERE id=$id";
+    $result = $db->query($query);
+    $nor = $result->num_rows;
+    if ($nor == 0) {
+        return false;
+
+    } else {
+
+        $sql = "SELECT * FROM inbox where id =$id";
+        $result = $db->query($sql);
+        $row = $result->fetch_array();
+        return $row;
+    }
+
+}
+retrieveInboxByID(3);
 

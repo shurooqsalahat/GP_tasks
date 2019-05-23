@@ -1,8 +1,12 @@
 <?php
 include("../model.php");// connect to db
 session_start();
+if(!isset($_SESSION['email']) && !isSupervisor($_SESSION['email'])){ //if login in session is not set
+    header("Location: ../404.php");
+}
 
 ?>
+
 
 <head>
     <meta charset="utf-8">

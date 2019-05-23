@@ -164,7 +164,6 @@ function retrieveSudentsByID($id)
         $sql = "SELECT * FROM students where id =$id";
         $result = $db->query($sql);
         $row = $result->fetch_array();
-        echo $row['first'];
         return $row;
     }
 
@@ -505,7 +504,7 @@ function isTaskAssigne( $student_id,$task_name)
 }
 
 function addStudentTask($student_id, $student_name, $task_name, $doctor_id, $is_delivered, $evaluation,
-                        $student_sent, $student_recived, $feed_back, $solution_link)
+                         $feed_back, $solution_link)
 {
     include 'connect_DB.php';
     if (isTaskAssigne($student_id, $task_name)) {
@@ -515,8 +514,8 @@ function addStudentTask($student_id, $student_name, $task_name, $doctor_id, $is_
     //$date=date("Y-m-d",strtotime($date))
     $sql = "INSERT INTO `student_task`( `student_id`, `student_name`, `task_name`, `doctor_id`, `is_delivered`, 
     `evaluation`, `student_sent`, `student_recived`, `feed_back`, `solution_link`) 
-    VALUES ('$student_id','$student_name','$task_name','$doctor_id',$is_delivered,$evaluation,$student_sent,
-    now(), '$feed_back', '$solution_link' )";
+    VALUES ('$student_id','$student_name','$task_name','$doctor_id',$is_delivered,$evaluation,'0-0-0',
+    now(),'$feed_back', '$solution_link' )";
     if (mysqli_query($db, $sql)) {
         echo "Record inserted successfully";
         return true;
@@ -525,4 +524,67 @@ function addStudentTask($student_id, $student_name, $task_name, $doctor_id, $is_
         return false;
     }
 }
-//addStudentTask(18,"yara","Task_1","3",0, 5, "0-0-0", date("Y-m-d"),"good","github" );
+function deleteTrainingByStudentID($student_id){
+    include 'connect_DB.php';
+
+    $sql = " DELETE FROM student_task WHERE student_id=".$student_id;
+    if (mysqli_query($db, $sql)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
+function deleteTrainingByStudentTaskName($task_name){
+    include 'connect_DB.php';
+
+    $sql = "DELETE FROM student_task WHERE task_name='".$task_name."'";
+    if (mysqli_query($db, $sql)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function deleteTrainingByID($id){
+    include 'connect_DB.php';
+    $sql = "DELETE FROM student_task WHERE id=".$id;
+    if (mysqli_query($db, $sql)) {
+        echo "Record deleted successfully";
+        return true;
+    } else {
+        echo "Cannot delete this Record";
+        return false;
+    }
+}
+
+function getSentMails($email){
+    include 'connect_DB.php';
+    $sql = "SELECT * FROM `inbox` where `from` ='$email'";
+    $result = $db->query($sql);
+    return $result;
+
+}
+
+function getReceivedMails($email){
+    include 'connect_DB.php';
+    $sql = "SELECT * FROM `inbox` where `to` ='$email'";
+    $result = $db->query($sql);
+    return $result;
+
+}
+
+function sendMails($from, $to, $subject,$content){
+    include "connect_DB.php";
+    $sql = "INSERT INTO `inbox`(`from`, `to`, `content`, `subject`, `date`) VALUES 
+('$from','$to','$content','$subject',now())";
+    if (mysqli_query($db, $sql)) {
+        echo "Record inserted successfully";
+        return true;
+    } else {
+        echo "Error inserted record: " . mysqli_error($db);
+        return false;
+    }
+}
+

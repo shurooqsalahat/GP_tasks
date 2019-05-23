@@ -38,27 +38,6 @@ $(document).ready(function(){
 
     });
 
-    // $(document).on('click', '.update_btn', function(){
-    //     var id=$(this).data("id");
-    //
-    //     update_submit();
-    //     $('#submit_update_modal').click(function(){
-    //         console.log('innnnn');
-    //         var form= $('#update_student_form_modal').serialize()
-    //         $.ajax({
-    //             url:"live_update.php",
-    //             method:"POST",
-    //             data:{id:id, form:form},
-    //             dataType:"text",
-    //             success:function(data){
-    //                 console.log("in sucsses");
-    //                 //alert(data);
-    //                 fetch_data();
-    //             }
-    //         });
-    //     });
-    //
-    // });
 
 });
 function form_submit() {

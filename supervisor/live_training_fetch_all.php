@@ -15,6 +15,13 @@ for ($i = 0; $i < $nor; $i++) {
     $doctor =retrieveDoctorsByID($row['doctor_id']);
     $task = getTaskByName($row['task_name']);
     echo $row[2];
+    if ($row['is_delivered']==0){
+        $status = "In Progress";
+    }
+    else{
+        $status ="Resolved";
+
+    }
 
     echo '<tr> <td class="text-left">'.$row[1].'</td>'
             .'<td class="text-left">'.$student['first']." ". $student['last'].'</td>'
@@ -22,17 +29,17 @@ for ($i = 0; $i < $nor; $i++) {
             .'<td class="text-left">'.$row['task_name'].'</td>'
             .'<td class="text-left">'.$row['student_recived'].'</td>'
             .'<td class="text-left">'.$row['student_sent'].'</td>'
-            .'<td class="text-left">'.$row['is_delivered'].'</td>'
+            .'<td class="text-left">'.$status.'</td>'
             .'<td class="text-left">'.$row['solution_link'].'</td>'
             .'<td class="text-left">'.$row['evaluation'].'</td>'
 
 
             .'<td>
-            <div class="btn-group btn-group-xs">
-            <button type="button" class="btn" data-id=\'2\'  data-toggle="modal" data-target="#add_score_modal"  style="padding: 10px;margin-bottom: 6px" onclick="getData()"><span class="glyphicon glyphicon-star">Add Task Score</span></button>
-                        <button type="button" class="btn" data-id=\'2\'    style="padding: 10px;"><span class="fa fa-trash">Delete Task Assignee</span></button>
+           
+            <button type="button" class="btn"   data-toggle="modal" data-target="#add_score_modal"  style="padding: 10px;margin-bottom: 6px" onclick="getData()"><span class="glyphicon glyphicon-star">Add Task Score</span></button>
+          <button type="button" class="btn delete_btn" id="test_delete"  style="padding: 10px;" data-id3="'.$row[0].'">'.'<span class="fa fa-trash delete-btn" >Delete Task Assignee</span></button>
 
-            </div>
+          
             </td></tr>';
 
 

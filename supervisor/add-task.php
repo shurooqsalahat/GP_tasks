@@ -136,7 +136,7 @@ if(!isset($_SESSION['email'])){ //if login in session is not set
                                 Assign this task to :
                             </div>
                             <div class="input-group">
-                                <select name="assignees" multiple style="width: 300px">
+                                <select name="assignees1[]" multiple="multiple" style="width: 300px">
                                     <?php
                                     $result = getSupervisorStudents($_SESSION['id']);
                                     $nor = $result->num_rows;
@@ -188,7 +188,7 @@ if(!isset($_SESSION['email'])){ //if login in session is not set
             <a  class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
             <strong>OOPS!</strong> <span id=\"failed-text\">" . $_SESSION['Message'] . "</span>
         </div>";
-                } else if ($_SESSION['Message'] == 'Task added successfully') {
+                } else if ($_SESSION['Message'] == 'Task added and assigned successfully') {
                     $msg = "<div class=\"alert alert-success\">
             <a  class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
             <strong>Good</strong> <span id=\"failed-text\">" . $_SESSION['Message'] . "</span>
@@ -267,8 +267,8 @@ if(!isset($_SESSION['email'])){ //if login in session is not set
                                                    placeholder="Task description">
                                         </div>
                                         <br>
-                                        <div class="input-group" id="old-file">
-                                            currnet file : <a id="current_file" href=""><span id="file_name"></span></a>
+                                        <div class="input-group">
+                                            currnet file : <a id="current_file" href="" download="tasks"><span id="file_name"></span></a>
                                             <a href="#" onclick="uploadNewFile()" class="fas fa-trash"><i></i></a>
                                         </div>
                                         <div id="new-file" style="display: none">
@@ -287,13 +287,13 @@ if(!isset($_SESSION['email'])){ //if login in session is not set
                                             Assign this task to :
                                         </div>
                                         <div class="input-group">
-                                            <select name="assignees" multiple style="width: 300px">
+                                            <select name="assignees2[]" multiple="multiple"  style="width: 300px">
                                                 <?php
                                                 $result = getSupervisorStudents($_SESSION['id']);
                                                 $nor = $result->num_rows;
                                                 for ($i = 0; $i < $nor; $i++) {
                                                     $row = $result->fetch_array();
-                                                    echo " <option value= '$row[0]''>" . $row[2] ." ".$row[3] . "</option>";
+                                                    echo " <option value= '$row[0]'>" . $row[2] ." ".$row[3] . "</option>";
                                                 }
                                                 ?>
                                             </select>

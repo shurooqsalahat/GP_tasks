@@ -30,7 +30,7 @@ for ($i = 0; $i < $nor; $i++) {
             .'<td class="text-left">'.$row['student_recived'].'</td>'
             .'<td class="text-left">'.$row['student_sent'].'</td>'
             .'<td class="text-left">'.$status.'</td>'
-            .'<td class="text-left">'.$row['solution_link'].'</td>'
+            .'<td class="text-left"><a href="'.$row['solution_link'].'">'.$row['solution_link'].'</a></td>'
             .'<td class="text-left">'.$row['evaluation'].'</td>'
 
 

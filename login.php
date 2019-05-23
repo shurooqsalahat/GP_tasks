@@ -114,11 +114,7 @@ session_start();
                             <label for="your_pass"><i class="fa fa-lock"></i></label>
                             <input type="password" name="password" id="your_pass" placeholder="Password"/>
                         </div>
-                        <div class="form-group">
-                            <input type="checkbox" name="remember-me" id="remember-me" class="agree-term"/>
-                            <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember
-                                me</label>
-                        </div>
+
                         <div class="form-group form-button">
                             <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>
                         </div>

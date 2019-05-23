@@ -269,9 +269,9 @@ if(!isset($_SESSION['email'])){ //if login in session is not set
                                         <br>
                                         <div class="input-group">
                                             currnet file : <a id="current_file" href="" download="tasks"><span id="file_name"></span></a>
-                                            <a href="#" class="fas fa-trash"><i></i></a>
+                                            <a href="#" onclick="uploadNewFile()" class="fas fa-trash"><i></i></a>
                                         </div>
-                                        <div id="m">
+                                        <div id="new-file" style="display: none">
                                             <h6>Select another file to be upload</h6>
                                             <div class="input-group">
                                                 <input type="file" name="fileToUpload" id="u_fileToUpload">

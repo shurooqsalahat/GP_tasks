@@ -157,3 +157,9 @@ function validate_update_form() {
 
 }
 
+var uploadNewFile = function () {
+    $('#old-file').css('display', 'none');
+    $('#new-file').css('display', 'unset');
+
+}
+

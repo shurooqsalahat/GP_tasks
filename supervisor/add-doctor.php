@@ -1,12 +1,15 @@
 <?php
 include("../model.php");// connect to db
 session_start();
-if(!isset($_SESSION['email']) && !isSupervisor($_SESSION['email'])){ //if login in session is not set
+if(!isset($_SESSION['email']) ){ //if login in session is not set
     header("Location: ../404.php");
+}
+if (!isSupervisor($_SESSION['emil'])){
+    header("Location: ../404.php");
+
 }
 
 ?>
-
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>

@@ -1,4 +1,5 @@
 <?php
+
 function isUserExist($email)
 {
     include("connect_DB.php");// connect to db

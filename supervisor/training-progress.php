@@ -183,7 +183,7 @@ session_start();
 
                                     <div class="col-sm-6">
                                         <select name="students[]" id="assigned_tasks" multiple="multiple" style="width: 100%">
-                                            --><?php
+                                            <?php
                                             $result = getSupervisorStudents($_SESSION['id']);
                                             $nor = $result->num_rows;
                                             for ($i = 0; $i < $nor; $i++) {

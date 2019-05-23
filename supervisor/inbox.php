@@ -36,6 +36,32 @@ session_start();
     <!-- Page Content -->
     <div id="page-content-wrapper">
         <div class="container-fluid">
+        <?php if (isset($_SESSION['Message'])) {
+            if ($_SESSION['Message'] == 'This Task already assignee to selected students' ||
+                $_SESSION['Message'] == 'This Task not assigned to this student' ||
+                $_SESSION['Message'] == 'This Student is already exist') {
+                $msg = "<div class=\"alert alert-danger\">
+            <a  class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+            <strong>OOPS!</strong> <span id=\"failed-text\">" . $_SESSION['Message'] . "</span>
+        </div>";
+            } else if ($_SESSION['Message'] == 'Message sent successfully' ||
+                $_SESSION['Message']=='Data updated') {
+                $msg = "<div class=\"alert alert-success\">
+            <a  class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+            <strong>Good</strong> <span id=\"failed-text\">" . $_SESSION['Message'] . "</span>
+        </div>";
+
+            }
+        }
+
+        unset($_SESSION['Message']);
+
+        ?>
+
+
+            <?php if (isset($msg ))
+                echo $msg ; ?>
+
             <div class="row inbox">
                 <ul class="nav nav-tabs">
                     <li class="active"><a data-toggle="tab" href="#inbox"><i class="fa fa-inbox"></i> Inbox</a></li>
@@ -49,11 +75,32 @@ session_start();
                             </div>
                             <div class="attachments">
                                 <ul>
-                                    <li><span class="label label-danger">New</span> <b>Email subject</b> <i>(who send the message)</i>
+                                    <?php
+                                    $result =getReceivedMails($_SESSION['email']);
+                                    $nor = $result->num_rows;
+                                    if ($nor <=0){
+                                       echo' <li><span class="label label-danger">No Messages</span> </li>';
+
+                                    }
+                                    else {
+                                        for ($i = 0; $i < $nor; $i++) {
+                                            $row = $result->fetch_array();
+                                            echo '<li>';
+                                            if ($row['is_read']==0){
+                                                echo '<span class="label label-danger">Unread</span>';
+                                            }
+
+                                          echo'   <b>'.$row['subject'].'</b> <i>( '.$row['from'].' )</i>
                                         <span class="quickMenu">
-                                        <a href="#" class="fas fa-envelope-open-text" onclick="openMsg('msgTitle','senderEmail','content','senderName')"><i></i></a>
-                                        <a href="#" class="fas fa-trash"><i></i></a> </span>
-                                    </li>
+                                    <a href="#" class="fas fa-envelope-open-text" onclick="openMsg()"><i></i></a>
+                                        <a href="#" class="fas fa-trash delete-message" data-id="'.$row[0].'"><i></i></a> </span>
+                                    </li>';
+                                        }
+
+                                    }
+
+                                    ?>
+
                                 </ul>
                             </div>
                             <br>
@@ -87,22 +134,26 @@ session_start();
                                 </div>
                             </div>
                             <hr>
-                            <form method="post" id="send_email" action="" style="display: none;">
+                            <form method="post" id="send_email" action="../controller.php" style="display: none;">
                                 <div class="form-group">
                                     <div class="form-line row">
                                         <div class="col-sm-2">
+                                            <input name="src" value="send_message" hidden>
                                             <label for="sel2">Select Email/s:</label>
 
                                         </div>
                                         <div class="col-sm-8">
 
-                                            <select multiple class="form-control" id="send-to-emails">
+                                            <select multiple="multiple" class="form-control" id="send-to-emails" name="students[]">
 
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
+                                                <?php
+                                                $result = getSupervisorStudents($_SESSION['id']);
+                                                $nor = $result->num_rows;
+                                                for ($i = 0; $i < $nor; $i++) {
+                                                    $row = $result->fetch_array();
+                                                    echo " <option value= '$row[0]''>" . $row[2] . " " . $row[3] . "</option>";
+                                                }
+                                                ?>
                                             </select>
                                             <!--   <select class="selectpicker" id="selectpicker" multiple data-live-search="true">
 
@@ -120,7 +171,7 @@ session_start();
 
                                     </textarea></div>
                                 <div class="form-group">
-                                    <button   onclick="validate_send_msg()" type="submit" class="btn btn-success">Send message</button>
+                                    <input   onclick="validate_send_msg()" type="submit" class="btn btn-success" value="Send message">
                                 </div>
                             </form>
                         </div>
@@ -132,11 +183,33 @@ session_start();
                             </div>
                             <div class="attachments">
                                 <ul>
-                                    <li><span class="label label-danger">New</span> <b>Email subject</b> <i>(who send the message)</i>
+                                    <?php
+                                    $result =getSentMails($_SESSION['email']);
+                                    $nor = $result->num_rows;
+                                    if ($nor <=0){
+                                    echo' <li><span class="label label-danger">No Messages</span> </li>';
+
+                                    }
+                                    else {
+                                    for ($i = 0; $i < $nor; $i++) {
+                                    $row = $result->fetch_array();
+                                    echo '<li>';
+                                        //echo " <option value= '$row[0]''>" . $row[2] . " " . $row[3] . "</option>";
+                                        if ($row['is_read']==0){
+                                        echo '<span class="label label-danger">Unread</span>';
+                                        }
+
+                                        echo'   <b>'.$row['subject'].'</b> <i>( '.$row['to'].' )</i>
                                         <span class="quickMenu">
-                                        <a href="#" class="fas fa-envelope-open-text" onclick="openSentMsg('msgTitle','sendTo','content','recivername')"><i></i></a>
-                                        <a href="#" class="fas fa-trash"><i></i></a> </span>
-                                    </li>
+                                    <a href="#" class="fas fa-envelope-open-text" onclick="openMsg()"><i></i></a>
+                                        <a href="#" class="fas fa-trash delete-message" data-id="'.$row[0].'"><i></i></a> </span>
+                                    </li>';
+                                    }
+
+                                    }
+
+                                    ?>
+
                                 </ul>
                             </div>
                             <div id="sent-opened-msg" style="display: none;">

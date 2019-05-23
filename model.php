@@ -558,3 +558,33 @@ function deleteTrainingByID($id){
         return false;
     }
 }
+
+function getSentMails($email){
+    include 'connect_DB.php';
+    $sql = "SELECT * FROM `inbox` where `from` ='$email'";
+    $result = $db->query($sql);
+    return $result;
+
+}
+
+function getReceivedMails($email){
+    include 'connect_DB.php';
+    $sql = "SELECT * FROM `inbox` where `to` ='$email'";
+    $result = $db->query($sql);
+    return $result;
+
+}
+
+function sendMails($from, $to, $subject,$content){
+    include "connect_DB.php";
+    $sql = "INSERT INTO `inbox`(`from`, `to`, `content`, `subject`, `date`) VALUES 
+('$from','$to','$content','$subject',now())";
+    if (mysqli_query($db, $sql)) {
+        echo "Record inserted successfully";
+        return true;
+    } else {
+        echo "Error inserted record: " . mysqli_error($db);
+        return false;
+    }
+}
+

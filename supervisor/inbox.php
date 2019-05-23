@@ -74,30 +74,8 @@ session_start();
                             <div class="message-title">Received Messages :
                             </div>
                             <div class="attachments">
-                                <ul>
+                                <ul id="live_inbox_data">
                                     <?php
-                                    $result =getReceivedMails($_SESSION['email']);
-                                    $nor = $result->num_rows;
-                                    if ($nor <=0){
-                                       echo' <li><span class="label label-danger">No Messages</span> </li>';
-
-                                    }
-                                    else {
-                                        for ($i = 0; $i < $nor; $i++) {
-                                            $row = $result->fetch_array();
-                                            echo '<li>';
-                                            if ($row['is_read']==0){
-                                                echo '<span class="label label-danger">Unread</span>';
-                                            }
-
-                                          echo'   <b>'.$row['subject'].'</b> <i>( '.$row['from'].' )</i>
-                                        <span class="quickMenu">
-                                    <a href="#" class="fas fa-envelope-open-text" onclick="openMsg()"><i></i></a>
-                                        <a href="#" class="fas fa-trash delete-message" data-id="'.$row[0].'"><i></i></a> </span>
-                                    </li>';
-                                        }
-
-                                    }
 
                                     ?>
 
@@ -111,27 +89,7 @@ session_start();
 
                             </div>
                             <br><br>
-                            <div id="opened-msg" style="display: none;">
-                                <div class="form-line row">
-                                    <div class="col-sm-12">
-                                        <div class="message-title" id="msg-title">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="header" id="msg-header">
-                                    <img class="avatar" src="https://bootdey.com/img/Content/avatar/avatar7.png">
-
-                                    <div class="from">
-                                        <span id="sender-name"></span>
-                                        <span id="sender-email"> </span>
-                                    </div>
-
-                                </div>
-                                <div class="content">
-                                    <p id="msg-content">
-                                    </p>
-                                </div>
+                            <div id="opened-msg" style="">
                             </div>
                             <hr>
                             <form method="post" id="send_email" action="../controller.php" style="display: none;">
@@ -182,57 +140,13 @@ session_start();
                             <div class="message-title">Sent Messages :
                             </div>
                             <div class="attachments">
-                                <ul>
-                                    <?php
-                                    $result =getSentMails($_SESSION['email']);
-                                    $nor = $result->num_rows;
-                                    if ($nor <=0){
-                                    echo' <li><span class="label label-danger">No Messages</span> </li>';
+                                <ul id="live_sent_data">
 
-                                    }
-                                    else {
-                                    for ($i = 0; $i < $nor; $i++) {
-                                    $row = $result->fetch_array();
-                                    echo '<li>';
-                                        //echo " <option value= '$row[0]''>" . $row[2] . " " . $row[3] . "</option>";
-                                        if ($row['is_read']==0){
-                                        echo '<span class="label label-danger">Unread</span>';
-                                        }
-
-                                        echo'   <b>'.$row['subject'].'</b> <i>( '.$row['to'].' )</i>
-                                        <span class="quickMenu">
-                                    <a href="#" class="fas fa-envelope-open-text" onclick="openMsg()"><i></i></a>
-                                        <a href="#" class="fas fa-trash delete-message" data-id="'.$row[0].'"><i></i></a> </span>
-                                    </li>';
-                                    }
-
-                                    }
-
-                                    ?>
 
                                 </ul>
                             </div>
-                            <div id="sent-opened-msg" style="display: none;">
-                                <div class="form-line row">
-                                    <div class="col-sm-12">
-                                        <div class="message-title" id="msg-title">
-                                        </div>
-                                    </div>
-                                </div>
+                            <div id="sent-opened-msg" >
 
-                                <div class="header" id="msg-header">
-
-
-                                    <div class="from">
-                                        <span id="reciver-name"></span>
-                                        <span id="reciver-email"> </span>
-                                    </div>
-
-                                </div>
-                                <div class="content">
-                                    <p id="msg-content">
-                                    </p>
-                                </div>
                             </div>
                         </div>
                     </div>

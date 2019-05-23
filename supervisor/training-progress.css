@@ -2,40 +2,17 @@
 
 .search  ,.search-title{
     font-family: "Roboto", helvetica, arial, sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    text-rendering: optimizeLegibility;
+    font-size: 12px;
+    font-weight: 200;
     color: black;
 }
 
-div.table-title {
-    display: block;
-    margin: auto;
-    max-width: 600px;
-    padding:5px;
-    width: 100%;
-}
-
-.table-title h3 {
-    color: #fafafa;
-    font-size: 20px;
-    font-weight: 400;
-    font-style:normal;
-    font-family: "Roboto", helvetica, arial, sans-serif;
-    text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
-    text-transform:uppercase;
-}
-
-
-/*** Table Styles **/
 
 .table-fill {
     background: white;
     border-radius: 3px;
     border-collapse: collapse;
-    height: 100px;
     padding:5px;
-    width: 100%;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     animation: float 5s infinite;
 }
@@ -45,9 +22,8 @@ th {
     background:#1b1e24;
     border-bottom:4px solid #9ea7af;
     border-right: 1px solid #343a45;
-    font-size:18px;
-    font-weight: 100;
-    padding:20px;
+    font-size:14px;
+    padding:16px;
     text-align:left;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
     vertical-align:middle;

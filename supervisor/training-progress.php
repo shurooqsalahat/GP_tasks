@@ -127,10 +127,9 @@ session_start();
             <br>
             <hr>
             <div class="search">
-                <table class="table-fill" style="float: left;">
+                <table class="table-fill">
                     <thead>
                     <tr>
-
                         <th class="text-left">Student ID</th>
                         <th class="text-left">Student Name</th>
                         <th class="text-left">Task ID</th>
@@ -182,7 +181,7 @@ session_start();
                                     </div>
 
                                     <div class="col-sm-6">
-                                        <select name="students[]" id="assigned_tasks" multiple="multiple" style="width: 100%">
+                                        <select name="students[]" id="students_to_assign_task" multiple="multiple" style="width: 100%">
                                             <?php
                                             $result = getSupervisorStudents($_SESSION['id']);
                                             $nor = $result->num_rows;
@@ -199,15 +198,15 @@ session_start();
 
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" onclick="atLeastChooseOneTask()">Assign
+                            <button type="button" class="btn btn-primary" onclick="atLeastChooseOneTask();atLeastChooseOneStudent()">Assign
                             </button>
 
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 
                         </div>
-                    </div><!-- /.modal-content -->
-                </div><!-- /.modal-dialog -->
-            </div><!-- /.modal -->
+                    </div>
+                </div>
+            </div>
 
             <div class="modal fade" id="add_score_modal" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog" role="document">

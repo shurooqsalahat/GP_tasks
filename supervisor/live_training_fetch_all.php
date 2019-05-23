@@ -36,8 +36,8 @@ for ($i = 0; $i < $nor; $i++) {
 
             .'<td>
            
-            <button type="button" class="btn"   data-toggle="modal" data-target="#add_score_modal"  style="padding: 10px;margin-bottom: 6px" onclick="getData()"><span class="glyphicon glyphicon-star">Add Task Score</span></button>
-          <button type="button" class="btn delete_btn" id="test_delete"  style="padding: 10px;" data-id3="'.$row[0].'">'.'<span class="fa fa-trash delete-btn" >Delete Task Assignee</span></button>
+            <button type="button" class="btn"   data-toggle="modal" data-target="#add_score_modal"  style="padding: 14px;margin-bottom: 6px" onclick="getData()"><span class="glyphicon glyphicon-star">Add Task Score</span></button>
+          <button type="button" class="btn delete_btn" id="test_delete"  style="padding:14px 10px;" data-id3="'.$row[0].'">'.'<span class="fa fa-trash delete-btn" >Delete Task Assignee</span></button>
 
           
             </td></tr>';

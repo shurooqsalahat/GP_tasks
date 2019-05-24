@@ -13,24 +13,19 @@ $(document).ready(function(){
     }
 
     fetch_data();
-    $(document).on('click', '.delete_btn', function(){
-        console.log('in delete');
-        var id=$(this).data("id3");
-        if(confirm("Are you sure you want to delete this?"))
-        {
-            $.ajax({
-                url:"live_delete_task.php",
-                method:"POST",
-                data:{id:id},
-                dataType:"text",
-                success:function(data){
-                    alert(data);
-                    fetch_data();
-                }
-            });
-        }
+
+    $(document).on('click', '.update_btn', function(){
+        console.log("in update");
+        $.ajax({
+            url:"live_update_solution.php",
+            method:"POST",
+            success:function(data){
+                //$('#live_data').html(data);
+            }
+        });
 
     });
+
 
 
 });

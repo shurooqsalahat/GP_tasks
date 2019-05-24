@@ -20,5 +20,9 @@ $(document).ready(function(){
 
 
 function redirectTo(sUrl) {
-    window.location = sUrl
+    var id =$('.get-btn').data("id3");
+    //window.location = sUrl
+    window.location.href = sUrl+"?std_id="+id;
+
+
 }

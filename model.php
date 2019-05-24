@@ -365,6 +365,22 @@ function getSupervisorStudents($id)
     return $result;
 }
 
+function getStudentTasks($id)
+{
+    include("connect_DB.php");// connect to db
+    $qstr = "SELECT * FROM `student_task` WHERE student_id=$id";
+    $result = $db->query($qstr);
+    return $result;
+}
+
+function getDoctorStudents($id)
+{
+    include("connect_DB.php");// connect to db
+    $qstr = "SELECT * FROM `students` WHERE doctor_id=$id";
+    $result = $db->query($qstr);
+    return $result;
+}
+
 function getSupervisorTasks($id)
 {
     include("connect_DB.php");// connect to db

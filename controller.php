@@ -524,15 +524,15 @@ if (isset($src)) {
         echo "welcome";
         $subject = $_REQUEST['message_subject'];
         echo $subject . '<br>';
-        $to = $_REQUEST['receiver'];
+        $to = $_REQUEST['to'];
         $content = $_REQUEST['body'];
         echo $content . '<br>';
 
 
-            sendMails($_SESSION['email'], $to, $subject, $content);
+        sendMails($_SESSION['email'], $to, $subject, $content);
 
 
-        //header('Location: student/inbox.php');
+        header('Location: student/inbox.php');
         exit;
     }
     else if ($src == "update_student_information") {

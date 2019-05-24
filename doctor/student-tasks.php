@@ -1,9 +1,24 @@
 <?php
 include("../model.php");// connect to db
 session_start();
-if(!isset($_SESSION['email'])){ //if login in session is not set
+if(!isset($_SESSION['email'])) { //if login in session is not set
+    header("Location: ../404.php");
+
+}
+
+if(!isDoctor($_SESSION['email'])){
     header("Location: ../404.php");
 }
+    if(isset($_REQUEST['std_id'])){
+        $_SESSION['std_id'] =$_REQUEST['std_id'];
+        $st =retrieveSudentsByID($_SESSION['std_id']);
+        if ($_SESSION['id']!=$st['doctor_id'])
+            header("Location: ../404.php");
+    }
+    else{
+        header("Location: ../404.php");
+    }
+
 
 ?>
 
@@ -104,10 +119,55 @@ if(!isset($_SESSION['email'])){ //if login in session is not set
                 <?php if (isset($msg))
                     echo $msg; ?>
             </div>
-            <div id="live_data">
+            <div >
+               <?php
+                echo '<table id="students_table" class="table-users" cellspacing="0" width="100%">' .
+                    '<tr>' .
+                        '<th>Task Name</th>' .
+                        '<th>Task Weigt</th>' .
+                        '<th>Estimation Time</th>' .
+                        '<th>Description </th>'.
+                        '<th>evaluation </th>'.
+                        '<th>Student Received </th>'.
+                        '<th>Student Sent </th>'.
+                        '<th>Feed Back </th>'.
+                        '<th>Solution Link </th>'.
+
+                        '</tr>' .
+
+                    '<tbody>';
+                    $result = getStudentTasks($_SESSION['std_id']);
+                    $nor = $result->num_rows;
+                    if ($nor<= 0){
+                    return;
+                    }
+                    $count =1;
+                    for ($i = 0; $i < $nor; $i++) {
+                    $row = $result->fetch_array();
+                    $task =getTaskByName($row['task_name']);
+                    $PATH="../".$task[5];
+
+                    echo ' <tr onclick="update_submit(this)">'.
+                        '<td><a download="tasks" href="'.$PATH.'">'.$task[1].'</a></td>'.
+                        '<td>'. $task['weight'].'</td>'.
+                        '<td>'.$task['estimation_time'].'</td>'.
+                        '<td>'.$task['description'].'</td>'.
+                        '<td>'.$row['evaluation'].'</td>'.
+                        '<td>'.$row['student_recived'].'</td>'.
+                        '<td>'.$row['student_sent'].'</td>'.
+                        '<td>'.$row['feed_back'].'</td>'.
+                        '<td>'.$row['solution_link'].'</td>'.
+
+                        '</tr>';
+                    }
+
+                    ?>
+                    </tbody>
+                </table>
+
             </div>
 
-            <!-- .modal -->
+
 
         </div>
 

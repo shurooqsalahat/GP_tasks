@@ -17,7 +17,7 @@ echo '<table id="students_table" class="table-users" cellspacing="0" width="100%
     '</tr>' .
 
     '<tbody>';
-$result = getSupervisorTasks($_SESSION['id']);
+$result = getStudentTasks($_SESSION['std_id']);
 $nor = $result->num_rows;
 if ($nor<= 0){
     return;

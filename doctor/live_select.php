@@ -16,7 +16,7 @@ echo '<table id="students_table" class="table-users" cellspacing="0" width="100%
     '</tr>' .
     '</thead>' .
     '<tbody>';
-$result = getSupervisorStudents($_SESSION['id']);
+$result = getDoctorStudents($_SESSION['id']);
 $nor = $result->num_rows;
 if ($nor<= 0){
     return;
@@ -32,7 +32,7 @@ for ($i = 0; $i < $nor; $i++) {
          '<td>'.$row[1].'</td>'.
          '<td>'.
 
-            '<button type="button" style="border-radius: 15px;" class="btn btn-danger btn-sm dt-delete delete_btn" onclick="redirectTo(\'student-tasks.php\')" data-id3="'.$row[0].'">'.
+            '<button type="button" style="border-radius: 15px;" class="btn btn-danger btn-sm dt-delete get-btn" onclick="redirectTo(\'student-tasks.php\')" data-id3="'.$row[0].'">'.
                 '<i class="fa fa-info-circle">&nbsp;See all student tasks</i>'.
              '</button>'.
         '</td>'.

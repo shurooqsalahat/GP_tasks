@@ -103,22 +103,8 @@ if (!isStudent($_SESSION['email'])){
                                     <div class="form-line row">
                                         <div class="col-sm-12">
                                             <input name="src" value="student_send_message" hidden>
-                                            <select multiple="multiple" class="form-control" id="send-to-emails" name="receivers[]">
-
-                                                <?php
-                                                $sup =retrieveSupervisorByID($_SESSION['supervisor_id']);
-                                                echo " <option value= 'supervisor'> Supervisor:  " . $sup[2] . " " . $sup[3] . "</option>";
-
-                                                $result = getSupervisorStudents($_SESSION['supervisor_id']);
-                                                $nor = $result->num_rows;
-                                                for ($i = 0; $i < $nor; $i++) {
-                                                    $row = $result->fetch_array();
-                                                    if($row['id']==$_SESSION['id']) continue;
-                                                    echo " <option value= '$row[0]''>" . $row[2] . " " . $row[3] . "</option>";
-                                                }
-                                                ?>
-                                            </select>
-
+                                            <input type="text" class="form-control" id="message_subject" name="to"
+                                                   placeholder="To" >
                                         </div>
                                     </div>
                                 </div>

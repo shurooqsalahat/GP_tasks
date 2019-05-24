@@ -500,22 +500,13 @@ if (isset($src)) {
     }
 
     elseif ($src=="student_send_message"){
-        echo "welcome";
         $subject = $_REQUEST['message_subject'];
         echo $subject . '<br>';
-
+        $to = $_REQUEST['to'];
         $content = $_REQUEST['body'];
         echo $content . '<br>';
-        foreach ($_REQUEST['receivers'] as $rec) {
-            if ($rec=='supervisor'){
-                $sup =retrieveSupervisorByID($_SESSION['supervisor_id']);
-                sendMails($_SESSION['email'], $sup['email'], $subject, $content);
-                continue;
-            }
-            $rstudent = retrieveSudentsByID($rec);
-            sendMails($_SESSION['email'], $rstudent['email'], $subject, $content);
 
-        }
+        sendMails($_SESSION['email'], $to, $subject, $content);
         header('Location: student/inbox.php');
         exit;
     }

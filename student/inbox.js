@@ -111,7 +111,7 @@ function validate_send_msg() {
     }
     if ( senderEmail == null) {
         $('#send-to-emails').after('<div style="color:red">This field is required</div>');
-        vaidate =true;
+        //vaidate =true;
     }
 
     if (!vaidate){

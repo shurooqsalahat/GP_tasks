@@ -645,6 +645,42 @@ if (isset($src)) {
 
 
     }
+    elseif($src=='student_update_password'){
+        include('connect_DB.php');
+        $psw = $_REQUEST['password2'];
+        $encpass = sha1($psw);
+        $sql = "UPDATE students SET password='" . $encpass . "' WHERE id=" . $_SESSION['id'];
+        echo $sql;
+        $result = $db->query($sql);
+        $_SESSION['Message']="Password updated Successfully";
+        header('Location: student/student-information.php');
+
+    }
+
+    elseif($src=='doctor_update_password'){
+        include('connect_DB.php');
+        $psw = $_REQUEST['password2'];
+        $encpass = sha1($psw);
+        $sql = "UPDATE students SET password='" . $encpass . "' WHERE id=" . $_SESSION['id'];
+        echo $sql;
+        $result = $db->query($sql);
+        $_SESSION['Message']="Password updated Successfully";
+        header('Location: doctor/doctor-information.php');
+
+    }
+
+    elseif($src=='supervisor_update_password'){
+        include('connect_DB.php');
+        $psw = $_REQUEST['password2'];
+        $encpass = sha1($psw);
+        $sql = "UPDATE supervisors SET password='" . $encpass . "' WHERE id=" . $_SESSION['id'];
+        echo $sql;
+        $result = $db->query($sql);
+        $_SESSION['Message']="Password updated Successfully";
+        header('Location: supervisor/supervisor-information.php');
+
+    }
+
 }
 
 

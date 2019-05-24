@@ -67,7 +67,7 @@ session_start();
                             <span id="pwmatch" class="glyphicon glyphicon-remove" style="color:#FF0004;"></span> Passwords Match
                         </div>
                     </div>
-                    <input  onclick="validate_new_password()" class="col-xs-12 btn btn-primary btn-load btn-lg" data-loading-text="Changing Password..." value="Change Password">
+                    <input type="button"  onclick="validate_new_password()" class="col-xs-12 btn btn-primary btn-load btn-lg" data-loading-text="Changing Password..." value="Change Password">
                 </form>
             </div><!--/col-sm-6-->
         </div><!--/row-->

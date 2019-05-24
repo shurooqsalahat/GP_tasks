@@ -155,7 +155,7 @@ session_start();
                             </div>
                         </div>
                         <br>
-                        <div class="form-line row"  style="margin-bottom: 62px;">
+                        <div class="form-line row">
                             <div class=" col-md-2">
                                 Email
                             </div>
@@ -170,7 +170,13 @@ session_start();
                             </div>
                         </div>
                         <br>
-                        
+                        <br>
+                        <div class="form-line row" style="margin-bottom: 32px;">
+                            <div class=" col-md-6">
+                                <a href="change-your-password.php">Change Your Password</a>
+                            </div>
+
+                        </div>
                         <hr>
                         <div class="buttons">
                             <input type="submit" class="add"  id='save-changes-btn'  value="Save Changes"/>

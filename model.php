@@ -408,15 +408,16 @@ function isTaskExist($task_name)
 function getTaskByName($name)
 {
     include 'connect_DB.php';
-
+     echo $name;
     $sql = "SELECT * FROM tasks where task_name ='$name'";
+    echo $sql;
     $result = $db->query($sql);
     $row = $result->fetch_array();
-
+    echo $row['id'];
     return $row;
 }
 
-//getTaskByName('Task_1');
+//getTaskByName('waleed Tasks');
 function addTask($name, $weight, $description, $estimation_time, $task_file, $supervisor_id)
 {
     include 'connect_DB.php';
@@ -434,20 +435,20 @@ VALUES ('$name',$weight ,'$description',$estimation_time,'$task_file', $supervis
 }
 
 
-function getTrainingLikeTaskName($name)
+function getTrainingLikeTaskName($supervisor_id,$name)
 {
     include 'connect_DB.php';
-    $qstr = "SELECT * FROM student_task WHERE task_name LIKE '%$name%'";
+    $qstr = "SELECT * FROM student_task WHERE supervisor_id=".$supervisor_id." AND task_name LIKE '%$name%'";
     // echo $qstr;
     $result = $db->query($qstr);
     return $result;
 
 }
 
-function getTrainingLikeStudentName($name)
+function getTrainingLikeStudentName($supervisor_id,$name)
 {
     include 'connect_DB.php';
-    $qstr = "SELECT * FROM student_task WHERE student_name LIKE '%$name%'";
+    $qstr = "SELECT * FROM student_task WHERE supervisor_id=".$supervisor_id." AND student_name LIKE '%$name%'";
     // echo $qstr;
     $result = $db->query($qstr);
     return $result;
@@ -466,10 +467,10 @@ function getTaskByID($id)
 
 }
 
-function getTrainingByTaskName($name)
+function getTrainingByTaskName($supervisor_id,$name)
 {
     include 'connect_DB.php';
-    $qstr = "SELECT * FROM student_task WHERE task_name ='$name'";
+    $qstr = "SELECT * FROM student_task WHERE supervisor_id=".$supervisor_id." AND  task_name ='$name'";
     //echo $qstr;
     $result = $db->query($qstr);
     $row = $result->fetch_array();
@@ -478,10 +479,10 @@ function getTrainingByTaskName($name)
 
 }
 
-function getTrainingByStudentId($id)
+function getTrainingByStudentId($supervisor_id,$id)
 {
     include 'connect_DB.php';
-    $qstr = "SELECT * FROM student_task WHERE student_id=$id";
+    $qstr = "SELECT * FROM student_task WHERE supervisor_id=".$supervisor_id." AND  student_id=$id";
     // echo $qstr;
     $result = $db->query($qstr);
     $row = $result->fetch_array();
@@ -491,14 +492,15 @@ function getTrainingByStudentId($id)
 }
 
 //getTrainingByTaskName('Task_2');
-function getAllTaskStudent()
+function getAllTaskStudent($id)
 {
     include 'connect_DB.php';
-    $qstr = "SELECT * FROM student_task ";
+    $qstr = "SELECT * FROM student_task where supervisor_id=".$id;
     $result = $db->query($qstr);
     return $result;
 
 }
+
 
 function isTaskAssigne( $student_id,$task_name)
 {
@@ -506,20 +508,24 @@ function isTaskAssigne( $student_id,$task_name)
     include("connect_DB.php");// connect to db
 
     $query = "SELECT * FROM student_task WHERE task_name='$task_name' AND student_id =$student_id";
+
     $result = $db->query($query);
     $nor = $result->num_rows;
     if ($nor == 0) {
+
         return false;
 
     } else {
+
 
         return true;
     }
 
 
 }
+isTaskAssigne(22, 'waleed Tasks');
 
-function addStudentTask($student_id, $student_name, $task_name, $doctor_id, $is_delivered, $evaluation,
+function addStudentTask($supervisor_id,$student_id, $student_name, $task_name, $doctor_id, $is_delivered, $evaluation,
                          $feed_back, $solution_link)
 {
     include 'connect_DB.php';
@@ -528,9 +534,9 @@ function addStudentTask($student_id, $student_name, $task_name, $doctor_id, $is_
         return false;
     }
     //$date=date("Y-m-d",strtotime($date))
-    $sql = "INSERT INTO `student_task`( `student_id`, `student_name`, `task_name`, `doctor_id`, `is_delivered`, 
+    $sql = "INSERT INTO `student_task`(`supervisor_id` ,`student_id`, `student_name`, `task_name`, `doctor_id`, `is_delivered`, 
     `evaluation`, `student_sent`, `student_recived`, `feed_back`, `solution_link`) 
-    VALUES ('$student_id','$student_name','$task_name','$doctor_id',$is_delivered,$evaluation,'0-0-0',
+    VALUES ($supervisor_id,'$student_id','$student_name','$task_name','$doctor_id',$is_delivered,$evaluation,'0-0-0',
     now(),'$feed_back', '$solution_link' )";
     if (mysqli_query($db, $sql)) {
         echo "Record inserted successfully";

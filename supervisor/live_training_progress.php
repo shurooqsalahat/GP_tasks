@@ -1,6 +1,7 @@
 <?php
 include "../model.php";
 include "../connect_DB.php";
+session_start();
 
 if (isset($_POST['search_name'])){
     $name = $_POST['search_name'];
@@ -14,7 +15,7 @@ if (isset($_POST['select'])) {
     $select = $_POST['select'];
 
     if ($select == 'student_name') {
-        $result = getTrainingLikeStudentName($name);
+        $result = getTrainingLikeStudentName($_SESSION['id'],$name);
 
         $nor = $result->num_rows;
         if ($nor <= 0) {
@@ -27,7 +28,6 @@ if (isset($_POST['select'])) {
             $student =retrieveSudentsByID($row['student_id']);
             $doctor =retrieveDoctorsByID($row['doctor_id']);
             $task = getTaskByName($row['task_name']);
-            echo $row[2];
             if ($row['is_delivered']==0){
                 $status = "In Progress";
             }
@@ -35,7 +35,7 @@ if (isset($_POST['select'])) {
                 $status ="Resolved";
 
             }
-            echo '<tr> <td class="text-left">'.$row[1].'</td>'
+            echo '<tr> <td class="text-left">'.$row['student_id'].'</td>'
                 .'<td class="text-left">'.$student['first']." ". $student['last'].'</td>'
                 .'<td class="text-left">'.$task['id'].'</td>'
                 .'<td class="text-left">'.$row['task_name'].'</td>'
@@ -67,7 +67,7 @@ if (isset($_POST['select'])) {
            return;
         }
 
-        $row = getTrainingByStudentId($id);
+        $row = getTrainingByStudentId($_SESSION['id'],$id);
         if ($row == null){
             return;
         }
@@ -83,7 +83,7 @@ if (isset($_POST['select'])) {
 
         }
 
-        echo '<tr> <td class="text-left">'.$row[1].'</td>'
+        echo '<tr> <td class="text-left">'.$row['student_id'].'</td>'
             .'<td class="text-left">'.$student['first']." ". $student['last'].'</td>'
             .'<td class="text-left">'.$task['id'].'</td>'
             .'<td class="text-left">'.$row['task_name'].'</td>'
@@ -106,7 +106,7 @@ if (isset($_POST['select'])) {
 
     if ($select == 'task_name') {
 
-        $result = getTrainingLikeTaskName($name);
+        $result = getTrainingLikeTaskName($_SESSION['id'],$name);
 
         $nor = $result->num_rows;
         if ($nor <= 0) {
@@ -127,7 +127,7 @@ if (isset($_POST['select'])) {
                 $status ="Resolved";
 
             }
-            echo '<tr> <td class="text-left">'.$row[1].'</td>'
+            echo '<tr> <td class="text-left">'.$row['student_id'].'</td>'
                 .'<td class="text-left">'.$student['first']." ". $student['last'].'</td>'
                 .'<td class="text-left">'.$task['id'].'</td>'
                 .'<td class="text-left">'.$row['task_name'].'</td>'
@@ -159,7 +159,7 @@ if (isset($_POST['select'])) {
             return;
         }
              $task =getTaskByID($id);
-            $row = getTrainingByTaskName($task['task_name']);
+            $row = getTrainingByTaskName($_SESSION['id'],$task['task_name']);
             if ($row == null){
                 return;
             }
@@ -175,7 +175,7 @@ if (isset($_POST['select'])) {
 
         }
 
-        echo '<tr> <td class="text-left">'.$row[1].'</td>'
+        echo '<tr> <td class="text-left">'.$row['student_id'].'</td>'
 
             .'<td class="text-left">'.$student['first']." ". $student['last'].'</td>'
             .'<td class="text-left">'.$task['id'].'</td>'

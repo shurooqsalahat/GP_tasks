@@ -420,16 +420,22 @@ if (isset($src)) {
 
             foreach ($_REQUEST['tasks'] as $task)
                 foreach ($_REQUEST['students'] as $student) {
+                    echo $task;
+                    echo $student;
                     $rstudent = retrieveSudentsByID($student);
                     $rtasks = getTaskByName($task);
                     if (isTaskAssigne($student, $task)) {
+
                         $_SESSION['Message'] = "This Task already assignee to selected students";
+                        echo $_SESSION['Message'];
                         header('Location: supervisor/training-progress.php');
                         exit;
                     }
-                    addStudentTask($student, $rstudent['first'] . " " . $rstudent['last'], $task,
+
+                    addStudentTask($_SESSION['id'],$student, $rstudent['first'] . " " . $rstudent['last'], $task,
                         $rstudent['doctor_id'], 0, 0, " ", " ");
                     $_SESSION['Message'] = "Tasks assigned Successfully";
+                    echo $_SESSION['Message'];
                     header('Location: supervisor/training-progress.php');
                     exit;
 
@@ -661,7 +667,7 @@ if (isset($src)) {
         include('connect_DB.php');
         $psw = $_REQUEST['password2'];
         $encpass = sha1($psw);
-        $sql = "UPDATE students SET password='" . $encpass . "' WHERE id=" . $_SESSION['id'];
+        $sql = "UPDATE doctors SET password='" . $encpass . "' WHERE id=" . $_SESSION['id'];
         echo $sql;
         $result = $db->query($sql);
         $_SESSION['Message']="Password updated Successfully";
@@ -692,6 +698,9 @@ if (isset($src)) {
         $result = $db->query($sql);
         $sql2 = "UPDATE student_task SET student_sent= now() WHERE id=" .$id;
         $result = $db->query($sql2);
+
+        $sql3 = "UPDATE student_task SET is_delivered= 1 WHERE id=" .$id;
+        $result = $db->query($sql3);
         $_SESSION['Message']='Updated Successfully';
         header('Location: student/student-tasks.php');
 

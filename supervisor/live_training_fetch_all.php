@@ -1,8 +1,8 @@
 <?php
 include "../connect_DB.php";
 include "../model.php";
-
-$result = getAllTaskStudent();
+session_start();
+$result = getAllTaskStudent($_SESSION['id']);
 $nor = $result->num_rows;
 if ($nor <= 0) {
 
@@ -14,7 +14,8 @@ for ($i = 0; $i < $nor; $i++) {
     $student =retrieveSudentsByID($row['student_id']);
     $doctor =retrieveDoctorsByID($row['doctor_id']);
     $task = getTaskByName($row['task_name']);
-    echo $row[2];
+    echo $row['task_name'];
+    echo $task['id'];
     if ($row['is_delivered']==0){
         $status = "In Progress";
     }
@@ -23,7 +24,7 @@ for ($i = 0; $i < $nor; $i++) {
 
     }
 
-    echo '<tr> <td class="text-left">'.$row[1].'</td>'
+    echo '<tr> <td class="text-left">'.$row['student_id'].'</td>'
             .'<td class="text-left">'.$student['first']." ". $student['last'].'</td>'
             .'<td class="text-left">'.$task['id'].'</td>'
             .'<td class="text-left">'.$row['task_name'].'</td>'

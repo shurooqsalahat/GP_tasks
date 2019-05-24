@@ -10,7 +10,6 @@ unset($_SESSION['Message']);
 if (isset($src)) {
     if ($src == "signin") {
         $email = $_REQUEST["email"];
-        //echo "welcome in signin";
         $upass = $_REQUEST["password"];
         $encpass = sha1($upass);
         echo $upass;
@@ -34,6 +33,8 @@ if (isset($src)) {
                     $_SESSION['phone'] = $row['phone'];
                     echo $_SESSION['first'];
                     $_SESSION['auth'] = $email;
+                    header('Location: doctor/doctor-information.php');
+                    exit;
 
                 } else {
                     $_SESSION['Message'] = "incorrect password";
@@ -518,6 +519,22 @@ if (isset($src)) {
         header('Location: student/inbox.php');
         exit;
     }
+
+    elseif ($src=="doctor_send_message"){
+        echo "welcome";
+        $subject = $_REQUEST['message_subject'];
+        echo $subject . '<br>';
+        $to = $_REQUEST['receiver'];
+        $content = $_REQUEST['body'];
+        echo $content . '<br>';
+
+
+            sendMails($_SESSION['email'], $to, $subject, $content);
+
+
+        //header('Location: student/inbox.php');
+        exit;
+    }
     else if ($src == "update_student_information") {
         echo "welcome in update";
         $flag_update = false;
@@ -578,7 +595,65 @@ if (isset($src)) {
 
     }
 
+    else if ($src == "update_doctor_information") {
+        echo "welcome in update";
+        $flag_update = false;
+        if (isset($_REQUEST['first'])) {
+            $first = $_REQUEST['first'];
+            $sql = "UPDATE doctors SET first='" . $first . "' WHERE id=" . $_SESSION['id'];
+            include('connect_DB.php');
+            $result = $db->query($sql);
+            if ($result) {
+                $flag_update = true;
+                $_SESSION['first'] = $first;
+            }
+        }
 
+        if (isset($_REQUEST['last'])) {
+            $last = $_REQUEST['last'];
+            $sql = "UPDATE doctors SET last='" . $last . "' WHERE id=" . $_SESSION['id'];
+            include('connect_DB.php');
+            $result = $db->query($sql);
+            if ($result) {
+                $flag_update = true;
+                $_SESSION['last'] = $last;
+            }
+        }
+
+        if (isset($_REQUEST['email'])) {
+            $email = $_REQUEST['email'];
+            $sql = "UPDATE doctors SET email='" . $email . "' WHERE id=" . $_SESSION['id'];
+            include('connect_DB.php');
+            $result = $db->query($sql);
+            if ($result) {
+                $flag_update = true;
+                $_SESSION['email'] = $email;
+            }
+        }
+
+        if (isset($_REQUEST['phone'])) {
+            $phone = $_REQUEST['phone'];
+            $sql = "UPDATE doctors SET phone='" . $phone . "' WHERE id=" . $_SESSION['id'];
+            include('connect_DB.php');
+            $result = $db->query($sql);
+            if ($result) {
+                $flag_update = true;
+                $_SESSION['phone'] = $phone;
+            }
+        }
+
+        if ($flag_update) {
+            $_SESSION['Message'] = 'Your information updated';
+            header('Location: doctor/doctor-information.php');
+            exit;
+        } else {
+            $_SESSION['Message'] = 'Something error, Please try later';
+            header('Location: doctor/doctor-information.php');
+            exit;
+        }
+
+
+    }
 }
 
 

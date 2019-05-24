@@ -1,9 +1,7 @@
 <?php
 include("../model.php");// connect to db
 session_start();
-if(!isset($_SESSION['email'])){ //if login in session is not set
-    header("Location: ../404.php");
-}
+
 
 ?>
 
@@ -117,7 +115,7 @@ if(!isset($_SESSION['email'])){ //if login in session is not set
                             </div>
 
                             <div class=" col-md-6 col-xs-2">
-                                <input name="src" value="update_supervisor_information" type="hidden"/>
+                                <input name="src" value="update_doctor_information" type="hidden"/>
                                 <input id="first_name" name="first" placeholder="First Name" class="form-control"
                                        type="text" value="<?php if(isset($_SESSION['first'])) echo $_SESSION['first']?>">
                             </div>

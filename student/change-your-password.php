@@ -31,7 +31,6 @@ session_start();
     <!-- Superslide css file-->
 
     <link rel="stylesheet" href="../style.css">
-    <!-- Slick slider css file :: for previous and next-->
 
     <script src="change-your-password.js"></script>
     <?php include "../header.php"?>
@@ -67,7 +66,7 @@ session_start();
                             <span id="pwmatch" class="glyphicon glyphicon-remove" style="color:#FF0004;"></span> Passwords Match
                         </div>
                     </div>
-                    <input type="submit" class="col-xs-12 btn btn-primary btn-load btn-lg" data-loading-text="Changing Password..." value="Change Password">
+                    <input  onclick="validate_new_password()" class="col-xs-12 btn btn-primary btn-load btn-lg" data-loading-text="Changing Password..." value="Change Password">
                 </form>
             </div><!--/col-sm-6-->
         </div><!--/row-->

@@ -69,7 +69,7 @@ if(!isStudent($_SESSION['email'])){
 
 <header id="header">
 </header>
-<body>
+<body style="overflow-x: scroll!important;">
 
 <div id="wrapper">
     <!-- Sidebar -->

@@ -681,6 +681,24 @@ if (isset($src)) {
 
     }
 
+    elseif($src=='update_solution'){
+        include('connect_DB.php');
+        echo "welcome";
+        $id = $_REQUEST['hidden_id'];
+        $url =$_REQUEST['url'];
+        echo $id.$url;
+        $sql = "UPDATE student_task SET solution_link='" . $url . "' WHERE id=" .$id;
+        echo $sql;
+        $result = $db->query($sql);
+        $sql2 = "UPDATE student_task SET student_sent= now() WHERE id=" .$id;
+        $result = $db->query($sql2);
+        $_SESSION['Message']='Updated Successfully';
+        header('Location: student/student-tasks.php');
+
+
+
+    }
+
 }
 
 

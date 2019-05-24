@@ -91,7 +91,7 @@ if(!isStudent($_SESSION['email'])){
             <a  class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
             <strong>OOPS!</strong> <span id=\"failed-text\">" . $_SESSION['Message'] . "</span>
         </div>";
-                } else if ($_SESSION['Message'] == 'Task added successfully') {
+                } else if ($_SESSION['Message'] == 'Updated Successfully') {
                     $msg = "<div class=\"alert alert-success\">
             <a  class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
             <strong>Good</strong> <span id=\"failed-text\">" . $_SESSION['Message'] . "</span>
@@ -119,16 +119,15 @@ if(!isStudent($_SESSION['email'])){
                             <h4 class="modal-title">solution  link</h4>
                         </div>
                         <div class="modal-body">
-                            <form id="solution_form" action=""  method="post">
+                            <form id="solution_form" action="../controller.php"  method="post">
                                 <label for="url">Enter an git Hub link for your solution:</label>
                                 <input type="url" name="url"
                                        placeholder="https://example.com"
                                        id="solution-url"
                                        >
-                                <input type="text" name="hidden_id"
-                                       id="hidden_id"
-                                       hidden
-                                >
+                                <input type="text" name="hidden_id" id="hidden_id"  hidden >
+                                <input type="text" name="src" value="update_solution"  hidden >
+
                             </form>
                             <div class="form-line row">
                                 <div class="error col-sm-12" id="error" style="color: red">

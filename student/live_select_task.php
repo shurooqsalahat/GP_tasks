@@ -42,7 +42,7 @@ for ($i = 0; $i < $nor; $i++) {
         '<td>'.$row['student_recived'].'</td>'.
         '<td>'.$row['student_sent'].'</td>'.
         '<td>'.$row['feed_back'].'</td>'.
-      '<td>'.$row['solution_link'].'</td>'.
+         '<td>'.$row['solution_link'].'</td>'.
          '<td>'.
             '<button style="margin-right: 6px; border-radius: 15px;" data-toggle="modal" data-target="#solution_modal" type="button"
              class="btn btn-primary btn-sm dt-edit update_btn" id="update-modal-btn" onClick="getTaskID()"  data-id="'.$row[0].'" >'.

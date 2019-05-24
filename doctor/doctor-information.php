@@ -1,7 +1,14 @@
 <?php
 include("../model.php");// connect to db
 session_start();
+if(!isset($_SESSION['email'])) { //if login in session is not set
+    header("Location: ../404.php");
 
+}
+
+if(!isDoctor($_SESSION['email'])){
+    header("Location: ../404.php");
+}
 
 ?>
 
@@ -170,7 +177,7 @@ session_start();
                             </div>
                         </div>
                         <br>
-                        
+
                         <hr>
                         <div class="buttons">
                             <input type="submit" class="add"  id='save-changes-btn'  value="Save Changes"/>

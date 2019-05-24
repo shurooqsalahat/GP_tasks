@@ -48,7 +48,30 @@ if (!isSupervisor($_SESSION['email'])){
     <script src="supervisor-update-doctor.js"></script>
     <link href="add-doctor.css" rel="stylesheet">
     <?php include "../header.php"?>
+    <script>
+        function clearForm(form)
+        {
+            $(":input", form).each(function()
+            {
+                var type = this.type;
+                var tag = this.tagName.toLowerCase();
+                if (type == 'text' || type=='tel' || type=='email'||type=='file')
+                {
+                    this.value = "";
+                }
+                if(type == 'number'){
+                    this.value="";
+                }
 
+
+            });
+            $(".error").remove();
+        };
+
+        function removeValidation(){
+            $(".error").remove();
+        };
+    </script>
 
 </head>
 
@@ -100,7 +123,7 @@ if (!isSupervisor($_SESSION['email'])){
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" name="submit" id="submit" onclick="form_submit()">Add</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="clearForm()">Close</button>
             </div>
         </div>
     </div>
@@ -194,7 +217,7 @@ if (!isSupervisor($_SESSION['email'])){
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-primary" name="submit" id="submit_update_modal" onclick="validate_update_form()" >Update</button>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal" onclick="removeValidation()">Close</button>
                         </div>
                     </div>
                 </div>

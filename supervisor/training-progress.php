@@ -66,6 +66,39 @@ if (!isSupervisor($_SESSION['email'])){
     <!-- Font special for pages-->
     <?php include "../header.php" ?>
     <link href="training-progress.css" rel="stylesheet" media="all">
+    <script>
+        function clearForm(form)
+        {
+            $(":input", form).each(function()
+            {
+                var type = this.type;
+                var tag = this.tagName.toLowerCase();
+                if (type == 'text' || type=='tel' || type=='email'||type=='file')
+                {
+                    this.value = "";
+                }
+                if(type == 'number'){
+                    this.value="";
+                }
+
+
+            });
+            $(".error").remove();
+
+            var selectVal1=$('#students_to_assign_task').val();
+            if(selectVal1.length != 0){
+                $("#students_to_assign_task").val(0);
+            }
+            var selectVal=$('#assigned_tasks').val();
+            if(selectVal.length != 0){
+                $("#assigned_tasks").val(0);
+            }
+        };
+
+        function removeValidation(){
+            $(".error").remove();
+        };
+    </script>
 </head>
 
 <header id="header">
@@ -209,7 +242,7 @@ if (!isSupervisor($_SESSION['email'])){
                             <button type="button" class="btn btn-primary" onclick="atLeastChooseOneStudent()">Assign
                             </button>
 
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal" onclick="clearForm()">Close</button>
 
                         </div>
                     </div>
@@ -253,7 +286,7 @@ if (!isSupervisor($_SESSION['email'])){
                                 </div>
                                 <div class="modal-footer">
                                     <input  type="button" class="btn btn-primary" value="Submit" onclick="validate_task_eval_form()">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="removeValidation()">Close</button>
 
                                 </div>
                             </form>

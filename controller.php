@@ -496,7 +496,29 @@ if (isset($src)) {
 
         }
 
-    } else if ($src == "update_student_information") {
+    }
+
+    elseif ($src=="student_send_message"){
+        echo "welcome";
+        $subject = $_REQUEST['message_subject'];
+        echo $subject . '<br>';
+
+        $content = $_REQUEST['body'];
+        echo $content . '<br>';
+        foreach ($_REQUEST['receivers'] as $rec) {
+            if ($rec=='supervisor'){
+                $sup =retrieveSupervisorByID($_SESSION['supervisor_id']);
+                sendMails($_SESSION['email'], $sup['email'], $subject, $content);
+                continue;
+            }
+            $rstudent = retrieveSudentsByID($rec);
+            sendMails($_SESSION['email'], $rstudent['email'], $subject, $content);
+
+        }
+        header('Location: student/inbox.php');
+        exit;
+    }
+    else if ($src == "update_student_information") {
         echo "welcome in update";
         $flag_update = false;
         if (isset($_REQUEST['first'])) {

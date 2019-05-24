@@ -50,7 +50,7 @@ function form_submit() {
 
     var vaidate = false;
 
-  // $("#errorMsg").text('');
+  //$("#errorMsg").text('');
 
     if (weight == "") {
         requiredFeilds.push('Task Weigt')
@@ -101,7 +101,7 @@ function update_submit(){
     $('input[id="u_task_name"]').val(task_name);
     $('input[id="u_weight"]').val(weight);
     $('input[id="u_estimation_time"]').val(estimation_time);
-    $('input[id="u_estimation_time"]').val(description);
+    $('input[id="u_description"]').val(description);
 
     document.getElementById("current_file").setAttribute('href',file);
     $("#file_name").text(task_name);

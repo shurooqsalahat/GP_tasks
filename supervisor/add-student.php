@@ -59,7 +59,32 @@ if (!isSupervisor($_SESSION['email'])){
     <script src="supervisor.js"></script>
     <link href="add-student.css" rel="stylesheet">
     <?php include "../header.php"?>
+    <script>
+        function clearForm(form)
+        {
+            $(":input", form).each(function()
+            {
+                var type = this.type;
+                var tag = this.tagName.toLowerCase();
+                if (type == 'text' || type=='tel' || type=='email')
+                {
+                    this.value = "";
+                }
 
+
+            });
+            var selectVal=$('#doctor').val();
+            console.log(selectVal)
+            if(selectVal !=0){
+                $("#doctor").val(0);
+            }
+            $('.error').remove();
+        };
+
+        function removeValidation(){
+            $('.error').remove();
+        };
+    </script>
 
 </head>
 
@@ -125,7 +150,7 @@ if (!isSupervisor($_SESSION['email'])){
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" name="submit" id="submit" onclick="form_submit()">Add</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="clearForm()">Close</button>
             </div>
         </div>
     </div>
@@ -233,7 +258,7 @@ if (!isSupervisor($_SESSION['email'])){
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-primary" name="submit" id="submit_update_modal" onclick="validate_update_form()" >Update</button>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal" onclick="removeValidation()">Close</button>
                         </div>
                     </div>
                 </div>

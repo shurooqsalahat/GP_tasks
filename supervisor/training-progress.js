@@ -262,7 +262,7 @@ var getData =function () {
 var validate_task_eval_form =function () {
     console.log('fff')
     var score = $('#task-score').val();
-    var feedBack = $('#task-feedback').val();
+
     var vaidate = false;
 
 
@@ -272,10 +272,7 @@ var validate_task_eval_form =function () {
         $('#task-score').after('<div class="error" style="color:red">This field is required</div>');
         vaidate =true;
     }
-    if (feedBack.length < 1) {
-        $('#task-feedback').after('<div class="error" style="color:red">This field is required</div>');
-        vaidate =true;
-    }
+
 
 
     if (!vaidate){

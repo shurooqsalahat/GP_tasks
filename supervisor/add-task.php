@@ -26,31 +26,10 @@ if (!isSupervisor($_SESSION['email'])){
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <!-- Font awesome css file:: for slider -->
     <link href="../css/font-awesome.min.css" rel="stylesheet">
-    <!-- Superslide css file-->
-    <link rel="stylesheet" href="../css/superslides.css">
-    <!-- Slick slider css file :: for previous and next-->
-    <link href="../css/slick.css" rel="stylesheet">
-    <!-- Circle counter cdn css file -->
-    <link rel='stylesheet prefetch'
-          href='https://cdn.rawgit.com/pguso/jquery-plugin-circliful/master/css/jquery.circliful.css'>
-    <!-- smooth animate css file -->
-    <link rel="stylesheet" href="../css/animate.css">
-    <!-- Main structure css file -->
     <link href="../style.css" rel="stylesheet">
-    <!-- for validation-->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font awesome css file:: for slider -->
+
     <link href="../css/font-awesome.min.css" rel="stylesheet">
-    <!-- Superslide css file-->
-    <link rel="stylesheet" href="../css/superslides.css">
-    <!-- Slick slider css file :: for previous and next-->
-    <link href="../css/slick.css" rel="stylesheet">
-    <!-- Circle counter cdn css file -->
-    <link rel='stylesheet prefetch'
-          href='https://cdn.rawgit.com/pguso/jquery-plugin-circliful/master/css/jquery.circliful.css'>
-    <!-- smooth animate css file -->
-    <link rel="stylesheet" href="../css/animate.css">
-    <!-- Main structure css file -->
+
     <link href="../style.css" rel="stylesheet">
 
     <!-- Google fonts -->
@@ -67,6 +46,34 @@ if (!isSupervisor($_SESSION['email'])){
     <link href="add_task_form.css" rel="stylesheet" media="all">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        function clearForm(form)
+        {
+            $(":input", form).each(function()
+            {
+                var type = this.type;
+                var tag = this.tagName.toLowerCase();
+                if (type == 'text' || type=='tel' || type=='email'||type=='file')
+                {
+                    this.value = "";
+                }
+                if(type == 'number'){
+                    this.value="";
+                }
+
+
+            });
+            $("#errorMsg").text('');
+            var selectVal=$('#assignees1').val();
+            if(selectVal.length != 0){
+                $("#assignees1").val(0);
+            }
+        };
+
+        function removeValidation(){
+            $("#updateError").text('');
+        };
+    </script>
 </head>
 
 <header id="header">
@@ -123,7 +130,7 @@ if (!isSupervisor($_SESSION['email'])){
                         <div class="tab-pane" id="tab2">
                             <br>
                             <div class="input-group">
-                                <input class="input--style-1" type="text" id="estimation_time" name="description"
+                                <input class="input--style-1" type="text" id="description" name="description"
                                        placeholder="Task description">
                             </div>
                             <br>
@@ -140,7 +147,7 @@ if (!isSupervisor($_SESSION['email'])){
                                 Assign this task to :
                             </div>
                             <div class="input-group">
-                                <select name="assignees1[]" multiple="multiple" style="width: 300px">
+                                <select name="assignees1[]" id="assignees1" multiple="multiple" style="width: 300px">
                                     <?php
                                     $result = getSupervisorStudents($_SESSION['id']);
                                     $nor = $result->num_rows;
@@ -167,7 +174,7 @@ if (!isSupervisor($_SESSION['email'])){
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" name="submit" id="submit" onclick="form_submit()">Add
                 </button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="clearForm()">Close</button>
             </div>
         </div>
     </div>
@@ -267,11 +274,11 @@ if (!isSupervisor($_SESSION['email'])){
                                     </div>
                                     <div class="tab-pane" id="tab2-update">
                                         <div class="input-group">
-                                            <input class="input--style-1" type="text" id="u_estimation_time" name="description"
+                                            <input class="input--style-1" type="text" id="u_description" name="description"
                                                    placeholder="Task description">
                                         </div>
                                         <br>
-                                        <div class="input-group">
+                                        <div class="input-group"  id="old-file">
                                             currnet file : <a id="current_file" href="" download="tasks"><span id="file_name"></span></a>
                                             <a href="#" onclick="uploadNewFile()" class="fas fa-trash"><i></i></a>
                                         </div>
@@ -320,7 +327,7 @@ if (!isSupervisor($_SESSION['email'])){
                             <button type="button" class="btn btn-primary" name="submit" id="submit_update_modal"
                                     onclick="validate_update_form()">Update
                             </button>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal" onclick="removeValidation()">Close</button>
                         </div>
                     </div>
                 </div>

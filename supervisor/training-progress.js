@@ -180,9 +180,17 @@ var changeLabel = function () {
 
 };
 
-var atLeastChooseOneTask = function () {
+
+
+var atLeastChooseOneStudent = function () {
+    var students = $('#students_to_assign_task').val();
     var tasks = $('#assigned_tasks').val();
     var validate = false;
+    $(".error").remove();
+    if (students.length == 0 ) {
+        $('#students_to_assign_task').after('<div class="error">You have to chooose at least one student to assign this task . </div>');
+        validate = true;
+    }
     if (tasks.length == 0) {
         $('#assigned_tasks').after('<div class="error">You have to chooose at least one task to assign it </div>');
         validate = true;
@@ -192,26 +200,7 @@ var atLeastChooseOneTask = function () {
     }
 };
 
-var atLeastChooseOneStudent = function () {
-    var students = $('#students_to_assign_task').val();
-    var validate = false;
-    if (students.length == 0) {
-        $('#students_to_assign_task').after('<div class="error">You have to chooose at least one student to assign this task . </div>');
-        validate = true;
-    }
-    if (!validate) {
-        document.getElementById("add_new_task_for_student_form").submit();
-    }
-};
-
-var showDataName=function () {
-    /*    var value = $('#search_name').val();
-        if(value !=''){
-            $('#assign-new-task-btn').show();
-        }
-        else{
-            $('#assign-new-task-btn').hide();
-        }*/
+var showDataName = function () {
 
 
     $("input").keyup(function () {
@@ -280,11 +269,11 @@ var validate_task_eval_form =function () {
     $(".error").remove();
 
     if (!score) {
-        $('#task-score').after('<div  style="color:red">This field is required</div>');
+        $('#task-score').after('<div class="error" style="color:red">This field is required</div>');
         vaidate =true;
     }
     if (feedBack.length < 1) {
-        $('#task-feedback').after('<div style="color:red">This field is required</div>');
+        $('#task-feedback').after('<div class="error" style="color:red">This field is required</div>');
         vaidate =true;
     }
 

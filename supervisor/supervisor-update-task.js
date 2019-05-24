@@ -41,6 +41,7 @@ $(document).ready(function(){
 
 });
 function form_submit() {
+
     var task_name = $('#task_name').val();
     var weight = $('#weight').val();
     var estimation_time = $('#estimation_time').val();
@@ -49,7 +50,7 @@ function form_submit() {
 
     var vaidate = false;
 
-    $("#errorMsg").remove();
+  // $("#errorMsg").text('');
 
     if (weight == "") {
         requiredFeilds.push('Task Weigt')

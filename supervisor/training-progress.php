@@ -169,7 +169,7 @@ if (!isSupervisor($_SESSION['email'])){
                         <div class="modal-body">
                             <form id="add_new_task_for_student_form" action="../controller.php" method="REQUEST">
                                 <input name="src" value="assign_tasks" hidden>
-                                <h4 style="color: #5d7efe">Choose task/s you want to assign to this student:</h4>
+                                <h4 style="color: #5d7efe">Choose task/s you want to assign to  students:</h4>
                                 <div class="form-line row">
 
                                     <div class="col-sm-6">
@@ -206,7 +206,7 @@ if (!isSupervisor($_SESSION['email'])){
 
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" onclick="atLeastChooseOneTask();atLeastChooseOneStudent()">Assign
+                            <button type="button" class="btn btn-primary" onclick="atLeastChooseOneStudent()">Assign
                             </button>
 
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

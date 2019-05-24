@@ -98,19 +98,19 @@ function validate_send_msg() {
     var senderEmail = $('#send-to-emails').val();
     var content = $('#message').val();
     var vaidate = false;
-     console.log(senderEmail);
+
     $(".error").remove();
 
     if (msgTitle.length < 1) {
-        $('#message_subject').after('<div  style="color:red">This field is required</div>');
+        $('#message_subject').after('<div class="error" style="color:red">This field is required</div>');
         vaidate =true;
     }
     if (content.length < 1) {
-        $('#message').after('<div style="color:red">This field is required</div>');
+        $('#message').after('<div class="error" style="color:red">This field is required</div>');
         vaidate =true;
     }
     if ( senderEmail == null) {
-        $('#send-to-emails').after('<div style="color:red">This field is required</div>');
+        $('#send-to-emails').after('<div class="error" style="color:red">This field is required</div>');
         vaidate =true;
     }
 

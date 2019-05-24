@@ -47,5 +47,10 @@ var validate_solution_url_form= function () {
         document.getElementById("solution_form").submit();
     }
 }
-
+var getTaskID=function () {
+    var row = $(event.target).closest('tr');
+    var id = row.find('td:first').text();
+    console.log('',id)
+    $('input[id="hidden_id"]').val(id);
+}
 

@@ -112,7 +112,7 @@ if(!isset($_SESSION['email'])){ //if login in session is not set
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">solution  file</h4>
+                            <h4 class="modal-title">solution  link</h4>
                         </div>
                         <div class="modal-body">
                             <form id="solution_form" action=""  method="post">
@@ -121,6 +121,10 @@ if(!isset($_SESSION['email'])){ //if login in session is not set
                                        placeholder="https://example.com"
                                        id="solution-url"
                                        >
+                                <input type="text" name="hidden_id"
+                                       id="hidden_id"
+                                       hidden
+                                >
                             </form>
                             <div class="form-line row">
                                 <div class="error col-sm-12" id="error" style="color: red">

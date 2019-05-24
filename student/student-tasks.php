@@ -107,7 +107,6 @@ if(!isset($_SESSION['email'])){ //if login in session is not set
             <div id="live_data">
             </div>
 
-            <!-- .modal -->
             <div class="modal fade" id="solution_modal" style="z-index: 2000">
                 <div class="modal-dialog">
                     <div class="modal-content">

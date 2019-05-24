@@ -3,13 +3,17 @@ include('../model.php');
 session_start();
 
 echo '<table id="students_table" class="table-users" cellspacing="0" width="100%">' .
-    '<tr>' . '<th>Task ID</th>' .
+
     '<th>Task Name</th>' .
     '<th>Task Weigt</th>' .
     '<th>Estimation Time</th>' .
     '<th>Description </th>'.
     '<th>evaluation </th>'.
-    '<th>delivery on </th>'.
+    '<th>Received Date </th>'.
+    '<th>Sent Date </th>'.
+    '<th>Feed Back </th>'.
+    '<th>Solution Link </th>'.
+
     '<th style="text-align:center;width:100px;" >' .
 
     '</th>' .
@@ -17,7 +21,7 @@ echo '<table id="students_table" class="table-users" cellspacing="0" width="100%
     '</tr>' .
 
     '<tbody>';
-$result = getSupervisorTasks($_SESSION['id']);
+$result = getStudentTasks($_SESSION['id']);
 $nor = $result->num_rows;
 if ($nor<= 0){
     return;
@@ -25,16 +29,19 @@ if ($nor<= 0){
 $count =1;
 for ($i = 0; $i < $nor; $i++) {
     $row = $result->fetch_array();
-     $PATH="../".$row[5];
+    $task =getTaskByName($row['task_name']);
+    $PATH="../".$task[5];
 
     echo ' <tr onclick="update_submit(this)">'.
-        '<td>'.$row[0].'</td>'.
-        '<td><a download="tasks" href="'.$PATH.'">'.$row[1].'</a></td>'.
-        '<td>'. $row[2].'</td>'.
-        '<td>'.$row[4].'</td>'.
-         '<td>'.$row[3].'</td>'.
-        '<td>'.$row[3].'</td>'.
-        '<td>'.$row[3].'</td>'.
+        '<td><a download="tasks" href="'.$PATH.'">'.$task['task_name'].'</a></td>'.
+        '<td>'. $task['weight'].'</td>'.
+        '<td>'.$task['estimation_time'].'</td>'.
+         '<td>'.$task['description'].'</td>'.
+        '<td>'.$row['evaluation'].'</td>'.
+        '<td>'.$row['student_recived'].'</td>'.
+        '<td>'.$row['student_sent'].'</td>'.
+        '<td>'.$row['feed_back'].'</td>'.
+        '<td>'.$row['solution_link'].'</td>'.
          '<td>'.
             '<button style="margin-right: 6px; border-radius: 15px;" data-toggle="modal" data-target="#solution_modal" type="button" class="btn btn-primary btn-sm dt-edit update_btn" id="update-modal-btn" data-id="'.$row[0].'">'.
                 '<span class="glyphicon glyphicon-pencil " aria-hidden="true" >upload task solution</span>'.

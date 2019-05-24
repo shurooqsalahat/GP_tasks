@@ -123,10 +123,10 @@ if (!isSupervisor($_SESSION['email'])){
                                            placeholder="Message Subject" >
                                 </div>
                                 <div class="form-group">
-                                    <textarea class="form-control" id="message" name="body" rows="12"
-                                              placeholder="Click here to write the msg" >
+                                    <textarea class="form-control" id="message" name="body"  rows="12"
+                                              placeholder="Click here to write the msg"></textarea>
 
-                                    </textarea></div>
+                                   </div>
                                 <div class="form-group">
                                     <input   onclick="validate_send_msg()" type="button" class="btn btn-success" value="Send message">
                                 </div>

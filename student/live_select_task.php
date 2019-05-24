@@ -2,17 +2,17 @@
 include('../model.php');
 session_start();
 
-echo '<table id="students_table" class="table-users" cellspacing="0" width="100%">' .
+echo '<table id="students_table" class="table-users" style=" width: 100%;" cellspacing="0">' .
 
-    '<th>Task Name</th>' .
+    '<th >Task Name</th>' .
     '<th>Task Weigt</th>' .
-    '<th>Estimation Time</th>' .
-    '<th>Description </th>'.
-    '<th>evaluation </th>'.
-    '<th>Received Date </th>'.
-    '<th>Sent Date </th>'.
-    '<th width="10%">Feed Back </th>'.
-    '<th style="width: 10%">Solution Link </th>'.
+    '<th >Estimation Time</th>' .
+    '<th >Description </th>'.
+    '<th >evaluation </th>'.
+    '<th >Received Date </th>'.
+    '<th >Sent Date </th>'.
+    '<th >Feed Back </th>'.
+    '<th >Solution Link </th>'.
 
     '<th style="text-align:center;width:100px;" >' .
 

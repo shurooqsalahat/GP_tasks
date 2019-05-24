@@ -786,7 +786,7 @@ img{
   max-width: calc(100% - 2em);
   margin: 1em auto;
   overflow: hidden;
-  width: 800px;
+  max-width: 1400px;
   margin-top: 20px;
 }
 .students_table_header{
@@ -796,8 +796,6 @@ img{
   padding: 1rem;
   text-align: center;
   text-transform: uppercase;
-  width: 800px;
-  max-width: calc(100% - 2em);
   margin: 1em auto;
 }
 .table-users {
@@ -805,12 +803,12 @@ img{
 }
 .table-users td,.table-users th {
   color: #000000;
-  padding: 10px;
+  padding: 5px;
   text-align: center;
 }
 .table-users td{
-
-  vertical-align: middle;
+  font-size: 12px;
+  vertical-align: top;
 }
 .table-users td:last-child {
    font-size: 0.95em;
@@ -822,6 +820,7 @@ img{
   background-color: #2f3875;
   font-weight: 300;
   color: #ffffff;
+  vertical-align: top;
 }
 
 .table-users tr:nth-child(2n) { background-color: white; }

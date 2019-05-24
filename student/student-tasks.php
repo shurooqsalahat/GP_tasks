@@ -65,7 +65,7 @@ if(!isset($_SESSION['email'])){ //if login in session is not set
 
 <header id="header">
 </header>
-<body>
+<body style="overflow-x: scroll!important;">
 
 <div id="wrapper">
     <!-- Sidebar -->

@@ -48,9 +48,9 @@ if (isset($_POST['select'])) {
 
                 .'<td>
             <div class="btn-group btn-group-xs">
-            <button type="button" class="btn"   data-toggle="modal" data-target="#add_score_modal"  style="padding: 14px;margin-bottom: 6px" onclick="getData()"data-id1="'.$row[0].'">'.'<span class="glyphicon glyphicon-star">Add Task Score</span></button>
-          <button type="button" class="btn delete_btn" id="test_delete"  style="padding: 14px 10px;" data-id3="'.$row[0].'">'.'<span class="fa fa-trash delete-btn" >Delete Task Assignee</span></button>
- 
+       <button type="button" class="btn" data-toggle="modal" data-target="#add_score_modal" style="padding: 4px 8px;margin-bottom: 3px;margin-bottom: 4px;" onclick="getData()"><span class="glyphicon glyphicon-star">Add Task Score</span></button>
+          <button type="button" class="btn delete_btn" id="test_delete"  style="padding:4px;" data-id3="'.$row[0].'">'.'<span class="fa fa-trash delete-btn" >Delete Task Assignee</span></button>
+
             </div>
             </td></tr>';
 
@@ -96,8 +96,8 @@ if (isset($_POST['select'])) {
 
             .'<td>
             <div class="btn-group btn-group-xs">
-            <button type="button" class="btn"   data-toggle="modal" data-target="#add_score_modal"  style="padding: 14px;margin-bottom: 6px" onclick="getData()"data-id1="'.$row[0].'">'.'<span class="glyphicon glyphicon-star">Add Task Score</span></button>
-          <button type="button" class="btn delete_btn" id="test_delete"  style="padding:14px 10px;" data-id3="'.$row[0].'">'.'<span class="fa fa-trash delete-btn" >Delete Task Assignee</span></button>
+           <button type="button" class="btn" data-toggle="modal" data-target="#add_score_modal" style="padding: 4px 8px;margin-bottom: 3px;margin-bottom: 4px;" onclick="getData()"><span class="glyphicon glyphicon-star">Add Task Score</span></button>
+          <button type="button" class="btn delete_btn" id="test_delete"  style="padding:4px;" data-id3="'.$row[0].'">'.'<span class="fa fa-trash delete-btn" >Delete Task Assignee</span></button>
 
             </div>
             </td></tr>';
@@ -140,8 +140,8 @@ if (isset($_POST['select'])) {
 
                 .'<td>
             <div class="btn-group btn-group-xs">
-            <button type="button" class="btn"   data-toggle="modal" data-target="#add_score_modal"  style="padding: 14px;margin-bottom: 6px" onclick="getData()"data-id1="'.$row[0].'">'.'<span class="glyphicon glyphicon-star">Add Task Score</span></button>
-            <button type="button" class="btn delete_btn" id="test_delete"  style="padding:14px 10px;" data-id3="'.$row[0].'">'.'<span class="fa fa-trash delete-btn" >Delete Task Assignee</span></button>
+        <button type="button" class="btn" data-toggle="modal" data-target="#add_score_modal" style="padding: 4px 8px;margin-bottom: 3px;margin-bottom: 4px;" onclick="getData()"><span class="glyphicon glyphicon-star">Add Task Score</span></button>
+          <button type="button" class="btn delete_btn" id="test_delete"  style="padding:4px;" data-id3="'.$row[0].'">'.'<span class="fa fa-trash delete-btn" >Delete Task Assignee</span></button>
 
             </div>
             </td></tr>';
@@ -189,8 +189,8 @@ if (isset($_POST['select'])) {
 
             .'<td>
             <div class="btn-group btn-group-xs">
-            <button type="button" class="btn"   data-toggle="modal" data-target="#add_score_modal" style="padding: 14px;margin-bottom: 6px" onclick="getData()"data-id1="'.$row[0].'">'.'<span class="glyphicon glyphicon-star">Add Task Score</span></button>
-          <button type="button" class="btn delete_btn" id="test_delete"  style="padding:14px 10px;" data-id3="'.$row[0].'">'.'<span class="fa fa-trash delete-btn" >Delete Task Assignee</span></button>
+          <button type="button" class="btn" data-toggle="modal" data-target="#add_score_modal" style="padding: 4px 8px;margin-bottom: 3px;margin-bottom: 4px;" onclick="getData()"><span class="glyphicon glyphicon-star">Add Task Score</span></button>
+          <button type="button" class="btn delete_btn" id="test_delete"  style="padding:4px;" data-id3="'.$row[0].'">'.'<span class="fa fa-trash delete-btn" >Delete Task Assignee</span></button>
 
             </div>
             </td></tr>';

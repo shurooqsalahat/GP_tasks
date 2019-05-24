@@ -1,38 +1,6 @@
-var selectedItem = function (selected) {
-    if (selected == 'student_name' || selected == 'task_name') {
-        if (selected == 'student_name') {
-            $('#assign-new-task-btn').show();
-            $('#assign-new-student-btn').hide();
-            $('#assign-tasks-table').show();
-            $('#assign-students-table').hide();
-
-        } else {
-            $('#assign-new-task-btn').hide();
-            $('#assign-new-student-btn').show();
-            $('#assign-students-table').show();
-            $('#assign-tasks-table').hide();
-        }
-
-    } else if (selected == 'student_id' || selected == 'task_id') {
-        $('#ID').show();
-        $('#NAME').hide();
-        if (selected == 'student_id') {
-            $('#assign-new-task-btn').show();
-            $('#assign-new-student-btn').hide();
-            $('#assign-tasks-table').show();
-            $('#assign-students-table').hide();
-        } else {
-            $('#assign-new-task-btn').hide();
-            $('#assign-new-student-btn').show();
-            $('#assign-students-table').show();
-            $('#assign-tasks-table').hide();
-
-        }
-
-    }
-};
 
 $(document).ready(function () {
+
     $('#search_id').on('input', function (e) {
         console.log('in search id');
         var search = $('#search_id').val();
@@ -48,12 +16,7 @@ $(document).ready(function () {
         }
         var select = $('#search-type').val();
 
-        if (search) {
-            $("#assign-new-task-btn").show();
-        }
-        else {
-            $("#assign-new-task-btn").hide();
-        }
+
 
         //alert('Select field value has changed to' + $('#search_id').val());
 
@@ -121,11 +84,9 @@ $(document).ready(function () {
                     $('#live_data_progress').html(data);
                 }
             });
-            $("#assign-new-task-btn").hide();
+
         }
-        else{
-            $("#assign-new-task-btn").show();
-        }
+
 
         var select = $('#search-type').val();
         $.ajax({
@@ -164,12 +125,12 @@ $(document).ready(function () {
 // }
 
 var changeLabel = function () {
-    $('#assign-new-task-btn').hide();
+
     var selected = document.getElementById('search-type');
     if (selected.value == 'student_name' || selected.value == 'task_name') {
         $('#NAME').show();
         $('#ID').hide();
-        showDataName();
+
 
     } else if (selected.value == 'student_id' || selected.value == 'task_id') {
         $('#ID').show();
@@ -200,23 +161,7 @@ var atLeastChooseOneStudent = function () {
     }
 };
 
-var showDataName = function () {
 
-
-    $("input").keyup(function () {
-        console.log('ggg')
-        if ($(this).val()) {
-            $("#assign-new-task-btn").show();
-        }
-        else {
-            $("#assign-new-task-btn").hide();
-        }
-    });
-    $("#assign-new-task-btn").click(function () {
-        $("#search_name").val('');
-        $(this).hide();
-    });
-};
 
 /*var showDataID = function () {
     var value = $('#search_id').val();
@@ -228,19 +173,9 @@ var showDataName = function () {
 
 }*/
 
-$("#search_id").keyup(function () {
-    console.log('heee')
-    if ($(this).val()) {
-        $("#assign-new-task-btn").show();
-    }
-    else {
-        $("#assign-new-task-btn").hide();
-    }
-});
-$("#assign-new-task-btn").click(function () {
-    $("#search_id").val('');
-    $(this).hide();
-});
+
+
+
 
 var getData =function () {
     var row = $(event.target).closest('tr');

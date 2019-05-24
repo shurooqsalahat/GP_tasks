@@ -153,11 +153,11 @@ if (!isSupervisor($_SESSION['email'])){
                 </div>
                 <div class="form-group" id="NAME">
                     <label for="search_name">Name:</label>
-                    <input type="text" class="form-control" id="search_name" onchange="showDataName()">
+                    <input type="text" class="form-control" id="search_name">
                 </div>
                 <div class="form-group" id="ID" style="display: none">
                     <label for="search_id">ID:</label>
-                    <input type="text" class="form-control" id="search_id" onchange="showDataID()">
+                    <input type="text" class="form-control" id="search_id" >
                 </div>
                 <div style="float: right">
                     <button type="button" class="button" style="vertical-align:middle;" id="assign-new-task-btn"
@@ -178,9 +178,9 @@ if (!isSupervisor($_SESSION['email'])){
                         <th class="text-left">Student Received</th>
                         <th class="text-left">Student Sent</th>
                         <th class="text-left">Status</th>
-                        <th class="text-left">Solution Link</th>
+                        <th class="text-left" style="width: 10%">Solution Link</th>
                         <th class="text-left">evaluation</th>
-                        <th class="text-left"> action</th>
+                        <th class="text-left" width="5%"> action</th>
 
 
                     </tr>

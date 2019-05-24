@@ -3,7 +3,7 @@
 function isUserExist($email)
 {
     include("connect_DB.php");// connect to db
-    echo "";
+    //echo "";
     if (isDoctor($email) || isSupervisor($email) || isStudent($email)) {
         return true;
     } else {
@@ -408,12 +408,12 @@ function isTaskExist($task_name)
 function getTaskByName($name)
 {
     include 'connect_DB.php';
-     echo $name;
+     //echo $name;
     $sql = "SELECT * FROM tasks where task_name ='$name'";
-    echo $sql;
+    //echo $sql;
     $result = $db->query($sql);
     $row = $result->fetch_array();
-    echo $row['id'];
+    //echo $row['id'];
     return $row;
 }
 

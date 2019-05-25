@@ -4,7 +4,7 @@ $(document).ready(function () {
     $('#search_id').on('input', function (e) {
         console.log('in search id');
         var search = $('#search_id').val();
-        if (search==''){
+        if (search==""){
             $.ajax({
                 type: 'POST',
                 url: 'live_training_fetch_all.php',
@@ -15,8 +15,6 @@ $(document).ready(function () {
             });
         }
         var select = $('#search-type').val();
-
-
 
         //alert('Select field value has changed to' + $('#search_id').val());
 

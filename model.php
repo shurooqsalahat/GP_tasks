@@ -473,9 +473,7 @@ function getTrainingByTaskName($supervisor_id,$name)
     $qstr = "SELECT * FROM student_task WHERE supervisor_id=".$supervisor_id." AND  task_name ='$name'";
     //echo $qstr;
     $result = $db->query($qstr);
-    $row = $result->fetch_array();
-    //echo $row[1];
-    return $row;
+    return $result;
 
 }
 
@@ -483,11 +481,9 @@ function getTrainingByStudentId($supervisor_id,$id)
 {
     include 'connect_DB.php';
     $qstr = "SELECT * FROM student_task WHERE supervisor_id=".$supervisor_id." AND  student_id=$id";
-    // echo $qstr;
     $result = $db->query($qstr);
-    $row = $result->fetch_array();
-    //echo $row[1];
-    return $row;
+
+    return $result;
 
 }
 

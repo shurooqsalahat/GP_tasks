@@ -495,20 +495,16 @@ if (isset($src)) {
 
     }
     if ($src == 'send_message') {
-        echo "welcome";
         $subject = $_REQUEST['message_subject'];
         echo $subject . '<br>';
-
+        $to = $_REQUEST['to'];
         $content = $_REQUEST['body'];
         echo $content . '<br>';
-        foreach ($_REQUEST['students'] as $student) {
-            $rstudent = retrieveSudentsByID($student);
-            sendMails($_SESSION['email'], $rstudent['email'], $subject, $content);
-            $_SESSION['Message'] == 'Message sent successfully';
-            header('Location: supervisor/inbox.php');
-            exit;
 
-        }
+        sendMails($_SESSION['email'], $to, $subject, $content);
+        header('Location: supervisor/inbox.php');
+        exit;
+
 
     }
 

@@ -103,7 +103,7 @@ if (!isSupervisor($_SESSION['email'])){
                                     <div class="form-line row">
                                         <div class="col-sm-12">
                                             <input name="src" value="send_message" hidden>
-                                            <input type="text" class="form-control" id="message_subject" name="to"
+                                            <input type="email" class="form-control" id="message_subject" name="to"
                                                    placeholder="To" >
 
                                         </div>

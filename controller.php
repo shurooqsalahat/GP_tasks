@@ -532,7 +532,7 @@ if (isset($src)) {
         sendMails($_SESSION['email'], $to, $subject, $content);
 
 
-        header('Location: student/inbox.php');
+        header('Location: doctor/inbox.php');
         exit;
     }
     else if ($src == "update_student_information") {

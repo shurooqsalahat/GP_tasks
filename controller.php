@@ -117,11 +117,18 @@ if (isset($src)) {
             exit;
 
         } else {
-            echo sha1($_REQUEST['password']);
-            addSupervisor($_REQUEST['phone'], $_REQUEST['first'], $_REQUEST['last'], $_REQUEST['email'],
-                $_REQUEST['password']);
-            $_SESSION['Message'] = 'Success Operation, Congrats!';
-            header('Location: login.php');
+            if (isUserExist($_REQUEST['email'])){
+                $_SESSION['Message'] = 'This user already exist, login to continue';
+                header('Location: login.php');
+                exit;
+            }
+            else {
+                echo sha1($_REQUEST['password']);
+                addSupervisor($_REQUEST['phone'], $_REQUEST['first'], $_REQUEST['last'], $_REQUEST['email'], $_REQUEST['password']);
+                $_SESSION['Message'] = 'Success Operation, Congrats!';
+                header('Location: login.php');
+                exit;
+            }
 
         }
     } else if ($src == 'addStudent') {

@@ -26,9 +26,9 @@
 <body>
 
 <a class="scrollToTop" href="#"></a>
-<?php include "out_header.php" ?>
+    <?php include "out_header.php" ?>
 
-<section style="background-color: #f6f6f6">
+    <section style="background-color: #f6f6f6">
     <div class="container" style="width: 100%">
         <h2>Carousel Example</h2>
         <div id="myCarousel" class="carousel slide" data-ride="carousel">

@@ -18,11 +18,13 @@ $(document).ready(function(){
 
 });
 
+ $(document).on('click', '.get-btn', function(){
+     var id =$(this).data("id3");
+     //alert(id);
 
-function redirectTo(sUrl) {
-    var id =$('.get-btn').data("id3");
-    //window.location = sUrl
-    window.location.href = sUrl+"?std_id="+id;
+//
+//
+     //window.location = sUrl
+    window.location.href = "student-tasks.php?std_id="+id;
 
-
-}
+ });

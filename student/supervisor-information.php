@@ -112,10 +112,14 @@ session_start();
                             <div class=" col-md-2 col-xs-6">
                                 First Name
                             </div>
+                            <?php
+                            $sup =retrieveSupervisorByID($_SESSION['supervisor_id']);
+
+                            ?>
 
                             <div class=" col-md-6 col-xs-2">
                                 <input name="src" value="update_supervisor_information" type="hidden"/>
-                                <?php if(isset($_SESSION['first'])) echo $_SESSION['first']?>
+                                <?php if(isset($sup['first'])) echo $sup['first']?>
                             </div>
 
                         </div>
@@ -126,7 +130,7 @@ session_start();
                             </div>
 
                             <div class=" col-md-6">
-                                <?php if(isset($_SESSION['last'])) echo $_SESSION['last']?>
+                                <?php if(isset($sup['last'])) echo $sup['last']?>
                             </div>
 
                         </div>
@@ -137,7 +141,7 @@ session_start();
                             </div>
 
                             <div class=" col-md-6">
-                                <?php if(isset($_SESSION['phone'])) echo $_SESSION['phone']?>
+                                <?php if(isset($sup['phone'])) echo $sup['phone']?>
                             </div>
 
                         </div>
@@ -148,7 +152,7 @@ session_start();
                             </div>
 
                             <div class=" col-md-6">
-                                <?php if(isset($_SESSION['email'])) echo $_SESSION['email']?>
+                                <?php if(isset($sup['email'])) echo $sup['email']?>
                             </div>
 
                         </div>

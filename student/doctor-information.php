@@ -113,10 +113,14 @@ session_start();
                             <div class=" col-md-2 col-xs-6">
                                 First Name
                             </div>
+                             <?php
+                             $doc=retrieveDoctorsByID($_SESSION['doctor_id']);
 
+
+                             ?>
                             <div class=" col-md-6 col-xs-2">
                                 <input name="src" value="update_doctor_information" type="hidden"/>
-                                <?php if(isset($_SESSION['first'])) echo $_SESSION['first']?>
+                                <?php if(isset($doc['first'])) echo $doc['first']?>
                             </div>
 
                         </div>
@@ -127,7 +131,7 @@ session_start();
                             </div>
 
                             <div class=" col-md-6">
-                                <?php if(isset($_SESSION['last'])) echo $_SESSION['last']?>
+                                <?php if(isset($doc['last'])) echo $doc['last']?>
                             </div>
 
                         </div>
@@ -138,7 +142,7 @@ session_start();
                             </div>
 
                             <div class=" col-md-6">
-                                <?php if(isset($_SESSION['phone'])) echo $_SESSION['phone']?>
+                                <?php if(isset($doc['phone'])) echo $doc['phone']?>
                             </div>
 
                         </div>
@@ -149,7 +153,7 @@ session_start();
                             </div>
 
                             <div class=" col-md-6">
-                                <?php if(isset($_SESSION['email'])) echo $_SESSION['email']?>
+                                <?php if(isset($doc['email'])) echo $doc['email']?>
                             </div>
 
                         </div>

@@ -190,7 +190,7 @@ if(!isStudent($_SESSION['email'])){
                             </div>
 
                             <div class=" col-md-6">
-                               <a href="doctor-information.php"> <?php echo $doc['first'].' '. $doc['last']; ?></a>
+                               <a  class="get-doc-btn" data-id="<?php echo $_SESSION['doctor_id'];?>"> <?php echo $doc['first'].' '. $doc['last']; ?></a>
                             </div>
                         </div>
                         <br>
@@ -201,7 +201,7 @@ if(!isStudent($_SESSION['email'])){
 
                             <div class=" col-md-6">
                                 <div class=" col-md-6">
-                                    <a href="supervisor-information.php"> <?php echo $sup['first'].' '. $sup['last']; ?></a>
+                                    <a  class="get-sup-btn" data-id2="<?php echo $_SESSION['supervisor_id'];?>"> <?php echo $sup['first'].' '. $sup['last']; ?></a>
                                 </div>
                             </div>
                         </div>

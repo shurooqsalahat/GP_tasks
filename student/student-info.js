@@ -33,3 +33,14 @@ var updateField = function (field) {
         $('#save-changes-btn').removeAttr('disabled');
     }
 };
+$(document).on('click', '.get-doc-btn', function(){
+    var id =$(this).data("id");
+    window.location.href = "doctor-information.php?doc_id="+id;
+
+});
+
+$(document).on('click', '.get-sup-btn', function(){
+    var id =$(this).data("id2");
+    window.location.href = "supervisor-information.php?sup_id="+id;
+
+});

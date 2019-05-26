@@ -2,6 +2,19 @@
 include("../model.php");// connect to db
 session_start();
 
+if(!isset($_SESSION['email'])) { //if login in session is not set
+    header("Location: ../404.php");
+
+}
+
+if(!isDoctor($_SESSION['email'])){
+    header("Location: ../404.php");
+}
+
+if(isset($_GET['sup_id'])){
+    $_SESSION['sup_id'] = $_GET['sup_id'];
+}
+
 ?>
 
 
@@ -113,7 +126,7 @@ session_start();
                                 First Name
                             </div>
                             <?php
-                            $sup =retrieveSupervisorByID($_SESSION['supervisor_id']);
+                            $sup =retrieveSupervisorByID($_SESSION['sup_id']);
 
                             ?>
 

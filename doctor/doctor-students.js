@@ -20,11 +20,12 @@ $(document).ready(function(){
 
  $(document).on('click', '.get-btn', function(){
      var id =$(this).data("id3");
-     //alert(id);
-
-//
-//
-     //window.location = sUrl
     window.location.href = "student-tasks.php?std_id="+id;
 
  });
+$(document).on('click', '.get-sup-data', function(){
+    var id =$(this).data("id");
+    alert(id);
+    //window.location.href = "student-supervisor.php?sup_id="+id;
+
+});

@@ -6,6 +6,7 @@ echo '<table id="students_table" class="table-users" cellspacing="0" width="100%
   '<tr>' . '<th>Student ID</th>' .
     '<th>First Name</th>' .
     '<th>Last Name</th>' .
+    '<th>Supervisor Name</th>' .
     '<th>Email</th>' .
     '<th>Phone</th>' .
 
@@ -24,10 +25,12 @@ if ($nor<= 0){
 $count =1;
 for ($i = 0; $i < $nor; $i++) {
     $row = $result->fetch_array();
+    $sup =retrieveSupervisorByID($row['supervisor_id']);
     echo ' <tr onclick="update_submit(this)">'.
         '<td>'.$row[0].'</td>'.
         '<td>'.$row['2'].'</td>'.
         '<td>'. $row[3].'</td>'.
+        '<td> <a class="get-sup-data" data-id="'.$sup['id'].'">'. $sup['first']." ".$sup['last'].'</a></td>'.
         '<td>'.$row[4].'</td>'.
          '<td>'.$row[1].'</td>'.
          '<td>'.

@@ -1,0 +1,59 @@
+#add_student{
+    max-width: 100%;
+    background: #FAFAFA;
+    padding: 15px;
+    margin: 50px 20px;
+    box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
+    border-radius: 10px;
+    border: 6px solid #313b3d;
+}
+#add_student_form input[type=submit],#update_student_modal input[type=submit],
+#add_student_form input[type=button],#update_student_modal input[type=button],
+#add_student_form input[type=text],#update_student_modal  input[type=text],
+#add_student_form input[type=email],#update_student_modal input[type=email],
+#add_student_form input[type=tel],#update_student_modal input[type=tel],
+#add_student_form label,#update_student_modal label
+{
+    font-family: 'Merriweather', serif;
+    font-size: 14px;
+    color: #000000;
+
+}
+#add_student_form input[type=text],#update_student_modal  input[type=text],
+#add_student_form input[type=email],#update_student_modal input[type=email],
+#add_student_form input[type=tel],#update_student_modal input[type=tel]
+{
+    background: transparent;
+    border: none;
+    border-bottom: 1px dashed #83A4C5;
+    width: 275px;
+    outline: none;
+    padding: 0px 0px 0px 0px;
+    font-style: italic;
+}
+#add_student_form input[type=text]:focus,#update_student_modal input[type=text]:focus,
+#add_student_form input[type=email]:focus,#update_student_modal input[type=email]:focus,
+#add_student_form input[type=tel]:focus,#update_student_modal input[type=tel]:focus
+{
+    border-bottom: 1px dashed #D9FFA9;
+}
+
+#add_student_form select ,#update_student_modal select {
+    padding: 7px 20px;
+    border: none;
+    width: 300px;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+
+}
+#add_student_form input[type="button"]:hover,#update_student_modal input[type="button"]:hover,
+#add_student_form  input[type="submit"]:hover,#update_student_modal  input[type="submit"]:hover {
+    background: linear-gradient(to bottom, #2D77A2 5%, #337DA8 100%);
+    background-color: #28739E;
+}
+
+
+.error {
+    color: red;
+    font-size: 10px;
+}

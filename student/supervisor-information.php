@@ -2,16 +2,8 @@
 include("../model.php");// connect to db
 session_start();
 
-if(!isset($_SESSION['email'])) { //if login in session is not set
-    header("Location: ../404.php");
-
-}
-
-if(!isStudent($_SESSION['email'])){
-    header("Location: ../404.php");
-}
-
 ?>
+
 
 
 <head>
@@ -48,8 +40,8 @@ if(!isStudent($_SESSION['email'])){
     <!-- smooth animate css file -->
     <link rel="stylesheet" href="../css/animate.css">
 
-    <script src="student-info.js"></script>
-    <link href="student-information.css" rel="stylesheet">
+    <script src="supervisor-info.js"></script>
+    <link href="supervisor-information.css" rel="stylesheet">
   <?php include "../header.php"?>
 
 
@@ -106,22 +98,15 @@ if(!isStudent($_SESSION['email'])){
         <?php if (isset($msg ))
             echo $msg ; ?>
 
-        <?php
-        $doc =retrieveDoctorsByID($_SESSION['doctor_id']);
-        $sup = retrieveSupervisorByID($_SESSION['supervisor_id']);
-
-        ?>
-
         <div class="col-md-4 py-5 text-white text-center" style="height: 464px;">
             <div class="card-body" style="margin-top: 62px;">
                 <img src="http://www.ansonika.com/mavia/img/registration_bg.svg" style="width:70%">
                 <h2 class="py-3">Welcome </h2>
-                <p>In this page you can see your information and update them.
-
+                <p>In this page you can see your supervisor information .
                 </p></div>
         </div>
         <div class="col-md-8 py-5 border" style="margin-top: 17px;">
-                    <h4 class="pb-4" style="margin-top: 50px;margin-bottom: 34px;margin-left: 183px;">Your Information</h4>
+                    <h4 class="pb-4" style="margin-top: 50px;margin-bottom: 34px;margin-left: 183px;">Your Supervisor Information</h4>
                     <form action="../controller.php" method="REQUEST">
                         <div class="form-line row">
                             <div class=" col-md-2 col-xs-6">
@@ -129,14 +114,10 @@ if(!isStudent($_SESSION['email'])){
                             </div>
 
                             <div class=" col-md-6 col-xs-2">
-                                <input name="src" value="update_student_information" type="hidden"/>
-                                <input id="first_name" name="first" placeholder="First Name" class="form-control"
-                                       type="text" value="<?php if(isset($_SESSION['first'])) echo $_SESSION['first']?>">
+                                <input name="src" value="update_supervisor_information" type="hidden"/>
+                                <?php if(isset($_SESSION['first'])) echo $_SESSION['first']?>
                             </div>
-                            <div class=" col-md-2 col-xs-2">
-                                <button class="update" id="first-name-btn"  type='button'onclick="updateField('first_name')"><span><i class="fa fa-pencil"></i></span>
-                                </button>
-                            </div>
+
                         </div>
                         <br>
                         <div class="form-line row">
@@ -145,13 +126,9 @@ if(!isStudent($_SESSION['email'])){
                             </div>
 
                             <div class=" col-md-6">
-                                <input id="last_name" name="last" placeholder="Last Name" class="form-control"
-                                       type="text" value="<?php if(isset($_SESSION['last'])) echo $_SESSION['last']?>">
+                                <?php if(isset($_SESSION['last'])) echo $_SESSION['last']?>
                             </div>
-                            <div class=" col-md-2">
-                                <button class="update"  id="last-name-btn" type='button' onclick="updateField('last_name')"><span><i class="fa fa-pencil"></i></span>
-                                </button>
-                            </div>
+
                         </div>
                         <br>
                         <div class="form-line row">
@@ -160,13 +137,9 @@ if(!isStudent($_SESSION['email'])){
                             </div>
 
                             <div class=" col-md-6">
-                                <input id="phone" name="phone" placeholder="phone" class="form-control" type="text"
-                                       value="<?php if(isset($_SESSION['phone'])) echo $_SESSION['phone']?>">
+                                <?php if(isset($_SESSION['phone'])) echo $_SESSION['phone']?>
                             </div>
-                            <div class=" col-md-2">
-                                <button class="update" id="phone-btn"  type='button' onclick="updateField('phone')"><span><i class="fa fa-pencil"></i></span>
-                                </button>
-                            </div>
+
                         </div>
                         <br>
                         <div class="form-line row">
@@ -175,52 +148,14 @@ if(!isStudent($_SESSION['email'])){
                             </div>
 
                             <div class=" col-md-6">
-                                <input id="email" name="email" placeholder="Email" class="form-control" type="text"
-                                       value="<?php if(isset($_SESSION['email'])) echo $_SESSION['email']?>">
-                            </div>
-                            <div class=" col-md-2">
-                                <button class="update" id="email-btn" type='button'onclick="updateField('email')"><span><i class="fa fa-pencil"></i></span>
-                                </button>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="form-line row">
-                            <div class=" col-md-2">
-                                Doctor Name
-                            </div>
-
-                            <div class=" col-md-6">
-                               <a href="doctor-information.php"> <?php echo $doc['first'].' '. $doc['last']; ?></a>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="form-line row">
-                            <div class=" col-md-2">
-                                Supervisor Name
-                            </div>
-
-                            <div class=" col-md-6">
-                                <div class=" col-md-6">
-                                    <a href="supervisor-information.php"> <?php echo $sup['first'].' '. $sup['last']; ?></a>
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="form-line row" style="margin-bottom: 32px;">
-                            <div class=" col-md-6">
-                                <a href="change-your-password.php">Change Your Password</a>
+                                <?php if(isset($_SESSION['email'])) echo $_SESSION['email']?>
                             </div>
 
                         </div>
+                        <br>
 
                         <hr>
 
-                        <div class="buttons">
-                            <input type="submit" class="add"  id='save-changes-btn'  value="Save Changes"/>
-                            <button class="like" type='button'
-                                    onclick="cancel('<?php echo $_SESSION['first']?>', '<?php echo $_SESSION['last']?>',
-                                    '<?php echo $_SESSION['email']?>', '<?php echo $_SESSION['phone']?>', )"><span>Cancel</span></button>
-                        </div>
                     </form>
 
 

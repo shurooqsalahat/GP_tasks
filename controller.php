@@ -117,11 +117,18 @@ if (isset($src)) {
             exit;
 
         } else {
-            echo sha1($_REQUEST['password']);
-            addSupervisor($_REQUEST['phone'], $_REQUEST['first'], $_REQUEST['last'], $_REQUEST['email'],
-                $_REQUEST['password']);
-            $_SESSION['Message'] = 'Success Operation, Congrats!';
-            header('Location: login.php');
+            if (isUserExist($_REQUEST['email'])){
+                $_SESSION['Message'] = 'This user already exist, login to continue';
+                header('Location: login.php');
+                exit;
+            }
+            else {
+                echo sha1($_REQUEST['password']);
+                addSupervisor($_REQUEST['phone'], $_REQUEST['first'], $_REQUEST['last'], $_REQUEST['email'], $_REQUEST['password']);
+                $_SESSION['Message'] = 'Success Operation, Congrats!';
+                header('Location: login.php');
+                exit;
+            }
 
         }
     } else if ($src == 'addStudent') {
@@ -420,16 +427,22 @@ if (isset($src)) {
 
             foreach ($_REQUEST['tasks'] as $task)
                 foreach ($_REQUEST['students'] as $student) {
+                    echo $task;
+                    echo $student;
                     $rstudent = retrieveSudentsByID($student);
                     $rtasks = getTaskByName($task);
                     if (isTaskAssigne($student, $task)) {
+
                         $_SESSION['Message'] = "This Task already assignee to selected students";
+                        echo $_SESSION['Message'];
                         header('Location: supervisor/training-progress.php');
                         exit;
                     }
-                    addStudentTask($student, $rstudent['first'] . " " . $rstudent['last'], $task,
+
+                    addStudentTask($_SESSION['id'],$student, $rstudent['first'] . " " . $rstudent['last'], $task,
                         $rstudent['doctor_id'], 0, 0, " ", " ");
                     $_SESSION['Message'] = "Tasks assigned Successfully";
+                    echo $_SESSION['Message'];
                     header('Location: supervisor/training-progress.php');
                     exit;
 
@@ -482,20 +495,16 @@ if (isset($src)) {
 
     }
     if ($src == 'send_message') {
-        echo "welcome";
         $subject = $_REQUEST['message_subject'];
         echo $subject . '<br>';
-
+        $to = $_REQUEST['to'];
         $content = $_REQUEST['body'];
         echo $content . '<br>';
-        foreach ($_REQUEST['students'] as $student) {
-            $rstudent = retrieveSudentsByID($student);
-            sendMails($_SESSION['email'], $rstudent['email'], $subject, $content);
-            $_SESSION['Message'] == 'Message sent successfully';
-            header('Location: supervisor/inbox.php');
-            exit;
 
-        }
+        sendMails($_SESSION['email'], $to, $subject, $content);
+        header('Location: supervisor/inbox.php');
+        exit;
+
 
     }
 
@@ -523,7 +532,7 @@ if (isset($src)) {
         sendMails($_SESSION['email'], $to, $subject, $content);
 
 
-        header('Location: student/inbox.php');
+        header('Location: doctor/inbox.php');
         exit;
     }
     else if ($src == "update_student_information") {
@@ -661,7 +670,7 @@ if (isset($src)) {
         include('connect_DB.php');
         $psw = $_REQUEST['password2'];
         $encpass = sha1($psw);
-        $sql = "UPDATE students SET password='" . $encpass . "' WHERE id=" . $_SESSION['id'];
+        $sql = "UPDATE doctors SET password='" . $encpass . "' WHERE id=" . $_SESSION['id'];
         echo $sql;
         $result = $db->query($sql);
         $_SESSION['Message']="Password updated Successfully";
@@ -678,6 +687,27 @@ if (isset($src)) {
         $result = $db->query($sql);
         $_SESSION['Message']="Password updated Successfully";
         header('Location: supervisor/supervisor-information.php');
+
+    }
+
+    elseif($src=='update_solution'){
+        include('connect_DB.php');
+        echo "welcome";
+        $id = $_REQUEST['hidden_id'];
+        $url =$_REQUEST['url'];
+        echo $id.$url;
+        $sql = "UPDATE student_task SET solution_link='" . $url . "' WHERE id=" .$id;
+        echo $sql;
+        $result = $db->query($sql);
+        $sql2 = "UPDATE student_task SET student_sent= now() WHERE id=" .$id;
+        $result = $db->query($sql2);
+
+        $sql3 = "UPDATE student_task SET is_delivered= 1 WHERE id=" .$id;
+        $result = $db->query($sql3);
+        $_SESSION['Message']='Updated Successfully';
+        header('Location: student/student-tasks.php');
+
+
 
     }
 

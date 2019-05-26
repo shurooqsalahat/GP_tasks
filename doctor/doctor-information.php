@@ -1,7 +1,14 @@
 <?php
 include("../model.php");// connect to db
 session_start();
+if(!isset($_SESSION['email'])) { //if login in session is not set
+    header("Location: ../404.php");
 
+}
+
+if(!isDoctor($_SESSION['email'])){
+    header("Location: ../404.php");
+}
 
 ?>
 

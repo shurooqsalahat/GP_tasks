@@ -49,7 +49,7 @@ session_start();
                 <p class="text-left">
                 <h3>Change Your Password:</h3></p>
                 <form method="post" id="passwordForm" action="../controller.php">
-                    <input name="src" hidden value="student_update_password">
+                    <input name="src" hidden value="doctor_update_password">
                     <input type="password" class="input-lg form-control" name="password1" id="password1" placeholder="New Password" autocomplete="off">
                     <div class="row">
                         <div class="col-sm-6">

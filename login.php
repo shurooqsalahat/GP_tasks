@@ -74,7 +74,7 @@ session_start();
 
             <?php
             if (isset($_SESSION['Message'])) {
-                if ($_SESSION['Message'] == 'incorrect password') {
+                if ($_SESSION['Message'] == 'incorrect password'|| $_SESSION['Message']=='This user already exist, login to continue') {
                     $msg = "<div class=\"alert alert-danger\">
             <a  class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
             <strong>OOPS!</strong> <span id=\"failed-text\">" . $_SESSION['Message'] . "</span>

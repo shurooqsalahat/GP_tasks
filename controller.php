@@ -20,7 +20,6 @@ if (isset($src)) {
             if (!isUserExist($email)) {
                 $_SESSION['email'] = $email;
                 $_SESSION['Message'] = "This user not Exist Signup please";
-                //echo $_SESSION['Message'];
                 header('Location: signUp.php');
                 exit;
             } elseif (isDoctor($email)) {
@@ -425,10 +424,9 @@ if (isset($src)) {
     if ($src == 'assign_tasks') {
         if (isset($_REQUEST['tasks'])) {
 
-            foreach ($_REQUEST['tasks'] as $task)
+            foreach ($_REQUEST['tasks'] as $task) {
                 foreach ($_REQUEST['students'] as $student) {
-                    echo $task;
-                    echo $student;
+                    echo "Task: " .$task."to student: ".$student;
                     $rstudent = retrieveSudentsByID($student);
                     $rtasks = getTaskByName($task);
                     if (isTaskAssigne($student, $task)) {
@@ -441,12 +439,14 @@ if (isset($src)) {
 
                     addStudentTask($_SESSION['id'],$student, $rstudent['first'] . " " . $rstudent['last'], $task,
                         $rstudent['doctor_id'], 0, 0, " ", " ");
-                    $_SESSION['Message'] = "Tasks assigned Successfully";
-                    echo $_SESSION['Message'];
-                    header('Location: supervisor/training-progress.php');
-                    exit;
+
 
                 }
+            }
+            $_SESSION['Message'] = "Tasks assigned Successfully";
+            echo $_SESSION['Message'];
+            header('Location: supervisor/training-progress.php');
+            exit;
         }
 
     }

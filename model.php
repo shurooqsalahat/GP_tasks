@@ -229,7 +229,7 @@ function retrieveDoctorBYEmail($email)
 {
     include 'connect_DB.php';
     if (!isDoctor($email)) {
-        echo "undefined Doctor, you cannot delete it";
+        echo "undefined Doctor, you cannot retrieve it";
         return false;
     }
     $sql = "SELECT * FROM doctors where email ='$email'";
